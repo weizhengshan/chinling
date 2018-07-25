@@ -9,7 +9,8 @@ class Article  extends Common
 {
     //孵化器提交页
     public function article_index()
-    {
+    { 
+      
 
       $page=input('param.page');//当前页默认为第一页;
       $pageSize=10;//每页显示条数为5条；
