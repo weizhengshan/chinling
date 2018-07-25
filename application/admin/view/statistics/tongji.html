@@ -1,0 +1,214 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>系统设置</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3>
+    <a href="{:url('admin/statistics/index')}" class="actionBtn">网站登录统计　｜</a>
+    <a href="{:url('admin/statistics/tian')}" class="actionBtn">地图　｜</a>
+    <a href="{:url('admin/statistics/weather')}" class="actionBtn">天气因素　｜</a>
+     <a href="{:url('admin/statistics/dong')}" class="actionBtn">动态数据　｜</a>
+     <a href="{:url('admin/statistics/tongji')}" class="actionBtn">全国地图数据分布布局</a>
+    全国分布数据图</h3>
+
+        <style>
+            p,ul,li,h1,h2,h3,h4,body,dd,dt,dl,blockquote{margin:0; padding:0}
+            img{border:0}
+            li{list-style-type:none}
+            a{color:#555; font-size:12px; cursor:pointer; text-decoration:none}
+            a:hover{color:#ff8400; text-decoration:none}
+            .fr{float:right}
+            .fl{float:left}
+            .cl{clear:both}
+            .clearfix:after{visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0}
+            *:first-child+html .clearfix{zoom:1}
+            body{font-family: "Helvetica Neue",arial,helvetica,sans-serif,"Microsoft YaHei"; font-size: 13px; color:#211922; }
+            /* 提示自定义 */
+            .stateTip, #map_tip{display:none; position:absolute; padding:8px; background:#fff; border:2px solid #2385B1; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; font-size:12px; font-family:Tahoma; color:#333;}
+
+            .mapInfo i{ display:inline-block; width:15px; height:15px; margin-top:5px; line-height:15px; font-style:normal; background:#aeaeae; color:#fff; font-size:11px; font-family: Tahoma; -webkit-border-radius:15px; border-radius:15px; text-align:center}
+            .mapInfo i.active{background:#E27F21;}
+            .mapInfo span{ padding:0 5px 0 3px;}
+            .mapInfo b{ font-weight:normal; color:#2770B5}
+
+            .progress {
+                border-radius:0;
+                -webkit-box-shadow:none;
+                box-shadow:none;
+                background:#dadada;
+                height:20px;
+            }
+            .progress .progress-bar {
+                -webkit-box-shadow:none;
+                box-shadow:none;
+                line-height:18px
+            }
+            .progress[data-percent] {
+                position:relative
+            }
+            .progress[data-percent]:after {
+                display:inline-block;
+                content:attr(data-percent);
+                color:#FFF;
+                position:absolute;
+                left:0;
+                right:0;
+                top:0;
+                bottom:0;
+                line-height:20px;
+                text-align:center;
+                font-size:12px;
+                font-family:Verdana
+            }
+            .progress.progress-yellow[data-percent]:after {
+                color:#963
+            }
+            .progress.progress-small {
+                height:12px
+            }
+            .progress.progress-small .progress-bar {
+                line-height:10px;
+                font-size:11px
+            }
+            .progress.progress-small[data-percent]:after {
+                line-height:10px;
+                font-size:11px
+            }
+            .progress.progress-mini {
+                height:9px
+            }
+            .progress.progress-mini .progress-bar {
+                line-height:8px;
+                font-size:11px
+            }
+            .progress.progress-mini[data-percent]:after {
+                line-height:8px;
+                font-size:11px
+            }
+            .progress-bar {
+                background-color:#2a91d8
+            }
+            .map_deep{text-align: center;}  
+            .progress-bar {
+                background-color: #428bca;
+                color: #fff;
+                float: left;
+                font-size: 12px;
+                height: 100%;
+                text-align: center;
+                transition: width 0.6s ease 0s;
+                width: 0;
+            }
+        </style>
+
+       
+        <div id="Region" style="position:relative; height:500px;width:850px;margin:0 auto" class="clearfix">
+
+            <div class="maps_area clearfix" id="maps_area" style="float:left;">
+                <div class="regionMap" id="RegionMap" style="margin:30px 0 0"></div>
+                <div class="map_deep"><img src="__STATIC__/admin/images/map_color.gif"/></div>
+            </div>
+            <div class="regionList" id="MapControl" style="margin:170px 0 0 50px;float:left;width:350px">
+                {foreach name="maps" item="vo" key="k" }
+                    <div>
+                        <div class="bars clearfix" style="margin:0 0 10px">
+                            <div class="col-sm-9" style="float: left;width:250px">
+                                <div class="progress" data-percent="{$vo['value']}" >
+                                    <div class="progress-bar" style="width:{$vo['value']};background-color:#{$vo['color']}"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 province_name" style="float: left;width:80px;margin:0 0 0 15px" data-code="{$k}" data-percent="{ $vo['value']}">{$vo['name']}</div>
+                        </div>
+                    </div>               
+                {/foreach}
+            </div>
+        </div>
+        <script type="text/javascript" src="__STATIC__/admin/js/jquery.js"></script>
+        <script type="text/javascript" src="__STATIC__/admin/svgmap/lib/raphael-min.js"></script>
+        <script type="text/javascript" src="__STATIC__/admin/svgmap/res/chinaMapConfig.js"></script>
+        <script type="text/javascript" src="__STATIC__/admin/svgmap/map.js"></script>
+        <script type="text/javascript">
+            var maps_json = '{$maps_json}';
+
+            if (maps_json == '') {
+
+            } else {
+                var data = eval("(" + maps_json + ")");
+
+                var colors_json = '{$maps_colors}';
+
+                var mapObj_1 = {};
+                var stateColorList = eval("(" + colors_json + ")");
+
+                $('#RegionMap').SVGMap({
+                    external: mapObj_1,
+                    mapName: 'china',
+                    mapWidth: 450,
+                    mapHeight: 450,
+                    stateData: data,
+                    // stateTipWidth: 118,
+                    // stateTipHeight: 47,
+                    // stateTipX: 2,
+                    // stateTipY: 0,
+                    stateTipHtml: function(mapData, obj) {
+                        var has = 0;
+                        for (var key in mapData) {
+                            if (key == obj.id) {
+                                has++;
+                            }
+                        }
+                        var tipStr = "暂无数据";
+                        if (has > 0) {
+                            var _value = mapData[obj.id].value;
+
+                            var _idx = mapData[obj.id].index;
+                            var active = '';
+                            _idx < 4 ? active = 'active' : active = '';
+                            tipStr = '<div class="mapInfo"><i class="' + active + '">' + _idx + '</i><span>' + obj.name + '</span><b>' + _value + '</b></div>';
+                        }
+                        return tipStr;
+                    }
+                });
+            }
+            $('#MapControl .item').hover(function() {
+                var code = $(this).find(".province_name").attr("data-code");
+                var name = $(this).find(".province_name").text();
+                var percent = $(this).find(".province_name").attr("data-percent");
+                var index = $(this).index() + 1;
+                var active = index < 4 ? 'active' : '';
+                var thisHtml = '<div class="mapInfo"><i class="' + active + '">' + index + '</i><span>' + name + '</span><b>' + percent + '</b></div>';
+                //        console.log(code);
+                $('body').append('<div id="map_tip"></div');
+
+                $('#map_tip').css({
+                    left: $(mapObj_1[code].node).offset().left - 50,
+                    top: $(mapObj_1[code].node).offset().top - 40
+                }).html(thisHtml).show();
+                mapObj_1[code].attr({
+                    fill: '#E99A4D'
+                });
+            }, function() {
+                var code = $(this).find(".province_name").attr("data-code");
+                $('#map_tip').remove();
+                mapObj_1[code].attr({
+                    fill: "#" + stateColorList[data[code].stateInitColor]
+                });
+            });
+
+        </script>
+          <div>
+       
+    </div>   
+   </div>
+ </div>
+</div>
+ <div class="clear"></div>
+{/block}
+
+
+

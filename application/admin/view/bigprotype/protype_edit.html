@@ -1,0 +1,106 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加分类</h3>
+    <form action="" id="data_type" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="80" align="right">分类名称</td>
+       <td>
+        <input type="text" id="protype_name" name="protype_name" value="{$data['protype_name']}" size="40" class="inpMain" />
+		<font style="display:none" class="adprotype_name" color='red'>名称不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">上级分类</td>
+       <td>
+        <select name="protype_pid">
+          {foreach name="arr" item="vo"}
+            <option {if condition="$vo['protype_id']==$data['protype_pid']"} selected {/if} value="{$vo['protype_id']}">{$vo['protype_name']}</option>
+          {/foreach}                         
+            </select>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">简单描述</td>
+       <td>
+        <textarea name="protype_describe"  id="protype_describe" cols="60" rows="4" class="textArea">{$data['protype_describe']}</textarea>
+		
+       </td>
+      </tr>
+      <tr>
+       <td align="right">排序</td>
+       <td>
+        <input type="text" id="protype_sort" name="protype_sort" value="{$data['protype_sort']}" size="5" class="inpMain" />
+		<font style="display:none" class="adprotype_sort" color='red'>排序不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="b9439ae8" />
+        <input type="hidden" name="protype_id" value="{$data['protype_id']}" />
+        <input  class="btn" type="button" onclick='protype_add()' value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ $(function(){
+$("#protype_name").blur(function(){
+$(".adprotype_name").hide();
+})
+$("#protype_describe").blur(function(){
+$(".adprotype_describe").hide();
+})
+$("#protype_sort").blur(function(){
+$(".adprotype_sort").hide();
+})
+})
+function protype_add(){
+var success_url="{:url('admin/bigprotype/protypes_index')}";
+var url="{:url('admin/bigprotype/protype_edit')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+var protype_name=$("#protype_name").val();
+var protype_describe=$("#protype_describe").val();
+var protype_sort=$("#protype_sort").val();
+
+
+if((protype_name.length<1) || (protype_name.length>20)){
+$(".adprotype_name").show();
+}else if(protype_sort.length<1){
+$(".adprotype_sort").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+	dialog.error(result.message);
+} 
+})
+}
+
+}
+
+ </script>
+ 
+ 
+ 
+ 
+ 
+ 
+{/block}

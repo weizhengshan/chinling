@@ -1,0 +1,55 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>权限分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('admin/auth_group/auth_gadd')}" class="actionBtn add">添加用户组</a>用户组管理</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+        <th  align="center">ID</th>
+        <th align="center">用户组名称</th>
+       <th align="center">启用状态</th>
+        <th  align="center">操作</th>
+     </tr>
+      {volist name="data" id="vo"}
+            <tr>
+        <td align="center"> <a href="product.php?cat_id=1">{$vo.id}</a></td>
+        <td  align="center">{$vo.title}</td>
+        <td align="center">{$vo['status']?'启用':'禁用'}</td>
+        <td align="center"><a   class="layui-btn layui-btn-sm" href="{:url('admin/auth_group/auth_gedit',['id'=>$vo.id])}">编辑</a><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="protypes_dele('确定要删除吗？',{$vo.id})">删除</a></td>
+     </tr>
+      {/volist}     
+          </table>
+           </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ //删除分类
+function protypes_dele(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/auth_group/auth_gdele')}";
+        var success_url="{:url('admin/auth_group/auth_glist')}";
+        $.post(url,{'id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+</script>    
+{/block}

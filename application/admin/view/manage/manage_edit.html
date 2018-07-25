@@ -1,0 +1,125 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>网站管理员</strong> </div>   <div id="manager" class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3><a href="{:url('admin/manage/manage_list')}" class="actionBtn">返回列表</a>网站管理员</h3>
+            <form id="data_admin" action="" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="100" align="right">管理员名称</td>
+       <td>
+        <input type="text" id="user_name" name="user_name" size="40" class="inpMain"  value="{$data['admin_username']}" disabled="true"/>
+		<font  class="adname" color='red'>用户名不能修改！</font>
+       </td>
+      </tr>
+      <tr>
+       <td width="100" align="right">E-mail地址</td>
+       <td>
+        <input type="text" id="email" name="email" size="40" class="inpMain" value="{$data['email']}"/>
+		<font style="display:none" class="ademail" color='red'>邮箱不合法或为空！</font>
+       </td>
+      </tr>
+	   <tr>
+       <td width="100" align="right">手机号</td>
+       <td>
+        <input type="text" id="phone" name="phone"  size="40" class="inpMain" value="{$data['phone']}" />
+		<font style="display:none" class="adphone" color='red'>手机号不合法或为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">密码</td>
+       <td>
+        <input type="password" id="password" name="password" size="40" class="inpMain" value="{$data['admin_password']}"/>
+		<font style="display:none" class="adpassword" color='red'>密码为空或没在6-20位！</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">管理员角色</td>
+       <td>
+        <select name="role_id" id="role_id" >	
+			{foreach name="roledata" item="vo"}
+			<option {if condition="$data['role_id']==$vo['id']"} selected {/if} value="{$vo['id']}">{$vo['title']}</option>
+			{/foreach}
+		</select>
+		<font style="display:none" class="adrole" color='red'>未选择权限！</font>
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="5a58b748" />
+		<input type="hidden" name="admin_id" value="{$data['admin_id']}" />
+        <input type="button" onclick='manage_add()' value="提交" class="btn"/>
+       </td>
+      </tr>
+     </table>
+    </form>
+                   </div>
+ </div>
+ <div class="clear"></div>
+ 
+ <script type="text/javascript">
+ $(function(){
+$("#user_name").blur(function(){
+$(".adname").hide();
+})
+$("#password").blur(function(){
+$(".adpassword").hide();
+})
+$("#email").blur(function(){
+$(".ademail").hide();
+})
+$("#role_id").blur(function(){
+$(".adrole").hide();
+})
+$("#phone").blur(function(){
+$(".adphone").hide();
+})
+})
+function manage_add(){
+var success_url="{:url('admin/manage/manage_list')}";
+var url="{:url('admin/manage/manage_edit')}";
+var admins=$("#data_admin").serialize();
+//alert(admins);
+var adname=$("#user_name").val();
+var password=$("#password").val();
+var email=$("#email").val();
+var phone=$("#phone").val();
+var role_id=$("#role_id").val();
+var token=$("#token").val();
+
+
+if((adname.length<6) || (adname.length>20)){
+$(".adname").show();
+}else if(email.length<1){
+$(".ademail").show();
+}else if(phone.length !=11){
+$(".adphone").show();
+}else if(password.length<6 || password.length>20){
+$(".adpassword").show();
+}else if(role_id.length<1){
+$(".adrole").show();
+}else{
+$.post(url,admins,function(result){
+
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+	dialog.error(result.message);
+} 
+})
+}
+
+}
+
+ </script>
+{/block}

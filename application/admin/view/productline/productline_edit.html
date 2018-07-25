@@ -1,0 +1,119 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加产品</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加产品</h3>
+    <form action="" id="pro_admin" method="post" enctype="multipart/form-data">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="90" align="right">产品名称</td>
+       <td>
+        <input type="text" id="prod_title" name="prod_title"  value="{$data['prod_title']}" size="80" class="inpMain" />
+        <font style="display:none" class="adprod_title" color='red'>用户名必须填写或没在1-20位！</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">产品分类</td>
+       <td>
+        <select name="protype_pid">
+        {foreach name="arr" item="vo"}
+            <option {if condition="$vo['protype_id']==$data['prod_id']"} selected {/if} value="{$vo['protype_id']}">{$vo['protype_name']}</option>
+        {/foreach}  
+        </select>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">缩略图</td>
+       <td>
+         <a class="layui-btn" id="image" style="float: left;"><i class="layui-icon">&#xe67c;</i>上传图片</a>
+            <img style="margin-left: 110px;" id="img" src="{$data['prod_img']}"  width="400">
+          <input type="hidden" id="prod_img" name="prod_img" value="{$data['prod_img']}"/>
+          <font style="display:none" class="adprod_img" color='red'>请上传图片</font>  
+      </tr>
+      <tr>
+       <td align="right" valign="top">产品备注</td>
+       <td>
+        <textarea id="prod_text" name="prod_text" style="width:800px;height:80px;" class="textArea">{$data['prod_text']}</textarea>
+        <font style="display:none" class="adprod_text" color='red'>用户名必须填写或没在6-20位！</font>
+
+       </td>
+      </tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="7e4a88fb" />
+        <input type="hidden" name="prod_id" value="{$data['prod_id']}" />
+        <input type="button" onclick='prod_edit()' class="btn"  value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ //上传图片
+layui.use('upload',function(){
+  var upload = layui.upload,
+  jq = layui.jquery;
+  upload.render({
+  url: '{:url("admin/imgclass/upload")}'
+  ,elem:'#image'
+  ,ext: 'jpg|png|gif'
+  ,area: ['500', '500px']
+  ,done: function(res){
+  jq('input[name=img]').val(res.path);
+  img.src = ""+res.path;
+  $("#prod_img").val(res.path);
+  }
+  }); 
+
+})
+ $(function(){
+    $("#prod_title").blur(function(){
+    $(".adprod_title").hide();
+    })
+    $("#prod_img").blur(function(){
+    $(".adprod_img").hide();
+    })
+    $("#prod_text").blur(function(){
+    $(".adprod_text").hide();
+    })
+})
+//添加文章
+function prod_edit(){
+var success_url="{:url('admin/productline/productline_index')}";
+var url="{:url('admin/productline/productline_edit')}";
+var admins=$("#pro_admin").serialize();
+//alert(admins);
+var prod_title=$("#prod_title").val();
+var prod_img=$("#prod_img").val();
+var prod_text=$("#prod_text").val();
+
+if((prod_title.length<1) || (prod_title.length>20)){
+$(".adprod_title").show();
+}else if(prod_img.length<1){
+$(".adprod_img").show();
+}else if(prod_text.length<1){
+$(".adprod_text").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+  dialog.error(result.message);
+} 
+})
+}
+
+}
+ </script>
+{/block}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>陕西秦岭云电子商务有限公司</title>
+		<link rel="shortcut icon" href="{$logo[3]}" type="image/x-icon">
+		<meta name="keywords" content="{$web['site']}">
+		<meta name="description" content="{$web['describe']}">
+		<meta name="author" content="陕西秦岭云电子商务有限公司"/>
+		<link href="__STATIC__/index/css/public.css" rel="stylesheet" />
+		<link href="__STATIC__/index/css/common.css" rel="stylesheet" />
+	    <link rel="stylesheet" href="__STATIC__/index/css/swiper.min.css"/>
+	    <link rel="stylesheet" href="__STATIC__/index/css/animate.min.css">
+		<script src="__STATIC__/index/js/jquery-1.8.3.min.js"></script>
+	</head>
+	<body>		
+        <div id='header' class='clear'>
+			<div class='header_logo'>
+				<span class='header_nav_hide'>＝</span>
+				<a href="{:url('index/index/index')}">
+					<img src='{$logo[0]}'/>
+				</a>
+			</div>
+			<div class='header_nav'>
+				<ul class='clear'>
+					<!-- <li class='index_nav'><a href='index.html'>首页</a></li> -->
+      				 {volist name="topdata" id="vo"}
+					<li {if condition="$pid == $vo.type_id"} class='companyIntroduction_nav xuan' {/if}>
+						<a href="{:url($vo.action,['type_pid'=>$vo.type_id])}">{$vo.type_name}</a>
+						{if condition="$vo.typeson!= false "}
+						<div class="er_nav">
+							<dl class="companyIntroduction_nav_erji">
+								<dt></dt>
+								{volist name="vo.typeson" id="son"}
+								<dd><a href="{:url($vo.action,['type_pid'=>$vo.type_id,'wen_id'=>$son.type_id])}">{$son.type_name}</a></dd>
+								{/volist}
+							</dl>
+						</div>
+						{/if}
+					</li>
+					{/volist}
+					<!-- 店铺链接1 -->
+					{volist name="shopdata" id="shop"}
+					<li class="shangpu_hide" >
+						<a {if condition="$shop.action==false" } href='#' {else /} href='{$shop.action}'  {/if} {if condition="$shop.action==false"} class="no" {/if} >{$shop.type_name}</a>
+					</li>
+					{/volist}
+				</ul>				
+			</div>
+			<div class='header_shangpu_show'>
+				<!-- 店铺链接2 -->
+				{volist name="shopdata" id="shop"}
+					<a {if condition="$shop.action==false" } href='#' {else /} href='{$shop.action}'  target="_blank"{/if} {if condition="$shop.action==false"} class="no"  {/if} >{$shop.type_name}</a>
+					<span>|</span>
+				{/volist}
+			</div>
+			
+        </div>
+		<div class='shangpu'>
+			<!-- 店铺链接3 -->
+			{volist name="shopdata" id="shop"}
+			<a {if condition="$shop.action==false" } href='#' {else /} href='{$shop.action}'  target="_blank"{/if} {if condition="$shop.action==false"} class="no" {/if} >{$shop.type_name}</a>
+			{/volist}
+	 	</div>		
+{block name='content'}{/block}
+<!--底部的开始-->
+<div id="footer_out">
+	<div id="footer" class="clear">
+		<a class="goTop" onclick="pageScroll()">返回顶部</a>
+		<div class="footer">
+			<div class="footer_t">
+				<div class="link">
+					{volist name="bottomdata" id="bottom"}
+					<a  {if condition="$bottom.action==false"} class="weixin" {else /} href="{:url($bottom.action,['type_pid'=>$bottom.type_id])}"  {/if} >{$bottom.type_name}</a>
+					<i class="cut">|</i>
+					{/volist}
+					<a  href="{$weibodata['action']}" target="_blank">{$weibodata['type_name']}</a>
+				</div>
+			</div>
+			<div class="footer_b">
+				<div class="copyright">
+					<em>
+					{$website['icp']}
+					</em>
+			
+				</div>
+			</div>
+		</div>
+		<div class="sm">
+			<div class="sm_erweima">
+				<img src="{$logo[1]}">
+				<h3>关注微信</h3>
+			</div>
+			<div class="sm_erweima">
+				<img src="{$logo[2]}">
+				<h3>关注微博</h3>
+			</div>
+		</div>
+		<div class="footer_num">
+				<h6>
+					<span>联系电话：</span>
+					<span class="phone">{$website['phone']}</span>
+				</h6>
+				<h6>
+					<span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</span>
+					<span class="dizhi">{$website['address']}</span>
+				</h6>
+				<!--<h6>
+					<span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</span>
+					<span class="youxiang">{$website['email']}</span>
+				</h6>
+				<h6>
+					<span>q&nbsp;&nbsp;&nbsp;q&nbsp;&nbsp;&nbsp;号：</span>
+					<span class="qqhao">{$website['qq']}</span>
+				</h6>-->
+				
+		</div>			
+	</div>
+</div>
+		<div class="bg-marker"></div>
+		<div class="weixin-layout">				
+			<img class="erweima weixin_erweima" src="{$logo[1]}"/>
+			<h4 class="ui-btn">
+				<a class="weixin-back" href="javascript:;">返回</a>
+			</h4>
+		</div>	
+		<div class="weixin-layout qidai" style="display: none;">				
+			<img class="erweima weixin_erweima" src="__STATIC__/index/img/timg.jpg"/>
+			<h4 class="ui-btn">
+				<a class="weixin-back" href="javascript:;">返回</a>
+			</h4>
+		</div>	
+	</body>
+</html>
+<script src="__STATIC__/index/js/swiper.animate1.0.2.min.js"></script>
+<script src="__STATIC__/index/js/swiper-3.4.2.min.js"></script>
+<script src="__STATIC__/index/js/common.js"></script>	
+<script src="__STATIC__/admin/dialog/dialog/layer.js"></script>
+<script src="__STATIC__/admin/dialog/dialog.js"></script>
+<script src="__STATIC__/index/js/index.js"></script>
+<script src="__STATIC__/index/js/newslist.js"></script>	
+<script src="__STATIC__/index/js/newsdetails.js"></script>	
+<script src="__STATIC__/index/js/companyIntroduction.js"></script>	
+<script src="__STATIC__/index/js/products.js"></script> 

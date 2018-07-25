@@ -1,0 +1,18 @@
+body{
+	background: #FBFBFB;
+	text-align: center;
+	display: flex;
+    justify-content:center;
+    align-items:Center;
+}
+#main_404 a{
+	display: inline-block;
+	padding: 10px 50px;
+	background: #007AFF;
+	color: #FFFFFF;
+	border-radius:10px ;
+}
+#main_404  .h_404{
+	color: #666;
+	margin: 10px 0;
+}

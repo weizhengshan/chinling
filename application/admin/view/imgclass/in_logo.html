@@ -1,0 +1,130 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>LOGO</strong> </div>   <div class="mainBox imgModule">
+    <h3>
+
+		<a href="{:url('admin/imgclass/in_logo',['pid'=>3])}" class="actionBtn">微博二维码　｜</a>
+		<a href="{:url('admin/imgclass/in_logo',['pid'=>2])}" class="actionBtn">微信二维码　｜</a>
+		<a href="{:url('admin/imgclass/in_logo',['pid'=>4])}" class="actionBtn">LOGO图标｜</a>
+		<a href="{:url('admin/imgclass/in_logo',['pid'=>1])}" class="actionBtn">LOGO　｜</a>{$logodata['dataname']}
+	</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+    <tr>
+       <th>{$logodata['logo_id']?'修改':'添加'}{$logodata['dataname']}</th>
+       <!--<th>LOGO列表</th>-->
+     </tr>
+     <tr>
+      <td width="350" valign="top">
+       <form action="" method="post" id="logo_data" enctype="multipart/form-data">
+        <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
+		<tr>
+          <td>
+		  <!--lay上传图片-->
+		  <a class="layui-btn" id="image" style="float: left;"><i class="layui-icon">&#xe67c;</i>{$logodata['logo_id']?'修改':'添加'}{$logodata['dataname']}</a>
+			
+			{if condition="$logodata['pid']==1"}
+			<img style="margin-left: 110px;" id="img" src="{$logodata['logo_img']}">
+			{else/}
+			<img style="margin-left: 110px;" id="img" src="{$logodata['logo_img']}" width="277" height="277">
+			{/if}
+			<input type="hidden" id="logo_img" name="logo_img" value="{$logodata['logo_img']}" width="500" height="140"/>
+			<font style="display:none" class="adlogo_img" color='red'>请上传图片</font>	
+		   </td>
+         </tr>
+         <tr>
+          <td><b>{$logodata['dataname']}备注</b>
+			<textarea placeholder="请输入备注" class="layui-textarea" id="logo_remarks" name="logo_remarks">{$logodata['logo_remarks']}</textarea>
+			<font style="display:none" class="adlogo_remarks" color='red'>备注不在1-100之间</font>
+          </td>
+         </tr>
+         <tr>
+          <td>
+                      <input type="hidden" name="token" value="79db104d" />
+					  <input type="hidden" name="logo_id" value="{$logodata['logo_id']}" />
+					  <input type="hidden" name="pid" value="{$logodata['pid']}" />
+			<input type="button" onclick='logo_add()' value="提交" class="btn"/>
+          </td>
+         </tr>
+        </table>
+       </form>
+      </td>
+     </tr>
+    </table>
+   </div>
+ </div>
+ <div class="clear"></div>
+ <script>
+ //上传图片
+ var imgsize={$imgsize};
+layui.use('upload',function(){
+  
+  var upload = layui.upload,
+  
+  jq = layui.jquery;
+  upload.render({
+	url: "{:url('admin/imgclass/upload')}?imgsize="+imgsize
+	,elem:'#image'
+	,ext: 'jpg|png|gif'
+	,area: ['500', '500px']
+	,done: function(res){
+	jq('input[name=img]').val(res.path);
+	img.src = ""+res.path;
+	$("#logo_img").val(res.path);
+	}
+  }); 
+
+})
+//提交
+$(function(){
+	$("#car_name").blur(function(){
+	$(".adcar_name").hide();
+	})
+	$("#caro_img").blur(function(){
+	$(".adcaro_img").hide();
+	})
+	$("#caro_sort").blur(function(){
+	$(".adcaro_sort").hide();
+	})
+
+})
+function logo_add(){
+	var success_url=window.location.href;
+
+	var pid={$logodata['pid']};
+	var url="{:url('admin/imgclass/in_logo')}";
+	var admins=$("#logo_data").serialize();
+	//alert(admins);
+	var logo_remarks=$("#logo_remarks").val();
+	var logo_img=$("#logo_img").val();
+
+	//alert(logo_remarks.length);
+	//alert(logo_remarks.length);
+	if(logo_remarks.length<1 ){
+	$(".adlogo_remarks").show();
+	}else if(logo_remarks.length>200){
+	$(".adlogo_remarks").show();
+	}else if(logo_img.length<1){
+	$(".adlogo_img").show();
+	}else{
+	$.post(url,admins,function(result)
+	{	 
+	if(result.status=='4')
+		{
+		dialog.success(result.message,success_url);
+		}else
+		{
+			dialog.error(result.message);
+		} 
+		})
+	}
+
+}
+</script>
+{/block}

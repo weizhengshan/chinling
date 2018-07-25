@@ -1,0 +1,52 @@
+{extend name="base"/}
+ {block name="content"}
+		<div id="main_onlinemessage">
+			
+			<div class="main_l">
+				<h2 class="ol-title">在线留言</h2>
+        		<h3 class="ol-title-en">MESSAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_</h3>
+        		<div class="ol-info">请输入您的留言，我们将于24小时内处理</div>
+				<form class="" method="post" id="js-msg-form">
+					<div class="clearfix msf-w">
+					<div class="msf-control fl"><input type="text" name="theme" placeholder="留言主题" class="msf-ipt1 js-theme" maxlength="30"><em></em></div>
+					<div class="msf-control fl"><input type="text" placeholder="您的姓名" name="username" class="msf-ipt1 js-name" maxlength="10"><em></em></div>
+					<div class="msf-control fl"><input type="text" placeholder="您的电话" name="phone" class="msf-ipt1 js-phone" id="phone" maxlength="11"><em></em></div>
+					<div class="msf-control fl"><input type="email" placeholder="您的邮箱(必填)" name="email" class="msf-ipt1 js-email" maxlength="50"><em></em></div>
+					<div class="msf-control fl"><input type="text" placeholder="您的地址" name="addr" class="msf-ipt2 js-address" maxlength="50"><em></em></div>				
+					</div>
+					<div class="msf-textarea-w posir">
+						<textarea class="js-message" placeholder="您的留言内容(必填)" name="text" maxlength="200"></textarea>
+						<em></em>
+					</div>
+					<div class="msf-btn-w">
+						<a class="js-msf-sbt">提交</a>
+						<a class="js-msf-reset">重写</a>
+					</div>
+				</form>
+			</div>
+			<div class="main_r">
+				
+				<iframe src="{:url('index/leaving/map')}" width="100%" height="380" frameborder="0" scrolling="no"></iframe>		
+			</div>
+		</div>
+<script src="__STATIC__/index/js/onlinemessage.js"></script>
+<script type="text/javascript">	
+ function ajax_re(data)
+   {
+       //alert(data);
+   	  var url="{:url('index/leaving/leav_add')}";
+      var success_url="{:url('index/leaving/index')}";
+     $.post(url,data,function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        }) 
+
+   
+}	
+</script>	
+{/block}	

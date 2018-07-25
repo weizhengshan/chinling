@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="__STATIC__/weixin/css/public.css" rel="stylesheet" />
+        <link rel="stylesheet" href="__STATIC__/weixin/css/swiper.min.css"/>
+        <link rel="stylesheet" href="__STATIC__/weixin/css/second.css"/>
+        <script type="text/javascript" src="__STATIC__/weixin/js/jquery-1.8.3.min.js"></script>       
+        <script type="text/javascript" src="__STATIC__/weixin/Echarts/echarts.js"></script>   
+        <script src="__STATIC__/weixin/js/swiper.animate1.0.2.min.js"></script>
+        <script src="__STATIC__/weixin/js/swiper.js"></script>
+        <script src="__STATIC__/weixin/js/index.js"></script>
+    </head>
+    <body>      
+        <div id="second"  class="float_1">
+            	<h1>
+	                <span id="title">中国秦岭农产品电子商务大数据中心</span>
+	                <div>
+	                	<span id="timer"></span>
+	                </div>	                
+            	</h1>            	
+            	<div id="second_b">  
+            		<h3>秦岭腹地区域图及特产</h3>
+	            	<div id="second_b_main"   class="clear">
+	            		<div id="second_b_main_l"   class="float_1">	            			
+	            			<div id="second_b_main_l_main">
+	            				<div id="drill">			
+									<span id="star"><img src="__STATIC__/weixin/video/star1.png"/></span>
+									<div id="main4" style="width: 98vw;height: 74vh;"></div>
+								</div>
+		                		<div id="main3"  style="width: 19vw;height:32.5vh;"></div>		                		
+	            			</div>	            			
+	            		</div>	            	
+	            	</div>               
+	            </div>
+           </div>
+    </body>
+</html>
+<script type="text/javascript" src="__STATIC__/weixin/json/qinlingmap.js"></script>
+<script type="text/javascript" src="__STATIC__/weixin/json/100000.js"></script>
+<script>  
+    var myChart16 = echarts.init(document.getElementById('main4'));   
+   function  moderThird(oncounty){
+        loadMap('china',oncounty);	             
+    function loadMap(mapName,oncounty) {
+    	console.log(oncounty)
+    	//console.log(mapName)
+             if (data_qinlingmap) {
+                 echarts.registerMap(mapName, data_qinlingmap);
+                 var option16 = {
+                    backgroundColor:'rgba(0, 0, 0,0)',
+                    title : {                        
+                        x:'center',   
+                        top:60,
+                        textStyle: {
+                            fontSize:50,
+                            fontWeight: 'normal',              //标题颜色
+                            color: '#fff'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: function(params){
+						                var str = '<table>';						               
+						                str += '<tr><td>'+params.data.name+'   :</td></tr>';
+						                for(var i=0;i<params.data.content.length;i++){
+						                	str += '<tr><td>'+params.data.content[i]+'</td></tr>';	
+						                }					                					                
+						                str += '</table>';
+						                return str
+                					}
+                    		},   
+                    		lable:{
+				        normal:{
+				            textStyle:{
+				                fontsize:'6'
+				            }
+				        }
+				    },
+                  dataRange: {
+                      show:true,      
+			            splitList: [	
+			            	//{start: 1500,color:'#000'},
+			                {start: 411, end: 411, label: '十堰市'},
+			                {start: 351, end: 351, label: '许昌市'},
+							{start: 341, end: 341, label: '三门峡市'},
+			                {start: 331, end: 331, label: '洛阳市'},
+			                {start: 321, end: 321, label: '平顶山市'},
+			                {start: 311, end: 311, label: '南阳市'},
+			                {start: 241, end: 241, label: '甘南藏族自制区'},
+							{start: 231, end: 231, label: '陇南市'},
+			                {start: 221, end: 221, label: '天水市'},
+			                {start: 211, end: 211, label: '定西市'},
+			                {start: 161, end: 161, label: '商洛市'},
+			                {start: 151, end: 151, label: '安康市'},
+							{start: 141, end: 141, label: '渭南市'},
+			                {start: 131, end: 131, label: '西安市'},
+			                {start: 121, end: 121, label: '汉中市'},
+			                {start: 111, end: 111, label: '宝鸡市'}
+			              	//{end: 1,color:'#fff'}		                
+			            ],
+			            selectedMode:'multiple',
+			            orient: 'horizontal', // 'vertical'
+			            y: 20,
+			            x:20,
+			            textStyle: {
+       					 	color: '#ffffff'          // 值域文字颜色
+    					},
+                       color: ['#FF4500','#87CEFA'],                   
+                      calculable : false
+                  },
+                    series: [
+                        {
+                            name: '',
+                            type: 'map',
+                            left: '0',
+                            right: '0',
+                            zoom: 2.4,                           
+                            roam: false,
+                            center: [107.823922148438,33.7560353828125],
+                            mapType: mapName,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true,
+                                    textStyle: {
+			                           color: "#eee"
+			                        } 
+                                }
+                            },
+                          itemStyle: {
+                              normal: {
+                              		color: "rgb(249, 249, 249)",
+                                  show:true,                                 
+			                        textStyle: {
+			                           color: "#fff"
+			                        }
+                              }
+                         },
+                            data:oncounty
+                        }
+                    ]
+                 };
+                 myChart16.setOption(option16);
+                   
+             } else {
+                 alert('无法加载该地图');
+             }       
+    }
+ }  
+ var myChart7 = echarts.init(document.getElementById('main3'));
+loadMapTwo('china');
+ function loadMapTwo(mapName) {
+	console.log(data_100000)
+             if (data_100000) {          	
+                 echarts.registerMap(mapName, data_100000);
+                 var option7 = {
+                    backgroundColor:'rgba(0, 0, 0, 0)',
+                    title : {                        
+                        x:'center',
+                        textStyle: {
+                            fontSize:50,
+                            fontWeight: 'normal',              //标题颜色
+                            color: '#fff'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b} '
+                    },                   
+                    lable:{
+				        normal:{
+				            textStyle:{
+				                fontsize:'6'
+				            }
+				        }
+				    },
+				    dataRange: {
+                        show:false,      
+                        min: 0,
+                        max: 1,
+                        color:['orange','#fff'],
+                        text:['高','低'],           // 文本，默认为数值文本
+                        calculable : false
+                    },
+                    series: [
+                        {
+                            name: '',
+                            type: 'map',
+                            left: '0',
+                            right: '0',
+                            zoom: 1,                         
+                            roam: false,
+                            center: [102.99971609375,35.6292153144531],
+                            mapType: mapName,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true                                    
+                                }
+                            },
+                          itemStyle: {
+                              normal: {                                                                
+                                  shadowColor: '#000',
+                                  areaColor: '#eee',
+                                  color:'#eee'                                 
+                              }
+                          },
+                            data:[ 
+                               {name:'秦岭周边',value:1}
+                            ]
+                        }
+                    ]
+                 };
+                 myChart7.setOption(option7);
+                   
+             } else {
+                 alert('无法加载该地图');
+             }       
+    }
+ function getMap()
+ { 
+    var zhi=1;
+     $.ajax({
+        url:"{:url('County/getMapArr')}",
+        type:"post",
+        dataType:"json",
+        data:"zhi="+zhi,
+        success:function(oncounty){    
+        var oncounty=(new Function('return( ' + oncounty + ' );'))();
+        //alert(oncounty);
+        moderThird(oncounty)
+    }
+  });  
+ }   
+ getMap()
+</script>

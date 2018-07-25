@@ -1,0 +1,36 @@
+{extend name="base"/}
+ {block name="content"}
+ 		<!--<div id="nav_companylntroduction">-->
+			<!--<ul>-->
+				<!--<li _type="1"  class="on">					-->
+					<!--<a href="">{$name}</a>				-->
+				<!--</li>-->
+			<!--</ul>-->
+		<!--</div>-->
+		<div id="main_subsidiariesList">
+			{if condition="$data != NULL "}
+			<div class="introduction"  >
+				<ul>
+					{volist name="data" id="son"}
+					<li class="clear">						
+						<div class="introduction_l"><img src="{$son['cont_img']}"/></div>
+						<div class="introduction_r">
+							<h3>{$son['cont_title']}</h3>																			
+							<p>{$son['cont_remarks']}</p>
+							<a href="{:url('index/Subsidiary/info',['wen_id'=>$son['cont_id'],'type_pid'=>$son['cont_pid']])}">更多详情</a>
+						</div>
+					</li>	
+					{/volist}			
+				</ul>
+			</div>
+			{else /}
+			<div class="nolist">	
+					<div>
+						<img src="__STATIC__/index/img/erweima_1.jpg"/>
+						<h3>暂无内容</h3>
+					</div>
+			</div>
+			{/if}
+		</div>
+
+{/block}

@@ -1,0 +1,180 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>{$dataname}</strong> </div>   <div class="mainBox imgModule">
+    <h3>
+	<a href="{:url('admin/imgclass/in_carousel',['pid'=>1])}" class="actionBtn">　首页轮播图｜</a>
+		<a href="{:url('admin/imgclass/in_carousel',['pid'=>2])}" class="actionBtn">首页模块图　｜</a>
+		<a href="{:url('admin/imgclass/in_carousel',['pid'=>3])}" class="actionBtn">运营模式图　｜</a>
+    <a href="{:url('admin/imgclass/in_carousel',['pid'=>4])}" class="actionBtn">手机端轮播图｜</a>
+    {$dataname}</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+    <tr>
+       <th>添加{$dataname}</th>
+       <th>{$dataname}列表</th>
+     </tr>
+     <tr>
+      <td width="350" valign="top">
+       <form action="" method="post" id="caro_data" enctype="multipart/form-data">
+        <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
+         <tr>
+          <td><b>{$dataname}名称</b>
+			<input type="text" id="caro_name" name="caro_name" value="" size="20" class="inpMain" />
+			<font style="display:none" class="adcaro_name" color='red'>名称不能未空</font>
+          </td>
+         </tr>
+          <tr>
+          <td><b>链接</b>
+			<input type="text"  name="action" value="" size="50" class="inpMain" />
+			
+          </td>
+         </tr>
+         <tr>
+          <td>
+		  <!--lay上传图片-->
+		  <a class="layui-btn" id="image" style="float: left;"><i class="layui-icon">&#xe67c;</i>上传{$dataname}</a>
+			<img style="margin-left: 110px;" id="img" src="__STATIC__/admin/images/default_upload.jpg" {if condition="$pid==1"} width="540" {else /} width="200"{/if} height="140">
+			<input type="hidden" id="caro_img" name="caro_img" value=""/>
+			<font style="display:none" class="adcaro_img" color='red'>请上传图片</font>	
+		   </td>
+         </tr>
+         {if condition="$pid==3"}
+       		<tr>
+          <td><b>正反面 反为2</b>
+			<input type="text" name="caro_zh" id="caro_zh" value="1" size="20" class="inpMain" />	
+          </td>
+         </tr>	
+         {/if}
+         <tr>
+          <td><b>排序</b>
+			<input type="text" name="caro_sort" id="caro_sort" value="" size="20" class="inpMain" />
+			<font style="display:none" class="adcaro_sort" color='red'>排序不能为空</font>	
+          </td>
+         </tr>
+         <tr>
+          <td>
+                      <input type="hidden" name="token" value="79db104d" />
+                      <input type="hidden" name="pid" value="{$pid}" />
+			<input type="button" onclick='caro_add()' value="提交" class="btn"/>
+          </td>
+         </tr>
+        </table>
+       </form>
+      </td>
+      <td valign="top">
+       <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
+        <tr>
+         <td width="100">{$dataname}</td>
+         <td width="100">{$dataname}名称</td>
+         <td width="100">链接</td>
+         {if condition="$pid==3"}<td width="100">正反</td>{/if}
+         <td width="50" align="center">排序</td>
+         <td width="80" align="center">操作</td>
+        </tr>
+		{foreach name="carodata" item="vo"}
+                <tr>
+         <td><a href="{$vo['caro_img']}" target="_blank"><img src="{$vo['caro_img']}" {if condition="$vo['pid']==1"} width="540" {else /} width="200"{/if} height="140" /></a></td>
+         <td>{$vo['caro_name']}</td>
+         <td>{$vo['action']}</td>
+         {if condition="$pid==3"}<td>{$vo['caro_zh']=='1'?'正':'反'}</td>{/if}
+         <td align="center">{$vo['caro_sort']}</td>
+         <td align="center"><a  class="layui-btn layui-btn-sm" style="margin-bottom: 10px" href="{:url('admin/imgclass/edit_carousel',['caro_id'=>$vo['caro_id'],'pid'=>$vo['pid']])}">编辑</a><br/><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="caro_dele('确定要下架吗？',{$vo['caro_id']})">下架</a></td>
+        </tr>
+         {/foreach}       
+               </table>
+              <h3 align="center">{$carodata[0]?'':'这里没有数据'}</h3>  
+      </td>
+     </tr>
+    </table>
+   </div>
+ </div>
+ <div class="clear"></div>
+ <script>
+ //上传图片
+layui.use('upload',function(){
+  var upload = layui.upload,
+  jq = layui.jquery;
+  upload.render({
+	url: '{:url("admin/imgclass/upload")}'
+	,elem:'#image'
+	,ext: 'jpg|png|gif'
+	,area: ['500', '500px']
+	,done: function(res){
+	jq('input[name=img]').val(res.path);
+	img.src = ""+res.path;
+	$("#caro_img").val(res.path);
+	}
+  }); 
+
+})
+//提交
+$(function(){
+	$("#car_name").blur(function(){
+	$(".adcar_name").hide();
+	})
+	$("#caro_img").blur(function(){
+	$(".adcaro_img").hide();
+	})
+	$("#caro_sort").blur(function(){
+	$(".adcaro_sort").hide();
+	})
+
+})
+function caro_add(){
+	var success_url=window.location.href;
+	var url="{:url('admin/imgclass/caro_add')}";
+	var admins=$("#caro_data").serialize();
+	//alert(admins);
+	var caro_name=$("#caro_name").val();
+	var caro_img=$("#caro_img").val();
+	var caro_sort=$("#caro_sort").val();
+	if(caro_name.length<1){
+	$(".adcaro_name").show();
+	}else if(caro_img.length<1){
+	$(".adcaro_img").show();
+	}else if(caro_sort.length <1){
+	$(".adcaro_sort").show();
+	}else{
+	$.post(url,admins,function(result)
+	{	 
+	if(result.status=='4')
+		{
+		dialog.success(result.message,success_url);
+		}else
+		{
+			dialog.error(result.message);
+		} 
+		})
+	}
+
+}
+//删除轮播图
+function caro_dele(message, id) {
+        layer.open({
+            content : message,
+			
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/imgclass/caro_dele')}";
+				var success_url=window.location.href;
+				$.post(url,{'caro_id':id},function(result){
+				if(result.status=='1')
+					{
+					dialog.success(result.message,success_url);
+					}else
+					{
+						dialog.error(result.message);
+					} 
+				})
+            }
+        });
+    }
+</script>
+{/block}

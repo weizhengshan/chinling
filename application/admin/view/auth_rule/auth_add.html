@@ -1,0 +1,109 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加权限</h3>
+    <form action="" id="data_type" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="80" align="right">权限名称</td>
+       <td>
+        <input type="text" id="a_title" name="title" value="" size="40" class="inpMain" />
+    <font style="display:none" class="ad_title" color='red'>名称不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">上级权限</td>
+       <td>
+        <select name="pid">
+          <option value="0">顶级权限</option>
+                                    {volist name="authRuleRes" id="authRule"}
+                                    <option value="{$authRule.id}"><?php if($authRule['level']!=0){echo '|';} echo str_repeat('—', $authRule['level']*3)?>{$authRule.title}</option>
+                                    {/volist}                     
+            </select>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">控/方</td>
+       <td>
+         <input type="text" id="a_name" name="name" value="" size="40" class="inpMain" />
+         <font style="display:none" class="ad_name" color='red'>不能为空！</font>
+    
+       </td>
+      </tr>
+      <tr>
+       <td align="right">排序</td>
+       <td>
+        <input type="text" id="a_sort" name="sort" value="" size="5" class="inpMain" />
+    <font style="display:none" class="ad_sort" color='red'>排序不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="b9439ae8" />
+        <input  class="btn" type="button" onclick='protype_add()' value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ $(function(){
+$("#a_name").blur(function(){
+$(".ad_name").hide();
+})
+$("#a_title").blur(function(){
+$(".ad_title").hide();
+})
+$("#a_sort").blur(function(){
+$(".ad_sort").hide();
+})
+})
+function protype_add(){
+var success_url="{:url('admin/auth_rule/auth_list')}";
+var url="{:url('admin/auth_rule/auth_add')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+var name=$("#a_name").val();
+var title=$("#a_title").val();
+var sort=$("#a_sort").val();
+
+
+if(name.length<1){
+$(".ad_name").show();
+}else if(sort.length<1){
+$(".ad_sort").show();
+}else if(title.length<1){
+$(".ad_title").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+  dialog.error(result.message);
+} 
+})
+}
+
+}
+
+ </script>
+ 
+ 
+ 
+ 
+ 
+ 
+{/block}

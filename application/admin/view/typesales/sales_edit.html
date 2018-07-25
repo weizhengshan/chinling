@@ -1,0 +1,114 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加地图区域</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3>添加销量信息</h3>
+    <form action="" id="data_type" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="80" align="right">年份</td>
+       <td>
+        <input type="text" id="sales_year" name="sales_year" value="{$data['sales_year']}" size="40" class="inpMain" />
+		    <font style="display:none" class="adsales_year" color='red'>年份不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">所属产品</td>
+       <td>
+            <select name="sales_copid">
+          {foreach name="arr" item="vo"}
+            <option {if condition="$data['sales_copid']==$vo['protype_id']"} selected {/if} value="{$vo['protype_id']}">{$vo['protype_name']}</option>
+          {/foreach}                         
+            </select>
+       </td>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">销量信息</td>
+       <td>
+        <table>
+			<tr>
+				<td>月份</td>
+				<?php 
+				for($i=1;$i<=12;$i++)
+				{
+					echo '<td>'.$i.'</td>';
+				} 
+				?>
+			</tr>
+			<tr>
+				<td>销量</td>
+				<?php 
+				for($i=0;$i<12;$i++)
+				{
+					echo '<td><input type="text" name="sales_val[]" value="'.$data['data_val'][$i].'" size="5" class="inpMain" /></td>';
+				} 
+				?>			
+			</tr>
+        </table>  
+       </td>
+      </tr>
+      <tr>
+       <td align="right">排序</td>
+       <td>
+        <input type="text" id="sales_sort" name="sales_sort" value="{$data['sales_sort']}" size="5" class="inpMain" />
+		<font style="display:none" class="adsales_sort" color='red'>排序不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="b9439ae8" />
+        <input type="hidden" name="sales_id" value="{$data['sales_id']}" />
+        <input  class="btn" type="button" onclick='type_add()' value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ $(function(){
+$("#sales_year").blur(function(){
+$(".adsales_year").hide();
+})
+$("#sales_sort").blur(function(){
+$(".adsales_sort").hide();
+})
+})
+function type_add(){
+var success_url="{:url('admin/typesales/index')}";
+var url="{:url('admin/typesales/sales_edit')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+var sales_year=$("#sales_year").val();
+var sales_sort=$("#sales_sort").val();
+
+
+if((sales_year.length<1) || (sales_year.length>20)){
+$(".adsales_year").show();
+}else if(sales_sort.length<1){
+$(".adsales_sort").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+	dialog.error(result.message);
+} 
+})
+}
+
+}
+ </script>
+{/block}

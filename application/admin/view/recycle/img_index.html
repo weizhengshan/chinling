@@ -1,0 +1,91 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>首页轮播图</strong> </div>   <div class="mainBox imgModule">
+    <h3><a href="{:url('admin/recycle/img_index')}" class="actionBtn">轮播图管理　｜</a>
+  <a href="{:url('admin/recycle/products_index')}" class="actionBtn">产品管理　｜</a>
+  <a href="{:url('admin/recycle/article_index')}" class="actionBtn">文章管理　｜</a>
+  <a href="{:url('admin/recycle/admin_index')}" class="actionBtn">管理员管理　｜</a>回收站管理</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+
+    <tr>
+       <th>轮播图列表</th>
+     </tr>
+     <tr>
+      <td valign="top">
+       <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
+        <tr>
+         <td width="100">首页轮播图</td>
+         <td width="100">首页轮播图名称</td>
+         <td width="50" align="center">排序</td>
+         <td width="80" align="center">操作</td>
+        </tr>
+		{foreach name="carodata" item="vo"}
+                <tr>
+         <td><a href="{$vo['caro_img']}" target="_blank"><img src="{$vo['caro_img']}" width="500" height="140" /></a></td>
+         <td>{$vo['caro_name']}</td>
+         <td align="center">{$vo['caro_sort']}</td>
+         <td align="center"> <a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="caro_update('确定要上架吗？',{$vo['caro_id']})">上架</a><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="caro_deled('确定要删除吗？',{$vo['caro_id']})">删除</a></td>
+        </tr>
+         {/foreach}       
+               </table>
+               <h3 align="center">{$carodata[0]?'':'这里没有数据'}</h3> 
+      </td>
+     </tr>
+    </table>
+   </div>
+ </div>
+ <div class="clear"></div>
+ <script>
+//删除轮播图
+function caro_deled(message, id) {
+        layer.open({
+            content : message,
+			
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/imgclass/caro_deled')}";
+				var success_url="{:url('admin/recycle/img_index')}";
+				$.post(url,{'caro_id':id},function(result){
+				if(result.status=='1')
+					{
+					dialog.success(result.message,success_url);
+					}else
+					{
+						dialog.error(result.message);
+					} 
+				})
+            }
+        });
+    }
+    //上架轮播图
+function caro_update(message, id) {
+        layer.open({
+            content : message,
+			
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/imgclass/caro_update')}";
+				var success_url="{:url('admin/recycle/img_index')}";
+				$.post(url,{'caro_id':id},function(result){
+				if(result.status=='1')
+					{
+					dialog.success(result.message,success_url);
+					}else
+					{
+						dialog.error(result.message);
+					} 
+				})
+            }
+        });
+    }
+</script>
+{/block}

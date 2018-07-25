@@ -1,0 +1,72 @@
+{extend name="base"/}
+ {block name="content"}
+		<div id="banner_index" class="swiper-container  lunbo_app_or_pc_show">
+			<div id="lunbo_pc"  class="swiper-container  lunbo_app_or_pc_show">
+				<div class="swiper-wrapper">
+	        {volist name="imgdata" id="imglist"}
+	            <div class="swiper-slide">	                
+	                <img   src="{$imglist.caro_img}"/>
+	                
+	            </div>	            
+	       	{/volist}  
+	       <!--{volist name="imgdata" id="imglist"}
+	            <div class="swiper-slide lunbo_app lunbo_app_or_pc">
+	                <img  src="{$imglist.caro_img}"/>
+	            </div>	            
+	       {/volist}  -->
+	        </div>
+	        <div class="swiper-pagination"></div>
+			</div>
+	        <div id="lunbo_app"  class="swiper-container  lunbo_app_or_pc_hidden">
+				<div class="swiper-wrapper">
+	        {volist name="shouimgdata" id="shouimglist"}
+	            <div class="swiper-slide">	                
+	                <img   src="{$shouimglist.caro_img}"/>	                
+	            </div>	            
+	       	{/volist}  
+	       <!--{volist name="imgdata" id="imglist"}
+	            <div class="swiper-slide lunbo_app lunbo_app_or_pc">
+	                <img  src="{$imglist.caro_img}"/>
+	            </div>	            
+	       {/volist}  -->
+	        </div>
+	        <div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div id="main_index">
+			<div>
+				<h3></h3>
+				<dl>
+					{foreach name="Pattern" item="vo"}
+					<dd>
+						<div class="contain">    
+			    			<img class="donut donut-front" src="{$vo['caro_img']}" alt="Donut front" />	   
+			    			<img class="donut donut-back" src="{$vo['imgtwo']}" alt="Donut back" />			    			
+			 			</div>
+						<span>{$vo['caro_name']}</span>
+					</dd>
+					{/foreach}
+					<dd class="await">
+						<div class="contain">    
+			    			<img class="" src="__STATIC__/index/img/genduo.jpg" alt="Donut front" style="border: 1px solid #848486; " />		    			    			
+			 			</div>
+						<span>更多服务</span>
+					</dd>
+				</dl>
+			</div>
+			<div>
+				<ul>
+				 {volist name="ModularData" id="mo"}
+					<li>
+						<a href="{:url($mo.action)}">
+							<img src="{$mo['caro_img']}"/>												
+							<h4><span>{$mo['caro_name']}</span></h4>						
+						</a>				
+					</li>
+				 {/volist}	
+				</ul>
+			</div>
+			
+		</div>	
+		
+{/block}

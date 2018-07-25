@@ -1,0 +1,144 @@
+system_eamil.php{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>系统设置</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3>系统设置</h3>
+    <script type="text/javascript">
+     
+     $(function(){ $(".idTabs").idTabs(); });
+     
+    </script>
+    <div class="idTabs">
+      <ul class="tab">
+        <li><a class="selected" href="#main">常规设置</a></li>
+        <li><a href="{:url('admin/system/system_eamil')}">邮件服务器</a></li>
+              </ul>
+      <div class="items">
+       <form action="" id="data_type" method="post" enctype="multipart/form-data">
+        <div id="main">
+        <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+         <tr>
+           <th width="131">名称</th>
+           <th>内容</th>
+         </tr>
+            <tr>
+              <td align="right">站点关键词</td>
+              <td>
+                  <input type="text" id="site" name="site" value="{$info['site']}" size="80" class="inpMain" />
+                  <font style="display:none" class="adsite" color='red'>名称不能为空！</font>
+              </td>
+            </tr>  
+             <tr>
+              <td align="right">站点描述</td>
+              <td>
+                  <input type="text" id="describe" name="describe" value="{$info['describe']}" size="80" class="inpMain" />
+                  <font style="display:none" class="adsite" color='red'>名称不能为空！</font>
+              </td>
+            </tr>   
+            <tr>
+              <td align="right">公司地址</td>
+              <td>
+                  <input type="text" name="address" id="address" value="{$info['address']}" size="80" class="inpMain" />
+                  <font style="display:none" class="adaddress" color='red'>地址不能为空！</font>
+               </td>
+            </tr>
+             <tr>
+                  <td align="right">ICP备案证书号</td>
+                  <td>
+                      <input type="text" name="icp" value="{$info['icp']}" size="80" class="inpMain" />
+                   </td>
+              </tr>
+                  <tr>
+              <td align="right">客服电话</td>
+              <td>
+                          <input type="text" name="phone" id="phone" value="{$info['phone']}" size="80" class="inpMain" />
+                          <font style="display:none" class="adphone" color='red'>电话不能为空！</font>
+                                    </td>
+             </tr>
+                  <tr>
+              <td align="right">传真</td>
+              <td>
+                          <input type="text" name="fax" value="{$info['fax']}" size="80" class="inpMain" />
+                                    </td>
+             </tr>
+                  <tr>
+          <td align="right">客服QQ号码</td>
+          <td>
+                      <input type="text" name="qq" value="{$info['qq']}" size="80" class="inpMain" />
+                                             
+                                 </td>
+         </tr>
+                  <tr>
+          <td align="right">邮件地址</td>
+          <td>
+                      <input type="text" name="email" value="{$info['email']}" size="80" class="inpMain" />
+                                </td>
+         </tr> 
+                 </table>
+        </div>
+                <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+         <tr>
+          <td width="131"></td>
+          <td>
+            <input type="hidden" name="conf_id" value="{$info['conf_id']}" />
+           <input name="submit" class="btn" type="button" onclick='type_add()' value="修改" />
+          </td>
+         </tr>
+        </table>
+        </form>
+      </div>
+    </div>
+   </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+$(function(){
+$("#site").blur(function(){
+$(".adsite").hide();
+})
+$("#address").blur(function(){
+$(".adaddress").hide();
+})
+$("#phone").blur(function(){
+$(".adphone").hide();
+})
+})
+function type_add(){
+var success_url="{:url('admin/system/system_index')}";
+var url="{:url('admin/system/system_add')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+var site=$("#site").val();
+var address=$("#address").val();
+var phone=$("#phone").val();
+
+
+if(site.length<1){
+$(".adsite").show();
+}else if(address.length<1){
+$(".adaddress").show();
+}else if(phone.length<1){
+$(".adphone").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+  dialog.error(result.message);
+} 
+})
+}
+
+}
+
+ </script>
+{/block}

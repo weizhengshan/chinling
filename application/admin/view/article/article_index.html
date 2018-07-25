@@ -1,0 +1,156 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>文章列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('admin/article/article_add')}" class="actionBtn add">添加文章</a>文章列表</h3>
+    <div class="filter">
+    <form action="article.php" method="post">
+     <select name="cat_id"  onchange="arttypes(this)">
+       {foreach name="arr" item="vo"}
+            <option {if condition="$vo['type_id']==$pid"} selected {/if} value="{$vo['type_id']}">{$vo['type_name']}</option>
+      {/foreach} 
+                 </select>
+    
+    </form>
+    <span>
+      
+        </span>
+    </div>
+        <div id="list">
+    <form name="action" method="post" id="pro_admin" action="">
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+     <tr>
+      <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
+      <th width="40" align="center">编号</th>
+      <th align="left">文章名称</th>
+      <th width="150" align="center">文章分类</th>
+      <th width="150" align="center">展示图片</th>
+      <th width="130" align="center">添加日期</th>
+      <th width="130" align="center">操作</th>
+     </tr>
+      <h3 align="center">{$data[0]?'':'这里没有数据'}</h3>
+      {volist name="data" id="va"}
+          <tr>
+      <td align="center"><input type="checkbox" name="checkbox[]" value="{$va.cont_id}" /></td>
+      <td align="center">{$va['cont_id']}</td>
+      <td><a href="article.php?rec=edit&id=10">{$va['cont_title']}</a></td>
+      <td align="center"><a href="article.php?cat_id=1">{$va['type_name']}</a></td>
+       <td align="center"><img src="{$va['cont_img']}" style="width:110px;"/></td>
+      <td align="center">{$va['createtime']|date="Y-m-d H:i",###}</td>
+      <td align="center">
+             <a   class="layui-btn layui-btn-sm" href="{:url('admin/article/article_edit',['cont_id'=>$va['cont_id']])}">编辑</a><a   class="layui-btn layui-btn-sm" href="JavaScript:" onclick="art_dele('确定要下架吗？',{$va['cont_id']})">下架</a>
+             </td>
+     </tr>
+      {/volist}  
+         </table>
+    <div class="action">
+     <select name="action" onchange="douAction()">
+      <option value="0">请选择...</option>
+      <option value="del_all">下架</option>
+      <option value="category_move">移动分类至</option>
+     </select>
+     <select name="new_cat_id" style="display:none">
+      {foreach name="arr" item="vo"}
+            <option value="{$vo['type_id']}">{$vo['type_name']}</option>
+      {/foreach}  
+                 </select>
+     <input name="submit" class="btn" type="button" onclick='art_from()' value="执行" />
+    </div>
+    </form>
+    </div>
+    <div class="clear"></div>
+    <div class="pager">总计 {$totalRows} 个记录，共 {$maxPage} 页，当前第 {$page} 页 | 
+      <a href="{:url('admin/article/article_index',['page'=>1,'pid'=>$pid])}">第一页</a> 
+      <a href="{:url('admin/article/article_index',['page'=>$page-1,'pid'=>$pid])}">上一页</a>  
+      <a href="{:url('admin/article/article_index',['page'=>$page+1,'pid'=>$pid])}">下一页</a>  
+      <a href="{:url('admin/article/article_index',['page'=>$maxPage,'pid'=>$pid])}">最末页</a>
+    </div>           </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+
+onload = function()
+{
+ document.forms['action'].reset();
+}
+
+function douAction()
+{
+ var frm = document.forms['action'];
+ frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
+}
+//删除分类
+function art_dele(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/article/article_dele')}";
+        var success_url="{:url('admin/article/article_index')}";
+        $.post(url,{'cont_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+  //跳转
+ function arttypes(txt)
+ {
+   var pid=txt.value;
+   //alert(pid);
+  if(pid!="")
+  {
+    var url=window.location.href;
+   //alert(url.indexOf(""));
+   if(url.indexOf("pid")==50)
+    {    
+        window.location.href=pid+".html"; 
+    }else if(url.indexOf("page")==50)
+    {
+      if(url.indexOf("pid")==57){
+        
+         window.location.href=pid+".html"; 
+        }else{ 
+          window.location.href=page+"/pid/"+pid+".html"; 
+        } 
+    }
+    else{      
+      window.location.href="article_index/pid/"+pid+".html"; 
+    }
+  
+  }
+ } 
+  //from 提交
+  function  art_from()
+  {
+    var success_url="{:url('admin/article/article_index')}";
+    var url="{:url('admin/article/article_editzhi')}";
+    var admins=$("#pro_admin").serialize();
+
+    $.post(url,admins,function(result){
+ 
+    if(result.status=='4')
+    {
+    dialog.success(result.message,success_url);
+    }else
+    {
+      dialog.error(result.message);
+    } 
+    })
+  }   
+</script>
+{/block}

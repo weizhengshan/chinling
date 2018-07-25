@@ -1,0 +1,50 @@
+.demo{width:760px; margin:40px auto 0 auto; min-height:150px;}
+.preview{}
+.demo p{line-height:26px}
+.btn{position: relative;overflow: hidden;margin-right: 4px;display:inline-block;*display:inline;padding:4px 10px 4px;font-size:14px;line-height:18px;*line-height:20px;color:#fff;text-align:center;vertical-align:middle;cursor:pointer;background-color:#5bb75b;border:1px solid #cccccc;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-bottom-color:#b3b3b3;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+.btn input {position: absolute;top: 0; right: 0;margin: 0;border: solid transparent;opacity: 0;filter:alpha(opacity=0); cursor: pointer;}
+.table_outer{width:70%;margin:120px auto 0}
+.table_color_upload{
+ border-collapse: collapse;
+    border-spacing: 0;background-color: #fff;
+}
+
+.table_color_upload th {
+    background-color: #ededed;
+    border: 1px solid #d7d7d7;
+    font-weight: 400;
+    height: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table_color_upload td.tile {
+    max-width: 300px;
+    padding-left: 20px;
+    text-align: left;
+}
+.table_color_upload td {
+    border: 1px solid #d7d7d7;
+    height: 45px;
+    line-height: 45px;
+    padding: 3px 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+.preview_img,.imageform{float:left}
+.table_color_upload .preview_img {
+    color: #aaa;
+     text-align: left;
+    height:45px;
+}
+.table_color_upload .preview_img img{
+
+    height:100%;width:100%;
+}
+
+.table_color_upload td{height:57px}
+.preview_img{display: none}
+
+
+
+

@@ -1,0 +1,33 @@
+{extend name="base"/}
+ {block name="content"}
+		<!--<div id="nav_companylntroduction">-->
+			<!--<ul>-->
+				<!--{volist name="typeson" id="son"}-->
+				<!--<li _type="1" {if condition="$son.type_id==$wenid"} class="on" {/if}>					-->
+					<!--<a href="{:url('index/about/show',['type_pid'=>$type['type_id'],'wen_id'=>$son.type_id])}">{$son['type_name']}</a>				-->
+				<!--</li>-->
+				<!--{/volist}-->
+			<!--</ul>-->
+		<!--</div>-->
+		<!-- 加载图片的 待定无 开始-->
+		<div id="banner_companylntroduction"></div>
+		<!-- 加载图片的 待定无 结束-->
+		
+		<div id="main_newsdetails">
+			{if condition="$newdata != NULL "}
+			<h3 class="news_title">{$newdata['cont_title']}</h3>
+			<div class="news_main">
+				{$newdata['cont_text']}
+			</div>
+			{else /}
+			<div class="nolist">	
+					<div>
+						<img src="__STATIC__/index/img/erweima_1.jpg"/>
+						<h3>暂无内容</h3>
+					</div>
+			</div>
+			{/if}
+	    </div>
+	
+	
+{/block}

@@ -1,0 +1,29 @@
+{extend name="base"/}
+ {block name="content"}
+ 		<!--<div id="nav_newslist">-->
+			<!--<ul>-->
+				<!--{volist name="typeson" id="son"}-->
+				<!--<li  {if condition="$son.type_id==$newdata['cont_pid']"} class="on" {/if}>-->
+					<!--<a href="{:url('index/news/index',['type_pid'=>$son['type_pid'],'wen_id'=>$son.type_id])}">{$son['type_name']}</a>-->
+				<!--</li>-->
+				<!--{/volist}-->
+			<!--</ul>-->
+		<!--</div>-->
+		<div id="main_newsdetails">
+			{if condition="$newdata != NULL "}
+			<h3 class="news_title">{$newdata['cont_title']}</h3>
+			<h4 class="news_time">{$newdata['createtime']|date="Y-m-d H:i",###}</h4>
+			<div class="news_main">
+				{$newdata['cont_text']}
+			</div>
+			{else /}
+			<div class="nolist">	
+					<div>
+						<img src="__STATIC__/index/img/erweima_1.jpg"/>
+						<h3>暂无内容</h3>
+					</div>
+			</div>
+			{/if}
+		</div>
+	
+{/block}		

@@ -1,0 +1,2055 @@
+---------------------------------------------------------------
+[ 2018-06-28T19:37:35+08:00 ] 172.17.23.148 1.80.3.190 GET /index/brand/index/type_pid/29.html
+[ info ] www.chinlingcloud.com/index/brand/index/type_pid/29.html [运行时间：0.021464s][吞吐率：46.59req/s] [内存消耗：746.87kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'brand',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/news/index/type_pid/10.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '29',
+)
+[ info ] [ RUN ] app\index\controller\Brand->index[ /var/www/chinlingcloud/application/index/controller/Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/brand/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'pid',
+  10 => 'data',
+  11 => 'name',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000470s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000920s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000609s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '品牌故事' [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000629s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 29  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000365s ]
+---------------------------------------------------------------
+[ 2018-06-28T19:37:39+08:00 ] 172.17.23.148 1.80.3.190 GET /index/products/index/type_pid/9.html
+[ info ] www.chinlingcloud.com/index/products/index/type_pid/9.html [运行时间：0.026911s][吞吐率：37.16req/s] [内存消耗：852.88kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'products',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/brand/index/type_pid/29.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '9',
+)
+[ info ] [ RUN ] app\index\controller\Products->index[ /var/www/chinlingcloud/application/index/controller/Products.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/products/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'totalRows',
+  10 => 'page',
+  11 => 'maxPage',
+  12 => 'type_pid',
+  13 => 'wenid',
+  14 => 'pid',
+  15 => 'protype',
+  16 => 'proson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000450s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000928s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000640s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000614s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_protypes` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_states` = 2  AND `protype_pid` = '1' [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '7' [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '12' [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '25' [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_products` [ RunTime:0.000669s ]
+[ sql ] [ SQL ] SELECT COUNT(prod_id) AS tp_count FROM `qy_products` WHERE  `prod_states` = 1 LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_products` WHERE  `prod_states` = 1 LIMIT 0,15 [ RunTime:0.000270s ]
+---------------------------------------------------------------
+[ 2018-06-28T19:37:47+08:00 ] 172.17.23.148 1.80.3.190 GET /index/news/index/type_pid/10/wen_id/21.html
+[ info ] www.chinlingcloud.com/index/news/index/type_pid/10/wen_id/21.html [运行时间：0.027317s][吞吐率：36.61req/s] [内存消耗：945.91kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'news',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/products/index/type_pid/9.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '10',
+  'wen_id' => '21',
+)
+[ info ] [ RUN ] app\index\controller\News->index[ /var/www/chinlingcloud/application/index/controller/News.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/news/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'type_pid',
+  12 => 'newdata',
+  13 => 'type',
+  14 => 'typeson',
+  15 => 'totalRows',
+  16 => 'page',
+  17 => 'maxPage',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000496s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000969s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000752s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000361s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000361s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000884s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000751s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '招聘信息' [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 10 LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000856s ]
+[ sql ] [ SQL ] SELECT COUNT(cont_id) AS tp_count FROM `qy_contents` WHERE  `cont_pid` = 21  AND `cont_states` = 1 ORDER BY cont_id desc LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 21  AND `cont_states` = 1 ORDER BY cont_id desc LIMIT 0,12 [ RunTime:0.000472s ]
+---------------------------------------------------------------
+[ 2018-06-28T19:37:50+08:00 ] 172.17.23.148 1.80.3.190 GET /index/about/show/type_pid/3.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3.html [运行时间：0.024441s][吞吐率：40.91req/s] [内存消耗：834.20kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/news/index/type_pid/10/wen_id/21.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000537s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000966s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000662s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000891s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000736s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` LIMIT 1 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 7  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000352s ]
+---------------------------------------------------------------
+[ 2018-06-28T20:05:01+08:00 ] 172.17.23.148 112.95.117.116 GET /
+[ info ] www.chinlingcloud.com/ [运行时间：0.029116s][吞吐率：34.35req/s] [内存消耗：747.41kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'cache-control' => 'max-age=0',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, identity',
+  'accept-language' => 'zh-cn,zh;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000452s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000896s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000636s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000622s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='112.95.117.116' ) [ RunTime:0.002440s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530187501 , '112.95.117.116' , 1) [ RunTime:0.003021s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000250s ]
+---------------------------------------------------------------
+[ 2018-06-28T20:05:02+08:00 ] 172.17.23.148 112.95.117.116 GET /index/about/show.html
+[ info ] www.chinlingcloud.com/index/about/show.html [运行时间：0.021598s][吞吐率：46.30req/s] [内存消耗：833.79kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'cache-control' => 'max-age=0',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, identity',
+  'accept-language' => 'zh-cn,zh;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/about/show.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000428s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000879s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000607s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000636s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000594s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 7  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000368s ]
+---------------------------------------------------------------
+[ 2018-06-28T20:05:02+08:00 ] 172.17.23.148 112.95.117.116 GET /index/about/show/type_pid/3.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3.html [运行时间：0.027555s][吞吐率：36.29req/s] [内存消耗：834.61kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'cache-control' => 'max-age=0',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, identity',
+  'accept-language' => 'zh-cn,zh;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/about/show/type_pid/3.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000573s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000983s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000687s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000655s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000682s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 7  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000344s ]
+---------------------------------------------------------------
+[ 2018-06-28T20:05:02+08:00 ] 172.17.23.148 112.95.117.116 GET /index/about/show/type_pid/3/wen_id/5.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3/wen_id/5.html [运行时间：0.024776s][吞吐率：40.36req/s] [内存消耗：762.98kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'cache-control' => 'max-age=0',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, identity',
+  'accept-language' => 'zh-cn,zh;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/about/show/type_pid/3/wen_id/5.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+  'wen_id' => '5',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000530s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000990s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000670s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000646s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000665s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000638s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 5  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000354s ]
+---------------------------------------------------------------
+[ 2018-06-28T20:05:02+08:00 ] 172.17.23.148 112.95.117.116 GET /index/about/show/type_pid/3/wen_id/6.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3/wen_id/6.html [运行时间：0.022021s][吞吐率：45.41req/s] [内存消耗：758.14kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'cache-control' => 'max-age=0',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, identity',
+  'accept-language' => 'zh-cn,zh;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/about/show/type_pid/3/wen_id/6.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+  'wen_id' => '6',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000435s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.001046s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000361s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000648s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 6  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000409s ]
+---------------------------------------------------------------
+[ 2018-06-28T20:05:03+08:00 ] 172.17.23.148 112.95.117.116 GET /index/about/show/type_pid/3/wen_id/7.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3/wen_id/7.html [运行时间：0.021591s][吞吐率：46.32req/s] [内存消耗：833.86kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'cache-control' => 'max-age=0',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, identity',
+  'accept-language' => 'zh-cn,zh;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/about/show/type_pid/3/wen_id/7.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+  'wen_id' => '7',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000441s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.001043s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000643s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000620s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000602s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 7  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000316s ]
+---------------------------------------------------------------
+[ 2018-06-28T20:05:03+08:00 ] 172.17.23.148 112.95.117.116 GET /index/about/show/type_pid/3/wen_id/8.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3/wen_id/8.html [运行时间：0.020391s][吞吐率：49.04req/s] [内存消耗：769.87kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'cache-control' => 'max-age=0',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, identity',
+  'accept-language' => 'zh-cn,zh;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/about/show/type_pid/3/wen_id/8.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+  'wen_id' => '8',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000424s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000868s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000592s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000570s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000589s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 8  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000302s ]
+---------------------------------------------------------------
+[ 2018-06-28T20:18:14+08:00 ] 172.17.23.148 128.14.148.3 GET /manage/editor/upload_json.asp?dir=Image
+[ info ] www.chinlingcloud.com/manage/editor/upload_json.asp?dir=Image [运行时间：0.004227s][吞吐率：236.57req/s] [内存消耗：394.04kb] [文件加载：42]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'editor',
+    2 => 'upload_json.asp',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'dir' => 'Image',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-28T20:18:17+08:00 ] 172.17.23.148 128.14.148.3 GET /guanli/editor/asp/upload_json.asp?dir=Image
+[ info ] www.chinlingcloud.com/guanli/editor/asp/upload_json.asp?dir=Image [运行时间：0.004392s][吞吐率：227.69req/s] [内存消耗：394.02kb] [文件加载：42]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'guanli',
+    1 => 'editor',
+    2 => 'asp',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'dir' => 'Image',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-28T20:18:20+08:00 ] 172.17.23.148 128.14.148.3 GET /admin/upload_json.asp?dir=Image
+[ info ] www.chinlingcloud.com/admin/upload_json.asp?dir=Image [运行时间：0.004810s][吞吐率：207.91req/s] [内存消耗：394.94kb] [文件加载：42]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'upload_json.asp',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'dir' => 'Image',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-28T20:18:22+08:00 ] 172.17.23.148 128.14.148.3 GET /manage/editor/asp/upload_json.asp?dir=Image
+[ info ] www.chinlingcloud.com/manage/editor/asp/upload_json.asp?dir=Image [运行时间：0.003946s][吞吐率：253.43req/s] [内存消耗：394.00kb] [文件加载：42]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'editor',
+    2 => 'asp',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'dir' => 'Image',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-28T20:18:24+08:00 ] 172.17.23.148 128.14.148.3 GET /admin/editor/asp/upload_json.asp?dir=Image
+[ info ] www.chinlingcloud.com/admin/editor/asp/upload_json.asp?dir=Image [运行时间：0.004681s][吞吐率：213.64req/s] [内存消耗：395.00kb] [文件加载：42]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'editor',
+    2 => 'asp',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'dir' => 'Image',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-28T20:18:25+08:00 ] 172.17.23.148 128.14.148.3 GET /guanli/editor/upload_json.asp?dir=Image
+[ info ] www.chinlingcloud.com/guanli/editor/upload_json.asp?dir=Image [运行时间：0.004552s][吞吐率：219.69req/s] [内存消耗：394.06kb] [文件加载：42]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'guanli',
+    1 => 'editor',
+    2 => 'upload_json.asp',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+)
+[ info ] [ PARAM ] array (
+  'dir' => 'Image',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-28T20:21:41+08:00 ] 172.17.23.148 106.11.242.152 GET /admin
+[ info ] www.chinlingcloud.com/admin [运行时间：0.003734s][吞吐率：267.82req/s] [内存消耗：492.63kb] [文件加载：50]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-28T20:21:41+08:00 ] 172.17.23.148 106.11.242.152 GET /admin/login/login.html
+[ info ] www.chinlingcloud.com/admin/login/login.html [运行时间：0.002808s][吞吐率：356.11req/s] [内存消耗：462.09kb] [文件加载：48]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6bvqv64np2nsh0g9aic3c2d233',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'host' => 'www.chinlingcloud.com',
+  'accept' => 'text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->Login[ /var/www/chinlingcloud/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/admin/view/login/login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-28T21:21:31+08:00 ] 172.17.23.148 123.139.176.239 GET /index/about/show/type_pid/3.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3.html [运行时间：0.026203s][吞吐率：38.16req/s] [内存消耗：834.65kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5514.400 QQBrowser/10.1.1688.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'https://www.baidu.com/link?url=WAqKplGV2hFliu7VG_CMYGDuzDZdBjwFVo23WVD2AFIVFVqJa2oZslj6GLuWowoEuN1Etd546VpJ-tpkX_jmprU5F_hOuYnQJORah5gGAdS&wd=&eqid=9de3b66d0000288c000000025b34e094',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000508s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.001129s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000842s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000730s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000368s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000360s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000746s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 7  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000418s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:22:15+08:00 ] 172.17.23.148 123.139.176.239 GET /index/index/index.html
+[ info ] www.chinlingcloud.com/index/index/index.html [运行时间：0.028370s][吞吐率：35.25req/s] [内存消耗：752.00kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5514.400 QQBrowser/10.1.1688.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/about/show/type_pid/3.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000457s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000939s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000720s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000590s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000595s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000562s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='123.139.176.239' ) [ RunTime:0.002454s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530192135 , '123.139.176.239' , 1) [ RunTime:0.002937s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000223s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:22:31+08:00 ] 172.17.23.148 58.246.221.162 GET /index/about/show/type_pid/3.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3.html [运行时间：0.027736s][吞吐率：36.05req/s] [内存消耗：833.34kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3; rv:11.0) like Gecko',
+  'accept' => '*/*',
+  'referer' => 'blank',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000551s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.001006s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000653s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000663s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000655s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000605s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 7  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000348s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:22:38+08:00 ] 172.17.23.148 123.139.176.239 GET /index/products/index/type_pid/9.html
+[ info ] www.chinlingcloud.com/index/products/index/type_pid/9.html [运行时间：0.026780s][吞吐率：37.34req/s] [内存消耗：852.94kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'products',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5514.400 QQBrowser/10.1.1688.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chinlingcloud.com/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '9',
+)
+[ info ] [ RUN ] app\index\controller\Products->index[ /var/www/chinlingcloud/application/index/controller/Products.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/products/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'totalRows',
+  10 => 'page',
+  11 => 'maxPage',
+  12 => 'type_pid',
+  13 => 'wenid',
+  14 => 'pid',
+  15 => 'protype',
+  16 => 'proson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000414s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000892s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000627s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_protypes` [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_states` = 2  AND `protype_pid` = '1' [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '7' [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '12' [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '25' [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_products` [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SELECT COUNT(prod_id) AS tp_count FROM `qy_products` WHERE  `prod_states` = 1 LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_products` WHERE  `prod_states` = 1 LIMIT 0,15 [ RunTime:0.000279s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:22:41+08:00 ] 172.17.23.148 117.185.117.60 GET /index/about/show/type_pid/3.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3.html [运行时间：0.026900s][吞吐率：37.17req/s] [内存消耗：832.78kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000500s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000920s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000576s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 7  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000351s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:23:29+08:00 ] 172.17.23.148 61.151.178.164 GET /index/index/index.html
+[ info ] www.chinlingcloud.com/index/index/index.html [运行时间：0.033675s][吞吐率：29.70req/s] [内存消耗：752.88kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000436s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000963s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000663s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000682s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000553s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='61.151.178.164' ) [ RunTime:0.002338s ]
+[ sql ] [ SQL ] SELECT `count` FROM `qy_fwl` WHERE  (  ip='61.151.178.164' ) [ RunTime:0.002298s ]
+[ sql ] [ SQL ] SELECT `btime` FROM `qy_fwl` WHERE  (  ip='61.151.178.164' ) [ RunTime:0.002307s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530192209 , '61.151.178.164' , 1) [ RunTime:0.002763s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000245s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:23:44+08:00 ] 172.17.23.148 58.247.204.63 GET /index/products/index/type_pid/9.html
+[ info ] www.chinlingcloud.com/index/products/index/type_pid/9.html [运行时间：0.031542s][吞吐率：31.70req/s] [内存消耗：851.36kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'products',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '9',
+)
+[ info ] [ RUN ] app\index\controller\Products->index[ /var/www/chinlingcloud/application/index/controller/Products.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/products/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'totalRows',
+  10 => 'page',
+  11 => 'maxPage',
+  12 => 'type_pid',
+  13 => 'wenid',
+  14 => 'pid',
+  15 => 'protype',
+  16 => 'proson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000551s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000948s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000593s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_protypes` [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_states` = 2  AND `protype_pid` = '1' [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '7' [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '12' [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '25' [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_products` [ RunTime:0.000607s ]
+[ sql ] [ SQL ] SELECT COUNT(prod_id) AS tp_count FROM `qy_products` WHERE  `prod_states` = 1 LIMIT 1 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_products` WHERE  `prod_states` = 1 LIMIT 0,15 [ RunTime:0.000274s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:23:48+08:00 ] 172.17.23.148 140.207.118.16 GET /index/products/index/type_pid/9.html
+[ info ] www.chinlingcloud.com/index/products/index/type_pid/9.html [运行时间：0.026201s][吞吐率：38.17req/s] [内存消耗：851.45kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'products',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '9',
+)
+[ info ] [ RUN ] app\index\controller\Products->index[ /var/www/chinlingcloud/application/index/controller/Products.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/products/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'totalRows',
+  10 => 'page',
+  11 => 'maxPage',
+  12 => 'type_pid',
+  13 => 'wenid',
+  14 => 'pid',
+  15 => 'protype',
+  16 => 'proson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000429s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000988s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000616s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000586s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_protypes` [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_states` = 2  AND `protype_pid` = '1' [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '7' [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '12' [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_protypes` WHERE  `protype_pid` = '25' [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_products` [ RunTime:0.000569s ]
+[ sql ] [ SQL ] SELECT COUNT(prod_id) AS tp_count FROM `qy_products` WHERE  `prod_states` = 1 LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_products` WHERE  `prod_states` = 1 LIMIT 0,15 [ RunTime:0.000252s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:24:01+08:00 ] 172.17.23.148 187.11.78.195 GET /
+[ info ] 39.106.38.137:80/ [运行时间：0.034922s][吞吐率：28.64req/s] [内存消耗：745.52kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '39.106.38.137:80',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
+  'content-length' => '0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000577s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000955s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000615s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000699s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='187.11.78.195' ) [ RunTime:0.002780s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530192241 , '187.11.78.195' , 1) [ RunTime:0.002853s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000320s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:27:09+08:00 ] 172.17.23.148 123.125.71.28 GET /index/about/show/type_pid/3.html
+[ info ] www.chinlingcloud.com/index/about/show/type_pid/3.html [运行时间：0.028332s][吞吐率：35.30req/s] [内存消耗：833.34kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'about',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'close',
+  'user-agent' => 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)',
+  'accept-language' => 'zh-cn,zh-tw',
+  'if-none-match' => '"@NULL@"',
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+  'type_pid' => '3',
+)
+[ info ] [ RUN ] app\index\controller\About->show[ /var/www/chinlingcloud/application/index/controller/About.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/about/show.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'wenid',
+  10 => 'pid',
+  11 => 'newdata',
+  12 => 'type',
+  13 => 'typeson',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000561s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000989s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000652s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000651s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000653s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_id` = 3 LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_contents` [ RunTime:0.000638s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_contents` WHERE  `cont_pid` = 7  AND `cont_states` = 1 LIMIT 1 [ RunTime:0.000360s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:54:56+08:00 ] 172.17.23.148 103.62.139.124 GET /
+[ info ] 39.106.38.137:80/ [运行时间：0.034483s][吞吐率：29.00req/s] [内存消耗：745.54kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '39.106.38.137:80',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
+  'content-length' => '0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000542s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000934s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000598s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000571s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='103.62.139.124' ) [ RunTime:0.002417s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530194096 , '103.62.139.124' , 1) [ RunTime:0.003509s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000215s ]
+---------------------------------------------------------------
+[ 2018-06-28T21:56:58+08:00 ] 172.17.23.148 122.194.3.19 GET /
+[ info ] www.chinlingcloud.com/ [运行时间：0.027635s][吞吐率：36.19req/s] [内存消耗：747.43kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'https://www.baidu.com/link?url=Hgt0P-0fs4KXXqr9hvB64XBWCneeQ9oxWuaBkemErXrh-ZIAR3VRdVfJ-AIL8clB&wd=&eqid=da36f72e00003211000000055b34e8b0',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000429s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000947s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000652s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000715s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='122.194.3.19' ) [ RunTime:0.002433s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530194218 , '122.194.3.19' , 1) [ RunTime:0.002514s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000222s ]
+---------------------------------------------------------------
+[ 2018-06-28T22:07:58+08:00 ] 172.17.23.148 42.236.46.85 GET /
+[ info ] www.chinlingcloud.com/ [运行时间：0.031948s][吞吐率：31.30req/s] [内存消耗：748.95kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'accept-encoding' => 'deflate, gzip',
+  'referer' => 'http://www.chinlingcloud.com/',
+  'cookie' => '',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN',
+  'connection' => 'Keep-Alive',
+  'user-agent' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000467s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000896s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000664s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000584s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000552s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='42.236.46.85' ) [ RunTime:0.002339s ]
+[ sql ] [ SQL ] SELECT `count` FROM `qy_fwl` WHERE  (  ip='42.236.46.85' ) [ RunTime:0.002297s ]
+[ sql ] [ SQL ] SELECT `btime` FROM `qy_fwl` WHERE  (  ip='42.236.46.85' ) [ RunTime:0.002297s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530194878 , '42.236.46.85' , 1) [ RunTime:0.002467s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000214s ]
+---------------------------------------------------------------
+[ 2018-06-28T22:43:55+08:00 ] 172.17.23.148 111.122.217.161 GET /
+[ info ] 39.106.38.137:80/ [运行时间：0.027802s][吞吐率：35.97req/s] [内存消耗：745.58kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '39.106.38.137:80',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
+  'content-length' => '0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000450s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000952s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='111.122.217.161' ) [ RunTime:0.002421s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530197035 , '111.122.217.161' , 1) [ RunTime:0.002619s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000205s ]
+---------------------------------------------------------------
+[ 2018-06-28T23:13:54+08:00 ] 172.17.23.148 188.38.106.123 GET /
+[ info ] 39.106.38.137:80/ [运行时间：0.035815s][吞吐率：27.92req/s] [内存消耗：745.54kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '39.106.38.137:80',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
+  'content-length' => '0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000545s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000949s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000728s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000673s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000652s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='188.38.106.123' ) [ RunTime:0.002827s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530198834 , '188.38.106.123' , 1) [ RunTime:0.002524s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000249s ]
+---------------------------------------------------------------
+[ 2018-06-28T23:26:29+08:00 ] 172.17.23.148 45.33.72.115 GET /
+[ info ] www.chinlingcloud.com/ [运行时间：0.031556s][吞吐率：31.69req/s] [内存消耗：745.69kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/chinlingcloud/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinlingcloud.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0',
+  'accept-encoding' => 'gzip',
+  'connection' => 'close',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /var/www/chinlingcloud/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/chinlingcloud/public/../application/index/view/index/index.html [ array (
+  0 => 'logo',
+  1 => 'topdata',
+  2 => 'shopdata',
+  3 => 'imgdata',
+  4 => 'shouimgdata',
+  5 => 'bottomdata',
+  6 => 'weibodata',
+  7 => 'website',
+  8 => 'web',
+  9 => 'ModularData',
+  10 => 'Pattern',
+  11 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000451s ] mysql:dbname=qinyunone;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_logo` [ RunTime:0.000945s ]
+[ sql ] [ SQL ] SELECT `logo_img` FROM `qy_logo` WHERE  `caro_states` = 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_types` [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 1 ORDER BY `type_sort` [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 2 ORDER BY `type_sort` [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 3 ORDER BY `type_sort` [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 10 ORDER BY `type_sort` [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 9 ORDER BY `type_sort` [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 29 ORDER BY `type_sort` [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 30 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_carousel` [ RunTime:0.000649s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 4 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 31 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_types` WHERE  `type_pid` = 40 LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_config` [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT * FROM `qy_config` LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `site`,`describe` FROM `qy_config` WHERE  `conf_id` = 1 LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `qy_fwl` [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SELECT `fid` FROM `qy_fwl` WHERE  (  ip='45.33.72.115' ) [ RunTime:0.002709s ]
+[ sql ] [ SQL ] INSERT INTO `qy_fwl` (`btime` , `ip` , `count`) VALUES (1530199589 , '45.33.72.115' , 1) [ RunTime:0.005573s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`action`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 2 ORDER BY `caro_sort` LIMIT 4 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT `caro_img`,`caro_name` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 1 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT `caro_img` FROM `qy_carousel` WHERE  `caro_states` = 1  AND `pid` = 3  AND `caro_zh` = 2 ORDER BY `caro_sort` LIMIT 5 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT `type_id` FROM `qy_types` WHERE  `type_name` = '首页' [ RunTime:0.000229s ]

@@ -1,0 +1,55 @@
+ {extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+{include file="public:nav" /}
+<link href="__STATIC__/admin/uploadify/uploadify.css" rel="stylesheet">
+<script type="text/javascript" src="__STATIC__/admin/uploadify/jquery.uploadify.min.js"></script>
+ <div id="dcMain">
+<div id="urHere">DouPHP 管理中心</div>  <div id="index" class="mainBox" style="padding-top:18px;height:auto!important;height:550px;min-height:550px;">
+ 
+   <div><h3>七牛云上传图片</h3></div>
+      <div class="indexBox">  
+<script type="text/javascript">
+var img_id_upload=new Array();//初始化数组，存储已经上传的图片名
+var i=0;//初始化数组下标
+$(function() {
+     $('#file_upload').uploadify({
+     auto : true,//关闭自动上传
+     removeTimeout : 600,//文件队列上传完成1秒后删除
+     swf : '__STATIC__/admin/uploadify/uploadify.swf',
+     uploader : "{:url('index/uploadifyImg')}",
+     method : 'post', //方法，服务端可以用$_POST数组获取数据
+     
+     buttonText : '选择图片',//设置按钮文本
+     multi : true,//允许同时上传多张图片
+     fileObjName     : 'images',
+     uploadLimit : 10,//一次最多只允许上传10张图片
+     fileTypeDesc : 'Image Files',//只允许上传图像
+     fileTypeExts : '*.gif; *.jpg; *.png',//限制允许上传的图片后缀
+     fileSizeLimit : '2000KB',//限制上传的图片大小
+     formData : {'imgtype' : 'product'},
+     onUploadSuccess : function(file, data, response) { //每次成功上传后执行的回调函数，从服务端返回数据到前端
+      //alert(file);
+      var data=(new Function('return( ' + data + ' );'))();
+      var img=data.path;
+      //alert(img);
+      //alert(response);
+    $('#image').append('<div style="float:left;margin:2px 0 0 2px"><img width="100px" height="100px" src="'+img+'" data-ke-src="'+img+'" height=80 width=80 />');
+     img_id_upload[i]=img;
+     i++;
+     }
+     
+ });
+    console.log(img_id_upload);
+});
+</script>
+<input type="file" name="file_upload" id="file_upload" />
+<p><!-- <a href="javascript:$('#file_upload').uploadify('upload','');">上传</a> -->
+</p>
+<br />
+<div id="image" class="image"><br />
+ </div>
+ <div class="clear"></div>
+{/block}
+

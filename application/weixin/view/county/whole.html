@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="__STATIC__/weixin/css/public.css" rel="stylesheet" />
+        <link rel="stylesheet" href="__STATIC__/weixin/css/ft-carousel.css">
+        <link rel="stylesheet" href="__STATIC__/weixin/css/style.css"/>	   
+        <link rel="stylesheet" href="__STATIC__/weixin/css/test.css"/>        
+        <script type="text/javascript" src="__STATIC__/weixin/js/jquery-1.8.3.min.js"></script> 
+        <script type="text/javascript" src="__STATIC__/weixin/Echarts/echarts-all.js"></script>
+        <script src="__STATIC__/weixin/js/unslider.min.js" type="text/javascript"></script>
+        <script src="__STATIC__/weixin/js/index.js"></script>
+    </head>
+    <body>
+    <div id="body_div">
+    	<div id="out" class="clear">
+            <video id="video_out_0" autoplay="autoplay"  src="__STATIC__/weixin/video/index_1.webm" poster="__STATIC__/weixin/video/index.PNG" ></video>
+            <img src="__STATIC__/weixin/video/index.PNG" />
+            <video id="video_out_1" autoplay="autoplay"  src="__STATIC__/weixin/video/index_1.webm" poster="__STATIC__/weixin/video/index.PNG" ></video>
+            <img src="__STATIC__/weixin/video/index.PNG" />
+            <video id="video_out_2" autoplay="autoplay"  src="__STATIC__/weixin/video/index_1.webm" poster="__STATIC__/weixin/video/index.PNG" ></video>
+            <img src="__STATIC__/weixin/video/index.PNG" />
+            <video id="video_out_3" autoplay="autoplay"  src="__STATIC__/weixin/video/index_1.webm" poster="__STATIC__/weixin/video/index.PNG" ></video>
+            <img src="__STATIC__/weixin/video/index.PNG" />
+            <video id="video_out_4" autoplay="autoplay"  src="__STATIC__/weixin/video/index_1.webm" poster="__STATIC__/weixin/video/index.PNG" ></video>            
+            <img src="__STATIC__/weixin/video/index.PNG" />
+            <div>
+                <span id="start_go">开始</span>
+            </div>
+        </div>
+        <div id="in" class="clear">
+            <div id="first" class="float_1">
+            	<div id="first_title">秦岭各县产品产销量及去向</div>
+            	<div id="first_main">
+	            	<div id="first_choice">         				            			
+			                <span><b>省:</b><select id="select_k1" class="form-control" onchange="provice(this)">
+	                        {foreach name="arr" item="vo"}
+	                          <option {if condition="$provid==$vo['county_id']"} selected {/if} value="{$vo['county_id']}" >{$vo['county_name']}</option>
+	                        {/foreach}                         
+	                        </select></span>
+	                        <span><b>市:</b><select id="select_k2" class="form-control" onchange="city(this)">
+	                        {foreach name="prodata" item="vo"}
+	                          <option {if condition="$cityid==$vo['county_id']"} selected {/if} value="{$vo['county_id']}">{$vo['county_name']}</option>
+	                        {/foreach}             
+	                        </select></span>
+	                        <span><b>县:</b><select name="varies_copid" id="Select3">
+	                        {foreach name="citydata" item="vo"}
+	                          <option {if condition="$dataCity['county_id']==$vo['county_id']"} selected {/if} value="{$vo['county_id']}">{$vo['county_name']}</option>
+	                        {/foreach}             
+	                        </select></span>  
+			            </div>
+			            <div id="first_biao" class="clear">
+			            	<span id="first_biao_btnnn">展开</span>
+			            	<div id="first_biao_l"   class="float_1">
+				                <ul>      				                    	
+			                    	<li id="first_biao_l_1" class="float_1" style="width: 14vw;height:23.333333vh;"></li>
+			                    	<li id="first_biao_l_2" class="float_1" style="width: 14vw;height:23.333333vh;"></li>
+			                    	<li id="first_biao_l_3" class="float_1" style="width: 14vw;height:23.333333vh;"></li>  	
+			                    	<li id="first_biao_l_4" class="float_1" style="width: 14vw;height:23.333333vh;"></li>
+				                </ul>         
+				            </div>  
+				            <script>
+				            	$(document).ready(function(e) {
+								    $('#first_biao_l').unslider({								
+										dots: true								
+									});	
+							    $("#first_biao_btnnn").unbind('click').click(function(params) {      	     
+						           
+							            $("#first_enlarge").css({"width":"100vw"})
+							    });
+							    $("#btnnn_first_enlarge_span").unbind('click').click(function(params) {      	     							           
+							            $("#first_enlarge").css({"width":"0vw"})
+							    });
+								});
+				            </script>
+				            <div id="first_biao_r"  class="float_1">
+				            	<div id="goto_t" class="ta_td clearfix div div-striped div-bordered div-condensed">           		
+				            	</div>
+				            	<div id="main2"></div>
+				            </div>   
+			            </div>		             
+            	</div>            	   
+            </div>
+            <div id="second"  class="float_1">
+            	<h1>
+	                <span id="title">中国秦岭农产品电子商务大数据</span>
+	                <div>
+	                	<span id="timer"></span>
+	                	<span id="cancellation">注销</span>
+	                </div>	                
+            	</h1>
+            	<div id="second_b">  
+            		<div id="second_b_weather"  class="float_1">
+		            	<div id="second_b_weather_title">天气预报<span></span></div>
+		            	<div id="second_b_weather_main">
+		            		<ul id="second_b_weather_main_ul">
+
+		            		</ul>
+		            	</div>
+		            </div>
+	            	<div id="second_b_main"   class="clear">
+	            		<div id="second_b_main_l"   class="float_1">	            			
+	            			<div id="second_b_main_l_main">
+	            				<div id="btnnn_div">
+	            					<span id="btnnn">秦岭腹地</span>
+		            			</div>            			
+		                		<div id="main3"  style="width: 19.5vw;height:24.333333vh;"></div>		                		
+	            			</div>	            			
+	            		</div>
+	            		<div id="message" class="float_1">            		
+		        			<div id="message_title">客户评价</div>
+		        			<div id="message_rollAD">
+								<div id=messagebox>
+								    
+								</div>
+							</div>            		
+		            	</div>
+	            	</div>               
+	            </div>
+            </div>
+            <div id="third"  class="float_1 clear">            	
+            	<div id="third_r"  class="float_1">
+            		<div id="third_r_title">电商各项数据</div>
+            		<div id="third_r_c">
+            			<table>
+                			<tr>
+                				<td>总交易额：<s id="tradeVolumeTotal"></s></td>
+                				<td>总交易量：<s id="transactionVolumeTotal"></s></td>               				
+                			</tr>
+                			<tr>
+                				<td>近七天：<s id="tradeVolume"></s></td>
+                				<td>近七天： <s id="transactionVolume"></s></td>
+                			</tr>	                    		
+		                </table>
+            		</div>
+            		<span id="third_r_main_biao_btnnn">展开</span>
+            		<div id="third_r_main" class="clear">            		    
+		            		<ul id="third_r_biao">			              			              			     
+		                    	<li id="fourth_biao_1" class="float_1" style="width: 14vw;height:23.333333vh;"></li>			          			            
+		                    	<li id="fourth_biao_3" class="float_1" style="width: 14vw;height:23.333333vh;"></li>		        
+		                    	<li id="fourth_biao_4" class="float_1" style="width: 14vw;height:23.333333vh;"></li>			               				                      
+			            	</ul>                	            				            	
+            		</div>
+							<script>
+				            	$(document).ready(function(e) {
+								    $('#third_r_main').unslider({								
+										dots: true								
+									});	
+								$("#third_r_main_biao_btnnn").unbind('click').click(function(params) {      	     						           
+							            $("#third_r_main_enlarge").css({"width":"100vw"})
+							    });
+							    $("#btnnn_third_r_main_enlarge").unbind('click').click(function(params) {      	     							           
+							            $("#third_r_main_enlarge").css({"width":"0vw"})
+							    });
+								});
+				            </script>
+            	</div>
+            	<div id="third_l"  class="float_1">
+            		<div id="third_l_title">产品分类价格</div>
+	            	<div id="third_l_main">
+	            		<div id="third_l_choice">	
+			                <span><select id="first_second_select_k1" class="form-control" onchange="pinzh(this)">
+                            {foreach name="arrdata" item="vo"}
+                              <option {if condition="$typesdata['protype_pid']==$vo['protype_id']"} selected {/if} value="{$vo['protype_id']}" >{$vo['protype_name']}</option>
+                            {/foreach}                         
+                            </select></span>
+                            <span><select id="first_second_select_k2"  class="form-control">
+                                {foreach name="prodatas" item="vo"}
+                              <option {if condition="$typesdata['protype_id']==$vo['protype_id']"} selected {/if} value="{$vo['protype_id']}">{$vo['protype_name']}</option>
+                            {/foreach}             
+                            </select> 
+                    </span>
+			            </div>
+			            <div id="third_l_biao_block">
+			            	<span id="third_l_main_biao_btnnn">展开</span>
+				            <div id="third_l_biao">			            	
+				           		    <ul style="color: #fff;">                
+				                    	<li id="first_second_biao1_1" class="float_1" style="width: 14vw;height:24.333333vh;"></li>			               			 	                    	
+				                    	<li id="first_second_biao1_2" class="float_1" style="width: 14vw;height:24.333333vh;"></li>		                    				           		                    	
+				                    	<li id="first_second_biao1_3" class="float_1" style="width: 14vw;height:24.333333vh;"></li>	
+				         			</ul>
+				            </div> 
+			            </div>			             
+			            <div id="data_none">
+			            	<span>暂无数据</span>
+			            </div>
+			            <script>
+				            	$(document).ready(function(e) {
+
+								    $('#third_l_biao').unslider({
+								
+										dots: true
+								
+									});
+								$("#third_l_main_biao_btnnn").unbind('click').click(function(params) {      	     						           
+							            $("#third_l_main_enlarge").css({"width":"100vw"})
+							    });
+							    $("#btnnn_third_l_main_enlarge").unbind('click').click(function(params) {      	     							           
+							            $("#third_l_main_enlarge").css({"width":"0vw"})
+							    });
+								});
+				        </script>
+	            	</div>
+            	</div>
+            </div>
+        </div>
+    </div>      
+    <div id="drill">
+		<span id="btnnn_drill">返回</span>
+		<div id="main4" style="width: 40vw;height: 33.333333vh;"></div>
+	</div>
+	<div id="first_enlarge" class="clear">
+		<div id="btnnn_first_enlarge"  class="float_1" ><span id="btnnn_first_enlarge_span">返回</span></div>
+		<div id="first_biao_l_1_enlarge" class="float_1 first_biao_l"></div>
+		<div id="first_biao_l_2_enlarge" class="float_1 first_biao_l"></div>
+		<div id="first_biao_l_3_enlarge" class="float_1 first_biao_l"></div>  	
+		<div id="first_biao_l_4_enlarge" class="float_1 first_biao_l"></div>
+	</div>
+	<div id="third_r_main_enlarge" class="clear">
+		<div id="third_r_main_biao_l_1_enlarge" class="float_1 third_r_main_biao_l"></div>
+		<div id="third_r_main_biao_l_2_enlarge" class="float_1 third_r_main_biao_l"></div>
+		<div id="third_r_main_biao_l_3_enlarge" class="float_1 third_r_main_biao_l"></div>  
+		<div id="btnnn_third_r_main_enlarge"  class="float_1" ><span id="btnnn_third_r_main_enlarge_span">返回</span></div>
+	</div>	
+	<div id="third_l_main_enlarge" class="clear">
+		<div id="third_l_main_biao_l_1_enlarge" class="float_1 third_l_main_biao_l"></div>
+		<div id="third_l_main_biao_l_2_enlarge" class="float_1 third_l_main_biao_l"></div>
+		<div id="third_l_main_biao_l_3_enlarge" class="float_1 third_l_main_biao_l"></div>  
+		<div id="btnnn_third_l_main_enlarge"  class="float_1" ><span id="btnnn_third_l_main_enlarge_span">返回</span></div>
+	</div>
+    </body>
+</html>
+<!--
+    第二模块
+-->
+<script src="__STATIC__/weixin/js/cityIp.js"></script>
+<script>
+
+function modertwo(arr,datasepro){
+    /*默认过来县的第一个产品销量去向*/
+
+   gotoCity(datasepro[0]['sale'][0]['zhanone'],datasepro[0]['sale'][0]['zhantwo']);
+  $("#goto_t").on("click","span",function(){
+    var zhanone=$(this).attr('key');
+    var zhantwo=$(this).attr('val');
+    
+    gotoCity(zhanone,zhantwo)
+    $(this).css("background","#000");
+    $(this).siblings().css("background","#538d36");
+})
+    $("#goto_t").html("");
+    
+    $(datasepro).each(function(k,v){
+     item="<span  key="+v['sale'][0]['zhanone']+" val="+v['sale'][0]['zhantwo']+">"+v['varies_name']+"</span>";
+     $('#goto_t').append(item);
+     }); 
+$("#goto_t").children().first().css("background","#000");
+
+}
+var myChart = echarts.init(document.getElementById('main2'));
+function gotoCity(zhanone,zhantwo){
+    var zhanone=(new Function('return( ' + zhanone + ' );'))();
+    var zhantwo=(new Function('return( ' + zhantwo + ' );'))();
+    var option = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    color: ['gold','aqua','lime'],
+    title : {
+        text: '产品销售去向',
+        x:'center',
+        textStyle : {  
+        	fontSize:14,
+            color: '#fff'           
+        }
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:10
+            }
+        }
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: '{b}：{c}'
+    },
+    dataRange: {
+        min : 0,
+        max : 100,
+        show:false, 
+        calculable : true,
+        color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+        textStyle:{
+            color:'#fff'
+        }
+    },
+    series : [
+        {
+            name: '全国',
+            type: 'map',
+            roam: false,
+            hoverable: false,
+            mapType: 'china',
+            itemStyle:{
+                normal:{
+                    borderColor:'rgba(100,149,237,1)',
+                    borderWidth:0.5,
+                    areaStyle:{
+                        color: '#1b1b1b'
+                    }
+                }
+            },
+            data:[],
+            markLine : {
+                smooth:true,
+                symbol: ['none', 'circle'],  
+                symbolSize : 1,
+                itemStyle : {
+                    normal: {
+                        color:'#fff',
+                        borderWidth:1,
+                        borderColor:'rgba(30,144,255,0.5)'
+                    }
+                },
+                data : [
+                    
+                ],
+            },
+            geoCoord: cityIp
+        },
+        {
+            name: '镇安 Top10',
+            type: 'map',
+            mapType: 'china',
+            data:[],
+            markLine : {
+                smooth:true,
+                effect : {
+                    show: true,
+                    scaleSize: 1,
+                    period: 30,
+                    color: '#fff',
+                    shadowBlur: 10
+                },
+                itemStyle : {
+                    normal: {
+                        borderWidth:1,
+                        lineStyle: {
+                            type: 'solid',
+                            shadowBlur: 10
+                        }
+                    }
+                },
+                data :zhanone
+            },
+            markPoint : {
+                symbol:'emptyCircle',
+                symbolSize : function (v){
+                    return 10 + v/10
+                },
+                effect : {
+                    show: true,
+                    shadowBlur : 0
+                },
+                itemStyle:{
+                    normal:{
+                        label:{show:false}
+                    },
+                    emphasis: {
+                        label:{position:'top'}
+                    }
+                },
+                data :zhantwo
+            }
+        }          
+    ]
+};
+    myChart.setOption(option);  
+}
+/*淘宝产品销量去向*/
+myChart15 = echarts.init(document.getElementById('fourth_biao_1'));
+myChart24 = echarts.init(document.getElementById('third_r_main_biao_l_1_enlarge'));
+function  TaobaoSalesWhere(SalesWhere){
+	
+    var cityName=SalesWhere.city;
+    var cityNameAll=(new Function('return( ' + SalesWhere.cityNameVal + ' );'))();
+    var cityNameWh=(new Function('return( ' + SalesWhere.cityName + ' );'))();
+  //console.log(cityNameAll)
+  //console.log(cityName)
+   //console.log(cityNameWh)
+    //console.log(cityIp)
+//  for(var i=0;i<cityNameAll.length;i++){
+// 		var s=cityNameAll[i][1].name;
+// 		s=s.substring(0,s.length-1);
+// 		cityNameAll[i][1].name=s; 	
+//  }
+//	for(var i=0;i<cityNameWh.length;i++){
+// 		var s=cityNameWh[i].name;
+// 		s=s.substring(0,s.length-1);
+// 		cityNameWh[i].name=s; 	
+//  }
+    var option15 = {
+        backgroundColor:'rgba(0, 0, 0, 0)',
+        color: ['gold','aqua','lime'],
+        title : {
+            text: '电商产品销售去向',
+            subtext:'',
+            x:'center',
+            textStyle : {
+            	fontSize:14,
+                color: '#fff'
+            }
+        }, 
+        tooltip : {
+            trigger: 'item',
+            formatter: '{b}：{c}'
+        },
+        lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    dataRange: {
+        min : 0,
+        max : 400,
+        show:false, 
+        calculable : true,
+        color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+        textStyle:{
+            color:'#fff'
+        }
+    },
+        series : [
+            {
+                name: cityName,
+                type: 'map',
+                roam: false,
+                hoverable: false,
+                mapType: 'china',
+                itemStyle:{
+                    normal:{
+                        borderColor:'rgba(100,149,237,1)',
+                        borderWidth:0.5,
+                        areaStyle:{
+                            color: '#1b1b1b'
+                        }
+                    }
+                },
+                data:[],
+                markLine : {
+                    smooth:true,
+                    symbol: ['none', 'circle'],  
+                    symbolSize : 1,
+                    itemStyle : {
+                        normal: {
+                            color:'#fff',
+                            borderWidth:1,
+                            borderColor:'rgba(30,144,255,0.5)'
+                        }
+                    },
+                    data : [
+                        
+                    ],
+                },
+                geoCoord: cityIp               
+            },
+            {
+                name: cityName,
+                type: 'map',
+                mapType: 'china',
+                data:[],
+                markLine : {
+                    smooth:true,
+                    effect : {
+                        show: true,
+                        scaleSize: 1,
+                        period: 30,
+                        color: '#fff',
+                        shadowBlur: 10
+                    },
+                    itemStyle : {
+                        normal: {
+                            borderWidth:1,
+                            lineStyle: {
+                                type: 'solid',
+                                shadowBlur: 10
+                            }
+                        }
+                    },
+                    data :cityNameAll
+                },
+                markPoint : {
+                    symbol:'emptyCircle',
+                    symbolSize : function (v){
+                    	console.log(v)
+                        return  5+v/100
+                    },
+                    effect : {
+                        show: true,
+                        shadowBlur : 0
+                    },
+                    itemStyle:{
+                        normal:{
+                            label:{show:false}
+                        },
+                        emphasis: {
+                            label:{position:'top'}
+                        }
+                    },
+                    data : cityNameWh
+                }
+            }
+               
+        ]
+    };
+    myChart15.setOption(option15);
+    myChart24.setOption(option15);
+ }   
+ 
+
+
+
+</script>
+<!--
+	下拉框函数
+-->
+<script type="text/javascript">
+ //产品分类
+function pinzh(text)
+{
+    var city=text.value;
+   $.ajax({
+    url:"{:url('County/pinzh_post')}",
+    type:"post",
+    dataType:"json",
+     data:"add="+city,
+     success:function(res){
+       $("#first_second_select_k2").html("");
+      $(res).each(function(k,v){
+        $("#first_second_select_k2").append($("<option value="+v.protype_id+">"+v.protype_name+"</option>"));
+      })  
+      //alert(res[0]['protype_id']);
+      /*zhi是分类的第一个子类*/
+      priocedata(res[0]['protype_id']);
+    }
+  });  
+  }    
+//地址市
+function provice(txt)
+{
+   //var add=$(txt).attr("value");
+   var add=txt.value;
+   $.ajax({
+    url:"{:url('admin/CountyType/provice_post')}",
+    type:"post",
+    dataType:"json",
+     data:"add="+add,
+     success:function(res){
+       $("#select_k2").html("");
+      $(res).each(function(k,v){
+        $("#select_k2").append("<option  value="+v.county_id+">"+v.county_name+"</option");
+      })       
+      $("#select_k2").trigger("change");
+    }
+  });  
+  } 
+ //地址县区
+function city(text)
+{
+   //var city=$(text).attr("value");
+   var city=text.value;
+   $.ajax({
+    url:"{:url('admin/CountyType/provice_post')}",
+    type:"post",
+    dataType:"json",
+     data:"add="+city,
+     success:function(res){
+       $("#Select3").html("");
+      $(res).each(function(k,v){
+        $("#Select3").append("<option  value="+v.county_id+">"+v.county_name+"</option>");
+      })
+       $("#Select3").trigger("change");  
+    }
+  });  
+  }  
+  
+  </script>
+    <!--第一模块-->
+<script type="text/javascript" src="__STATIC__/weixin/Echarts/echarts.js"></script>  
+<script>
+var myChart1,myChart2,myChart3,myChart4,myChart8,myChart9,myChart10;
+        /*产品产量*/        
+        myChart1 = echarts.init(document.getElementById('first_biao_l_1'));
+        myChart2= echarts.init(document.getElementById('first_biao_l_2'));
+        myChart3 = echarts.init(document.getElementById('first_biao_l_3')); 
+        myChart4=echarts.init(document.getElementById("first_biao_l_4"));
+        myChart17 = echarts.init(document.getElementById('first_biao_l_1_enlarge'));
+        myChart18= echarts.init(document.getElementById('first_biao_l_2_enlarge'));
+        myChart19 = echarts.init(document.getElementById('first_biao_l_3_enlarge')); 
+        myChart20=echarts.init(document.getElementById("first_biao_l_4_enlarge"));
+        myChart8= echarts.init(document.getElementById('first_second_biao1_1'));
+        myChart9 = echarts.init(document.getElementById('first_second_biao1_2')); 
+        myChart10=echarts.init(document.getElementById("first_second_biao1_3"));
+        myChart21= echarts.init(document.getElementById('third_l_main_biao_l_1_enlarge'));
+        myChart22 = echarts.init(document.getElementById('third_l_main_biao_l_2_enlarge')); 
+        myChart23=echarts.init(document.getElementById("third_l_main_biao_l_3_enlarge"));        
+   function loaning(arr,datach,datapro,datafor,datasech,datasepro){
+    var  monthdata={$monthdata};
+    //var a=datafor.length;
+    //1)全国销量占比
+    var  getobject="";
+    for(var i=0; i<datafor.length; i++)  
+      {  
+         //alert(json[i].text+" " + json[i].value)  
+        getobject=getobject+"{"
+            +"name:"+"'"+datafor[i]['varies_name']+"'"+","
+            +"type:'line',"
+            +"smooth: 'true',"
+            +"data:"+datafor[i]['onarrsale']+
+        "},"
+      }  
+      getobject="["+getobject+"]";
+      var getobject=(new Function('return( ' + getobject + ' );'))();
+    var option = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: '全国销量占比',
+         x: 'center', 
+        textStyle: {
+            fontWeight: 'normal',  
+            fontSize:14,
+            color: '#fff'
+        }
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+    	data:datapro,
+        orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+                                   // 'horizontal' ¦ 'vertical'
+        x: 'center',               // 水平安放位置，默认为全图居中，可选为：
+                                   // 'center' ¦ 'left' ¦ 'right'
+                                   // ¦ {number}（x坐标，单位px）
+        y: '20px',                  // 垂直安放位置，默认为全图顶端，可选为：
+                                   // 'top' ¦ 'bottom' ¦ 'center'
+                                   // ¦ {number}（y坐标，单位px）
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#fff',       // 图例边框颜色
+        borderWidth: 0,            // 图例边框线宽，单位px，默认为0（无边框）
+        padding: 0,                // 图例内边距，单位px，默认各方向内边距为5，
+                                   // 接受数组分别设定上右下左边距，同css
+        itemGap: 0,               // 各个item之间的间隔，单位px，默认为10，
+                                   // 横向布局时为水平间隔，纵向布局时为纵向间隔
+        itemWidth: 8,             // 图例图形宽度
+        itemHeight: 4,            // 图例图形高度
+        textStyle: {
+        	fontSize:10,
+            color:'#fff'         // 图例文字颜色
+        }
+        
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    xAxis: {
+        type: 'category',
+         axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+            axisLabel:{
+              textStyle:{
+                 fontSize:10  //刻度大小
+            }
+          },
+        boundaryGap: false,
+        data: monthdata,
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    yAxis: {
+        name:"全国销量占比（%）",
+        nameRotate:'1',
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff",
+            fontSize:10
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    series: getobject
+};
+//2)产品各月预产量
+var  getobjectse="";
+    for(var i=0; i<datasepro.length; i++)  
+      {             
+        getobjectse=getobjectse+"{"
+            +"name:"+"'"+datasepro[i]['varies_name']+"'"+","
+            +"type:'line',"
+            +"smooth: 'true',"
+            +"data:"+datasepro[i]['onarryield']+
+        "},"
+      }  
+      getobjectse="["+getobjectse+"]";
+      var getobjectse=(new Function('return( ' + getobjectse + ' );'))();
+var option1 = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: '产品各月预产量',
+         x:'center',
+         textStyle: {
+            fontWeight: 'normal',              //标题颜色
+            fontSize:14,
+            color: '#fff'
+        }
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+    	data:datasech,
+        orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+                                   // 'horizontal' ¦ 'vertical'
+        x: 'center',               // 水平安放位置，默认为全图居中，可选为：
+                                   // 'center' ¦ 'left' ¦ 'right'
+                                   // ¦ {number}（x坐标，单位px）
+        y: '20px',                  // 垂直安放位置，默认为全图顶端，可选为：
+                                   // 'top' ¦ 'bottom' ¦ 'center'
+                                   // ¦ {number}（y坐标，单位px）
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#ccc',       // 图例边框颜色
+        borderWidth: 0,            // 图例边框线宽，单位px，默认为0（无边框）
+        padding: 0,                // 图例内边距，单位px，默认各方向内边距为5，
+                                   // 接受数组分别设定上右下左边距，同css
+        itemGap: 0,               // 各个item之间的间隔，单位px，默认为10，
+                                   // 横向布局时为水平间隔，纵向布局时为纵向间隔
+        itemWidth: 8,             // 图例图形宽度
+        itemHeight: 4,            // 图例图形高度
+        textStyle: {
+        	fontSize:10,
+            color:'#fff'         // 图例文字颜色
+        }
+    },
+    grid: {
+        left: '1%',
+        right: '1%',
+        bottom: '1%',
+        containLabel: true
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    xAxis: {
+        type: 'category',
+         axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        boundaryGap: true,
+        data: monthdata
+    },
+    yAxis: {
+    	name:"产品预产量",
+    	 nameRotate:'1',
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff",
+            fontSize:10
+        }
+    },
+    series: getobjectse
+};
+//3)产品产量
+var option2 = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: '产品产量',
+         x:'center',
+         textStyle: {
+            fontWeight: 'normal',              //标题颜色
+           fontSize:14,
+           color: '#fff'
+        }
+    },
+    color: ['#3398DB'],
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data: arr,
+            axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis :{
+    	name:"产品总产量(吨)",
+        nameRotate:'1',
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff",
+            fontSize:10
+        }
+        },
+    series : [
+        {
+            name:'产量',
+            type:'bar',
+            barWidth: '60%',
+            data:datach
+        }
+    ]
+};
+//4)待定
+var option3 = {
+		backgroundColor:'rgba(0, 0, 0, 0)',
+        title : {
+        text: '各产品产值占各县百分比',
+         x:'center',
+         textStyle: {
+            fontSize:14,
+            fontWeight: 'normal',              //标题颜色
+            color: '#fff'
+        },
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        data:["苹果","梨","花生"],
+        orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+                                   // 'horizontal' ¦ 'vertical'
+        x: 'center',               // 水平安放位置，默认为全图居中，可选为：
+                                   // 'center' ¦ 'left' ¦ 'right'
+                                   // ¦ {number}（x坐标，单位px）
+        y: '20px',                  // 垂直安放位置，默认为全图顶端，可选为：
+                                   // 'top' ¦ 'bottom' ¦ 'center'
+                                   // ¦ {number}（y坐标，单位px）
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#fff',       // 图例边框颜色
+        borderWidth: 0,            // 图例边框线宽，单位px，默认为0（无边框）
+        padding: 0,                // 图例内边距，单位px，默认各方向内边距为5，
+                                   // 接受数组分别设定上右下左边距，同css
+        itemGap: 0,               // 各个item之间的间隔，单位px，默认为10，
+                                   // 横向布局时为水平间隔，纵向布局时为纵向间隔
+        itemWidth: 8,             // 图例图形宽度
+        itemHeight: 4,            // 图例图形高度
+        textStyle: {
+        	fontSize:10,
+            color:'#fff'         // 图例文字颜色
+        }
+        
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:33, name:'苹果'},
+                {value:30, name:'梨'},
+                {value:24, name:'花生'}
+            ]
+        }
+    ]
+};
+myChart1.setOption(option);
+myChart2.setOption(option1);
+myChart3.setOption(option2);
+myChart4.setOption(option3);
+myChart17.setOption(option);
+myChart18.setOption(option1);
+myChart19.setOption(option2);
+myChart20.setOption(option3);
+ }
+
+ /*点击地址事件*/
+$("#first_second_select_k2").on("change",function(){
+         //alert(id);
+         var zhi=this.value;          
+         priocedata(zhi);           
+})
+   /**
+    * 价格表
+    */
+   function loaningtwo(dataprice,datapricef,dayprice){
+    //alert(2);
+       /*全国城市*/ 
+    var cityname=(new Function('return( ' + dataprice.every_name + ' );'))();
+    var citynamevalue=(new Function('return( ' + dataprice.every_value + ' );'))();
+    var themeprice=dataprice['pro_time'];
+    var typename=dataprice['pro_name'];
+       /*某个市*/ 
+    var countyname=(new Function('return( ' + datapricef.every_name + ' );'))();
+    var countynamevalue=(new Function('return( ' + datapricef.every_value + ' );'))();
+    var countythemeprice=datapricef['pro_time'];
+    var countytypename=datapricef['pro_name'];
+    /*近31天的价格*/
+    var dayMonth=(new Function('return( ' + dayprice.monthvalue + ' );'))();
+    var daypriceval=(new Function('return( ' + dayprice.every_value + ' );'))();
+    var daypricename=dayprice.pro_name;
+    var daypricetheme=dayprice.pro_time;
+   		var option8 = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: themeprice,
+         x:'center',
+         textStyle: {
+            fontSize:14,
+            fontWeight: 'normal',              //标题颜色
+            color: '#fff'
+        },
+        left:'center'
+    },
+    color: ['#3398DB'],
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        },
+        formatter: function(params){
+		                var str = '<table>';	                
+		                str += '<tr><td>地区:'+params[0].name+'</td></tr>';	
+		                str += '<tr><td>品类:'+params[0].seriesName+'</td></tr>';	
+		                str += '<tr><td>均价:'+params[0].data+'</td></tr>';	
+		                str += '</table>';
+		                return str
+            }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    xAxis: {
+        type: 'category',
+         axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        boundaryGap: true,
+        data: cityname,
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    yAxis: {
+        name:"单位:元/斤",
+        nameRotate:'1',        
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    series : [
+        {
+            name:'产量',
+            type:'bar',
+            barWidth: '60%',
+            itemStyle: {
+                    normal: {　　　　　　　　　　　　
+                        color: function(params) {                         
+							//console.log(params)						
+							var max = Math.max.apply(null,citynamevalue);
+							var min = Math.min.apply(null, citynamevalue);
+							if(max==params.value){
+								return '#C1232B';
+							}else if(min==params.value){
+								return '#00FFC8';
+							}else{
+								return '#3398DB';
+							}							
+                        }　　　　　　　　　　                    
+                    }
+                },
+            data:citynamevalue
+        }
+    ]
+};
+var option9 = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: countythemeprice,
+         x:'center',
+         textStyle: {
+            fontSize:14,
+            fontWeight: 'normal',              //标题颜色
+            color: '#fff'
+        },
+        left:'center'        
+    },
+    color: ['#3398DB'],
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        },
+        formatter: function(params){
+		                var str = '<table>';	                
+		                str += '<tr><td>地区:'+params[0].name+'</td></tr>';	
+		                str += '<tr><td>品类:'+params[0].seriesName+'</td></tr>';	
+		                str += '<tr><td>均价:'+params[0].data+'</td></tr>';	
+		                str += '</table>';
+		                return str
+            }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+   xAxis: {
+        type: 'category',
+         axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        boundaryGap: true,
+        data: countyname,
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    yAxis: {
+        name:"单位:元/斤",
+        nameRotate:'1',
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    series : [
+        {
+            name:countytypename,
+            type:'bar',
+            barWidth: '60%',
+            data:countynamevalue
+        }
+    ]
+};
+var option10 = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: daypricetheme,
+         x:'center',
+        textStyle: {
+            fontSize:14,
+            fontWeight: 'normal',              //标题颜色
+            color: '#fff'
+        },
+        left:'center'
+    },
+    tooltip: {
+        trigger: 'axis',
+        formatter: function(params){
+		                var str = '<table>';	                
+		                str += '<tr><td>日期:'+params[0].name+'</td></tr>';	
+		                str += '<tr><td>品类:'+params[0].seriesName+'</td></tr>';	
+		                str += '<tr><td>均价:'+params[0].data+'</td></tr>';	
+		                str += '</table>';
+		                return str
+            }
+    },
+   legend: {
+    	data:[1,3],
+        orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+                                   // 'horizontal' ¦ 'vertical'
+        x: 'right',               // 水平安放位置，默认为全图居中，可选为：
+                                   // 'center' ¦ 'left' ¦ 'right'
+                                   // ¦ {number}（x坐标，单位px）
+        y: '15px',                  // 垂直安放位置，默认为全图顶端，可选为：
+                                   // 'top' ¦ 'bottom' ¦ 'center'
+                                   // ¦ {number}（y坐标，单位px）
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#ccc',       // 图例边框颜色
+        borderWidth: 0,            // 图例边框线宽，单位px，默认为0（无边框）
+        padding: 0,                // 图例内边距，单位px，默认各方向内边距为5，
+                                   // 接受数组分别设定上右下左边距，同css
+        itemGap: 0,               // 各个item之间的间隔，单位px，默认为10，
+                                   // 横向布局时为水平间隔，纵向布局时为纵向间隔
+        itemWidth: 8,             // 图例图形宽度
+        itemHeight: 4,            // 图例图形高度
+        textStyle: {
+        	fontSize:10,
+            color:'#fff'         // 图例文字颜色
+        }
+        
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    xAxis: {
+        type: 'category',
+         axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        boundaryGap: false,
+        data: dayMonth,
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    yAxis: {
+        name:"单位:元/斤",
+        nameRotate:'1',
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    series: [{
+            name: daypricename,
+            type: 'line',
+            data: daypriceval
+        }]
+};
+myChart8.hideLoading();
+myChart8.setOption(option8);
+myChart9.hideLoading();
+myChart9.setOption(option9);
+myChart10.hideLoading();
+myChart10.setOption(option10);
+myChart21.hideLoading();
+myChart21.setOption(option8);
+myChart22.hideLoading();
+myChart22.setOption(option9);
+myChart23.hideLoading();
+myChart23.setOption(option10);
+  }
+/*点击地址事件*/
+$("#Select3").on("change",function(){
+         //alert(id);
+         var zhi=this.value;                            
+         abx(zhi);//秦岭地区信息
+
+
+})
+    </script>
+    <!--
+        第四模块淘宝模块
+    -->
+    <script>  
+
+        var myChart13=echarts.init(document.getElementById("fourth_biao_3"));
+        var myChart14=echarts.init(document.getElementById("fourth_biao_4"));
+                
+        var myChart25=echarts.init(document.getElementById("third_r_main_biao_l_2_enlarge"));
+        var myChart26=echarts.init(document.getElementById("third_r_main_biao_l_3_enlarge"));
+        
+      
+        function  taobao_data(column,broken){
+            var typeName= (new Function('return( ' + column.gtypeData + ' );'))();
+            var typeEvaluate= (new Function('return( ' + column.gtypeNum + ' );'))();
+            var brokenName=(new Function('return( ' + broken.typeJsonName + ' );'))();
+            var brokenTimeJson=(new Function('return( ' + broken.timeJson + ' );'))();
+                //console.log(brokenName);
+            var  brokenArr="";
+            // console.log(broken.typeJsonDate);
+    for(var i=0; i<broken.typeJsonDate.length; i++)  
+      {  
+         //alert(json[i].text+" " + json[i].value)  
+        brokenArr=brokenArr+"{"
+            +"name:"+"'"+brokenName[i]+"'"+","
+            +"type:'line',"
+            +"smooth: 'true',"
+            +"data:"+broken.typeJsonDate[i]+
+        "},"
+      }  
+      brokenArr="["+brokenArr+"]";
+      var brokenArr=(new Function('return( ' + brokenArr + ' );'))();
+      //console.log(brokenArr);
+        var option13 = {
+                backgroundColor:'rgba(0, 0, 0, 0)',
+                title : {
+                    text: '各宝贝销售量',
+                     x:'center',
+                    textStyle: {
+                        fontSize:14,
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#fff'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:brokenName,
+                    orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+                                   // 'horizontal' ¦ 'vertical'
+			        x: 'center',               // 水平安放位置，默认为全图居中，可选为：
+			                                   // 'center' ¦ 'left' ¦ 'right'
+			                                   // ¦ {number}（x坐标，单位px）
+			        y: '20px',                  // 垂直安放位置，默认为全图顶端，可选为：
+			                                   // 'top' ¦ 'bottom' ¦ 'center'
+			                                   // ¦ {number}（y坐标，单位px）
+			        backgroundColor: 'rgba(0,0,0,0)',
+			        borderColor: '#fff',       // 图例边框颜色
+			        borderWidth: 0,            // 图例边框线宽，单位px，默认为0（无边框）
+			        padding: 0,                // 图例内边距，单位px，默认各方向内边距为5，
+			                                   // 接受数组分别设定上右下左边距，同css
+			        itemGap: 0,               // 各个item之间的间隔，单位px，默认为10，
+			                                   // 横向布局时为水平间隔，纵向布局时为纵向间隔
+			        itemWidth: 8,             // 图例图形宽度
+			        itemHeight: 4,            // 图例图形高度
+			        textStyle: {
+			        	fontSize:10,
+			            color:'#fff'         // 图例文字颜色
+			        }
+        
+                },
+                lable:{
+			        normal:{
+			            textStyle:{
+			                fontsize:'6'
+			            }
+			        }
+			    },
+                xAxis: {
+                    type: 'category',
+                     axisLine:{  
+                            lineStyle:{  
+                                color:'#fff',  
+                                width:1,  
+                            }  
+                        },  
+                    boundaryGap: false,
+                    data: brokenTimeJson,
+                    nameTextStyle:{
+                        color:"#fff"
+                    }
+                },
+                yAxis: {
+                    name:"销量（件）",
+                    nameRotate:'1',
+                    axisLine:{  
+                            lineStyle:{  
+                                color:'#fff',  
+                                width:1,  
+                            }  
+                        },  
+                    type: 'value',                  
+                   nameTextStyle:{
+                        color:"#fff"
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                series: brokenArr
+            };
+		var option14 = {
+            backgroundColor:'rgba(0, 0, 0, 0)',
+		    title : {
+		        text: '各宝贝访客量',
+		        x:'center',
+		        textStyle: {
+		            fontSize:14,
+		            fontWeight: 'normal',              //标题颜色
+		            color: '#fff'
+		        },
+		        left:'center'
+		    },
+		    color: ['#3398DB'],
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    lable:{
+		        normal:{
+		            textStyle:{
+		                fontsize:'6'
+		            }
+		        }
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data: typeName,
+		            axisTick: {
+		                alignWithLabel: true
+		            },
+		            axisLine:{  
+			            lineStyle:{  
+			                color:'#fff',  
+			                width:1,  
+			            }  
+		            }  
+		        }
+		    ],
+		    yAxis : [
+		        {
+		        	name:'访客量（次）',
+		        	axisLine:{  
+			            lineStyle:{  
+			                color:'#fff',  
+			                width:1,  
+			            }  
+		            },  
+		            type : 'value'
+		        }      
+		    ],
+		    series : [
+		        {
+		            name:'直接访问',
+		            type:'bar',
+		            barWidth: '60%',
+		            data:typeEvaluate
+		        }
+		    ]
+		};
+myChart13.setOption(option13);
+myChart14.setOption(option14);
+myChart25.setOption(option13);
+myChart26.setOption(option14);
+}
+    </script>
+    <!--
+    第三模块
+-->
+<script type="text/javascript" src="__STATIC__/weixin/json/qinlingmap.js"></script>
+<script type="text/javascript" src="__STATIC__/weixin/json/100000.js"></script>
+<script>  
+	function startmarquee(lh,speed,delay,text) {   //函数 函数名(变量1,变量2,变量3)
+		var p=false; //定义变量 p为假;
+		var t; //定义变量t了
+		var o=document.getElementById(text); //定义变量o为document.getElementById("marqueebox")对象
+		o.innerHTML+=o.innerHTML; //设置变量o的innerHTML对象为自加
+		o.style.marginTop=0; //o的属性，设置或获取对象的上边距宽度
+		o.onmouseover=function(){p=true;} //光标在滚动字幕范围内暂停滚动
+		o.onmouseout=function(){p=false;} //光标在滚动字幕范围外也就是离开的时候继续滚动
+		function start(){ //“开始”函数
+		t=setInterval(scrolling,speed); //给前面定义的变量t赋值=自动（滚动，速度）
+		if(!p) o.style.marginTop=parseInt(o.style.marginTop)-1+"px"; //当P为空，属性o的上边距宽度为数字[把变量o上边距宽度转为integer类型，其中parseInt功能为转换]
+		}
+		function scrolling(){ //“滚动”函数
+		if(parseInt(o.style.marginTop)%lh!=0){ //如果对象o的上边距宽度为空，则为0（parseInt为转换作用）
+		o.style.marginTop=parseInt(o.style.marginTop)-1+"px"; //上边距宽度为数字[把变量o上边距宽度转为integer类型，其中parseInt功能为转换]
+		if(Math.abs(parseInt(o.style.marginTop))>=o.scrollHeight/2) o.style.marginTop=0; //如果计算出来的上边距宽度大于或者等于滚动的高度除以2 则o的上边距宽度为0
+		}else{ //否则
+		clearInterval(t); //指定T为空
+		setTimeout(start,delay);//指定暂停时间(开始，延迟)
+		}//相当于end if，表示结束如果
+		}//相当于end if，表示结束如果
+		//新的开始，不包含在前面的如果里面
+		setTimeout(start,delay); //指定暂停时间(开始，延迟)
+	}
+	startmarquee(22,20,3000,"messagebox"); //滚动属性(滚动高度,速度,延迟)
+    var myChart7 = echarts.init(document.getElementById('main3'));
+    var myChart16 = echarts.init(document.getElementById('main4'));
+   function  moderThird(oncounty){
+
+    /*地区产品滚动*/
+
+
+   ///alert(oncounty);
+    var timeFn = null;
+    loadMapTwo('china')
+    //var oncounty=oncounty;
+        /**
+       绑定用户切换地图区域事件
+    cityMap对象存储着地图区域名称和区域的信息(name-code)
+       当mapCode有值,说明可以切换到下级地图
+       同时保存上级地图的编号和名称  
+    */
+    $("#btnnn").unbind('click').click(function(params) {      	     
+            loadMap('china',oncounty);
+            $("#drill").css({"width":"40vw","height":"33.333333vh","top":"33.333333vh","left":"30vw"})
+    });
+    $("#btnnn_drill").unbind('click').click(function(params) {      	     
+            loadMapTwo('china');
+            $("#drill").css({"width":"0vw","height":"0vh","top":"55vh","left":"51vw"})
+    });
+    /**
+       绑定双击事件，并加载上一级地图
+    */
+    function loadMap(mapName,oncounty) {
+             if (data_qinlingmap) {
+                 echarts.registerMap(mapName, data_qinlingmap);
+                 var option16 = {
+                    backgroundColor:'rgba(0, 0, 0, 0)',
+                    title : {
+                        text: '秦岭范围各县',
+                        x:'center',                     
+                        textStyle: {
+                            fontSize:20,
+                            fontWeight: 'normal',              //标题颜色
+                            color: '#fff'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: function(params){
+						                var str = '<table>';						               
+						                str += '<tr><td>'+params.data.name+'   :</td></tr>';
+						                for(var i=0;i<params.data.content.length;i++){
+						                	str += '<tr><td>'+params.data.content[i]+'</td></tr>';	
+						                }					                					                
+						                str += '</table>';
+						                return str
+                					}
+                    		},   
+                    		lable:{
+				        normal:{
+				            textStyle:{
+				                fontsize:'6'
+				            }
+				        }
+				    },
+                    dataRange: {
+                        show:false,      
+                        min: 0,
+                        max: 0,
+                        color:['orange','#ffffff'],
+                        text:['高','低'],           // 文本，默认为数值文本
+                        calculable : false
+                    },
+                    series: [
+                        {
+                            name: '',
+                            type: 'map',
+                            left: '0',
+                            right: '0',
+                            zoom: 2.7,                           
+                            roam: false,
+                            center: [108.423922148438,33.9560353828125],
+                            mapType: mapName,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'red',
+                                    
+                                    shadowColor: '#333'
+                                }
+                            },
+                            data:oncounty
+                        }
+                    ]
+                 };
+                 myChart16.setOption(option16);
+                   
+             } else {
+                 alert('无法加载该地图');
+             }       
+    }
+function loadMapTwo(mapName) {
+             if (data_100000) {
+                 echarts.registerMap(mapName, data_100000);
+                 var option7 = {
+                    backgroundColor:'rgba(0, 0, 0, 0)',
+                    title : {
+                        text: '秦岭腹地区域图及特产',
+                        x:'center',
+                        textStyle: {
+                            fontSize:14,
+                            fontWeight: 'normal',              //标题颜色
+                            color: '#fff'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b} '
+                    },
+                    lable:{
+				        normal:{
+				            textStyle:{
+				                fontsize:'6'
+				            }
+				        }
+				    },
+                    series: [
+                        {
+                            name: '',
+                            type: 'map',
+                            left: '0',
+                            right: '0',
+                            zoom: 0.8,                         
+                            roam: false,
+                            center: [102.99971609375,35.6292153144531],
+                            mapType: mapName,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'red',
+                                    
+                                    shadowColor: '#333'
+                                }
+                            },
+                            data:[ 
+                               
+                            ]
+                        }
+                    ]
+                 };
+                 myChart7.setOption(option7);
+                   
+             } else {
+                 alert('无法加载该地图');
+             }       
+    }
+  }  
+ /*异步加载*/   
+function abx(zhi)
+{
+
+    if (myChart1 != null && myChart1 != "" && myChart1 != undefined) {  
+             myChart1.dispose();  
+        }  
+        if (myChart2 != null && myChart2 != "" && myChart2 != undefined) {  
+             myChart2.dispose();  
+        } 
+        if (myChart3 != null && myChart3 != "" && myChart3 != undefined) {  
+             myChart3.dispose();  
+        } 
+        if (myChart4 != null && myChart4 != "" && myChart4 != undefined) {  
+             myChart4.dispose();  
+        } 
+        
+        myChart1=echarts.init(document.getElementById("first_biao_l_1"));
+        myChart2=echarts.init(document.getElementById("first_biao_l_2"));
+        myChart3=echarts.init(document.getElementById("first_biao_l_3"));
+        myChart4=echarts.init(document.getElementById("first_biao_l_4"));
+       /*异步加载数据*/
+        $.ajax({
+        url:"{:url('County/getcityarr')}",
+        type:"post",
+        dataType:"json",
+        data:"zhi="+zhi,
+        success:function(res){
+            var arr= (new Function('return( ' + res.third.onarrPro + ' );'))();
+            var datach=(new Function('return( ' + res.third.onarrSort + ' );'))();  
+            var datapro=(new Function('return( ' + res.first.onarrPro + ' );'))();
+            var datafor=res.first.arrPro;
+            var datasech=(new Function('return( ' + res.second.onarrPro + ' );'))();
+            var datasepro=res.second.arrPro;
+            var weatherdata=res.weather.r;
+            var weathername=res.weather.name;
+            //console.log(weatherdata);
+        loaning(arr,datach,datapro,datafor,datasech,datasepro)
+        modertwo(arr,datasepro)   
+        weatherday(weatherdata,weathername)
+    }
+  });  
+}
+/*异步加载*/   
+function priocedata(zhi)
+{
+    //alert(1);
+        if (myChart8 != null && myChart8 != "" && myChart8 != undefined) {  
+             myChart8.dispose();  
+        }  
+        if (myChart9 != null && myChart9 != "" && myChart9 != undefined) {  
+             myChart9.dispose();  
+        } 
+        if (myChart10 != null && myChart10 != "" && myChart10 != undefined) {  
+             myChart10.dispose();  
+        }
+        myChart8= echarts.init(document.getElementById('first_second_biao1_1'));
+        myChart9 = echarts.init(document.getElementById('first_second_biao1_2')); 
+        myChart10=echarts.init(document.getElementById("first_second_biao1_3"));
+       /*异步加载数据*/
+        $.ajax({
+        url:"{:url('County/getPriceArr')}",
+        type:"post",
+        dataType:"json",
+        data:"zhi="+zhi,
+        success:function(res){  
+            var dataprice=res.forth;
+            var datapricef=res.five;
+            var dayprice=res.dayprice;
+       loaningtwo(dataprice,datapricef,dayprice); 
+       //console.log(dataprice)
+        if(dataprice== 400)
+        {
+        		$("#third_l_biao_block").css("opacity","0");
+				$("#data_none").css({"opacity":"1","z-index":"1"});
+        }
+   
+       if(dataprice !=400 && datapricef !=400 && dayprice !=400)
+       {                
+              $("#third_l_biao_block").css("opacity","1");
+              $("#data_none").css({"opacity":"0","z-index":"-11000"});
+              loaningtwo(dataprice,datapricef,dayprice);
+        }
+            
+        }
+  });
+}
+/*产品价格默认板栗*/
+    var priceId={$typesdata['protype_id']};
+    priocedata(priceId)
+/*默认县id*/
+    var cityid={$dataCity['county_id']};
+    abx(cityid);
+ /*地图请求事件只加载一次*/
+ function getMap()
+ { 
+    var zhi=1;
+     $.ajax({
+        url:"{:url('County/getMapArr')}",
+        type:"post",
+        dataType:"json",
+        data:"zhi="+zhi,
+        success:function(oncounty){    
+        var oncounty=(new Function('return( ' + oncounty + ' );'))();
+        //alert(oncounty);
+        moderThird(oncounty)
+    }
+  });  
+ }   
+ getMap()
+ /**/
+/*
+ * 天气处理函数
+ */
+function weatherday(data,name){
+	var data= (new Function('return( ' + data + ' );'))();	
+	//console.log(data)
+
+	$("#second_b_weather_main_ul").html("");
+	if(data.day7[0].day==null||data.day7[0].day==undefined){
+			$("#second_b_weather_main_ul").append("<li class='on clear'>"
+    				+"<span class='float_1'>夜晚</span>"
+    				+"<span class='float_1'><img src='__STATIC__/weixin/video/"+data.day7[0].night.wicon+".png'/></span>"
+    				+"<span class='float_1'>"+data.day7[0].night.wdesc+"</span>"
+    				+"<span class='float_1'>"+data.day7[0].night.temp+"</span>"
+    				+"<span class='float_1'>"+data.day7[0].night.direct+"</span>"    				
+    			+"</li>"
+    			+"<li class='clear'>"
+    				+"<span class='float_1'>"+data.day7[1].date.week+"</span>"
+    				+"<span class='float_1'><img src='__STATIC__/weixin/video/"+data.day7[1].day.wicon+".png'/></span>"
+    				+"<span class='float_1'>"+data.day7[1].day.wdesc+"</span>"
+    				+"<span class='float_1'>"+data.day7[1].day.temp+"</span>"
+    				+"<span class='float_1'>"+data.day7[1].day.direct+"</span>"
+    			+"</li>"
+    			+"<li class='clear'>"
+    				+"<span class='float_1'>"+data.day7[2].date.week+"</span>"
+    				+"<span class='float_1'><img src='__STATIC__/weixin/video/"+data.day7[2].day.wicon+".png'/></span>"
+    				+"<span class='float_1'>"+data.day7[2].day.wdesc+"</span>"
+    				+"<span class='float_1'>"+data.day7[2].day.temp+"</span>"
+    				+"<span class='float_1'>"+data.day7[2].day.direct+"</span>"
+    			+"</li>");
+	}else{
+		$("#second_b_weather_main_ul").append("<li class='on clear'>"
+    				+"<span class='float_1'>今天</span>"
+    				+"<span class='float_1'><img src='__STATIC__/weixin/video/"+data.day7[0].day.wicon+".png'/></span>"
+    				+"<span class='float_1'>"+data.day7[0].day.wdesc+"</span>"
+    				+"<span class='float_1'>"+data.day7[0].day.temp+"</span>"
+    				+"<span class='float_1'>"+data.day7[0].day.direct+"</span>"    				
+    			+"</li>"
+    			+"<li class='clear'>"
+    				+"<span class='float_1'>"+data.day7[1].date.week+"</span>"
+    				+"<span class='float_1'><img src='__STATIC__/weixin/video/"+data.day7[1].day.wicon+".png'/></span>"
+    				+"<span class='float_1'>"+data.day7[1].day.wdesc+"</span>"
+    				+"<span class='float_1'>"+data.day7[1].day.temp+"</span>"
+    				+"<span class='float_1'>"+data.day7[1].day.direct+"</span>"
+    			+"</li>"
+    			+"<li class='clear'>"
+    				+"<span class='float_1'>"+data.day7[2].date.week+"</span>"
+    				+"<span class='float_1'><img src='__STATIC__/weixin/video/"+data.day7[2].day.wicon+".png'/></span>"
+    				+"<span class='float_1'>"+data.day7[2].day.wdesc+"</span>"
+    				+"<span class='float_1'>"+data.day7[2].day.temp+"</span>"
+    				+"<span class='float_1'>"+data.day7[2].day.direct+"</span>"
+    			+"</li>");
+	}
+	
+    
+   $("#second_b_weather_title").children("span").text(name); 
+}
+/*
+  * 第五模块函数
+  */
+ function daychange(){
+ 	$("#second_b_weather_main_ul").on("click","li",function(){
+ 		$(this).addClass("on")
+ 		$(this).siblings().removeClass("on")
+ 	})
+ };
+ daychange();
+ /**电商模块数据*/
+function  ajaxTbData()
+{
+    var zhi=1;
+     $.ajax({
+        url:"{:url('County/getAjaxTb')}",
+        type:"post",
+        dataType:"json",
+        data:"zhi="+zhi,
+        success:function(taobao){   
+        //柱状图数据 
+        var column=taobao.allSummary.getTypeData;
+        //留言信息
+        var evaluate=taobao.allSummary.evaluate;
+       
+        //折线图数据
+        var broken =taobao.broken;
+
+        //console.log(broken);
+        taobao_data(column,broken);
+        var tbm_time_new=[];
+        for(var i=0;i<evaluate.length;i++){
+        	var str=evaluate[i].tbm_time;
+        	var arr=str.split(" ");
+        	tbm_time_new.push(arr[0]);
+        }
+        //console.log(tbm_time_new)
+        //console.log(evaluate)
+        for(var i=0;i<evaluate.length;i++){
+        	$("#messagebox").append("<div>"
+						    	+"<h3 class='clear'><span>"+evaluate[i].tbm_name+"</span>：</h3>"
+						    	+"<h3>"+evaluate[i].tbm_text+"</h3>"
+						    	+"<h3 class='clear'><span>"+tbm_time_new[i]+"</span></h3>"
+						    +"</div>")
+        }
+        
+        
+         //销量统计
+        var Summary =taobao.allSummary.Summary;
+ 		$("#tradeVolumeTotal").text("")
+        $("#transactionVolumeTotal").text("")
+        $("#tradeVolume").text("")
+        $("#transactionVolume").text("")
+        $("#tradeVolumeTotal").text(Summary.ATurnover)
+        $("#transactionVolumeTotal").text(Summary.AllVolume)
+        $("#tradeVolume").text(Summary.WeekMoney)
+        $("#transactionVolume").text(Summary.WeekNum)     
+        //销售去向
+        var SalesWhere=taobao.SalesWhere;
+        TaobaoSalesWhere(SalesWhere);
+        
+		//console.log(SalesWhere)
+    }
+  });  
+}
+ajaxTbData();
+</script>  

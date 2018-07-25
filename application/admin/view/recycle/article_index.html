@@ -1,0 +1,107 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>文章列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3>
+          <a href="{:url('admin/recycle/img_index')}" class="actionBtn">轮播图管理　｜</a>
+  <a href="{:url('admin/recycle/products_index')}" class="actionBtn">产品管理　｜</a>
+  <a href="{:url('admin/recycle/article_index')}" class="actionBtn">文章管理　｜</a>
+  <a href="{:url('admin/recycle/admin_index')}" class="actionBtn">管理员管理　｜</a>
+        回收站管理</h3>
+    
+    <form name="action" method="post" id="pro_admin" action="">
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+     <tr>
+      <th width="22" align="center"></th>
+      <th width="40" align="center">编号</th>
+      <th align="left">文章名称</th>
+      <th width="150" align="center">文章分类</th>
+      <th width="150" align="center">展示图片</th>
+      <th width="80" align="center">添加日期</th>
+      <th width="80" align="center">操作</th>
+     </tr>
+      {foreach name="data" item="va"}
+          <tr>
+      <td align="center"></td>
+      <td align="center">{$va['cont_id']}</td>
+      <td><a href="article.php?rec=edit&id=10">{$va['cont_title']}</a></td>
+      <td align="center"><a href="article.php?cat_id=1">{$va['type_name']}</a></td>
+       <td align="center"><img src="{$va['cont_img']}" style="width:110px;"/></td>
+      <td align="center">{$va['createtime']|date="Y-m-d H:i",###}</td>
+      <td align="center">
+            <a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="art_update('确定要上架吗？',{$va['cont_id']})">上架</a><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="art_deled('确定要删除吗？',{$va['cont_id']})">删除</a>
+             </td>
+     </tr>
+      {/foreach}    
+         </table>
+          <h3 align="center">{$data[0]?'':'这里没有数据'}</h3>
+    </form>
+    </div>
+    <div class="clear"></div>
+    <div class="pager">总计 {$count} 个记录，共 1 页，当前第 1 页 | <a href="article.php?page=1">第一页</a> 上一页 下一页 <a href="article.php?page=1">最末页</a></div>           </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+
+onload = function()
+{
+ document.forms['action'].reset();
+}
+
+function douAction()
+{
+ var frm = document.forms['action'];
+ frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
+}
+//删除分类
+function art_deled(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/article/article_deled')}";
+        var success_url="{:url('admin/recycle/article_index')}";
+        $.post(url,{'cont_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+    //上架
+    function art_update(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/article/article_update')}";
+        var success_url="{:url('admin/recycle/article_index')}";
+        $.post(url,{'cont_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+</script>
+{/block}

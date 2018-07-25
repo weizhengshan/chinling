@@ -1,0 +1,140 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加文章</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加文章</h3>
+    <form action="" id="article_admin" method="post" enctype="multipart/form-data">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="90" align="right">文章名称</td>
+       <td>
+        <input type="text" id="cont_title" name="cont_title"  value="" size="80" class="inpMain" />
+        <font style="display:none" class="adcont_title" color='red'>文章名称必须填写或在2--20！</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">文章分类</td>
+       <td>
+        <select name="cont_pid">
+        {foreach name="arr" item="vo"}
+            <option value="{$vo['type_id']}">{$vo['type_name']}</option>
+          {/foreach}  
+        </select>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">缩略图</td>
+       <td>
+         <a class="layui-btn" id="image" style="float: left;"><i class="layui-icon">&#xe67c;</i>上传图片</a>
+            <img style="margin-left: 110px;" id="img" src=""  width="400">
+          <input type="hidden" id="cont_img" name="cont_img" value=""/>
+          <font style="display:none" class="adcont_img" color='red'>请上传图片</font>  
+      </tr>
+      <tr>
+       <td align="right" valign="top">文章描述</td>
+       <td>
+       <script src="/static/admin/ueditor/ueditor.config.js"></script>
+		<script src="/static/admin/ueditor/ueditor.all.min.js"></script>
+		<script src="/static/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <script>
+			//实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});	
+			</script>
+        <!-- /KindEditor -->
+        <textarea id="content" name="content"></textarea>
+
+       </td>
+      </tr>
+      
+      <tr>
+       <td align="right">简单备注</td>
+       <td>
+            <textarea placeholder="请输入备注" class="layui-textarea" id="cont_remarks" name="cont_remarks"></textarea>
+            <font style="display:none" class="adcont_remarks" color='red'>备注不在1-100之间</font>
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="7e4a88fb" />
+        <input type="button" onclick='article_add()' class="btn"  value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ //上传图片
+layui.use('upload',function(){
+  var upload = layui.upload,
+  jq = layui.jquery;
+  upload.render({
+  url: '{:url("admin/imgclass/upload")}'
+  ,elem:'#image'
+  ,ext: 'jpg|png|gif'
+  ,area: ['500', '500px']
+  ,done: function(res){
+  jq('input[name=img]').val(res.path);
+  img.src = ""+res.path;
+  $("#cont_img").val(res.path);
+  }
+  }); 
+
+})
+ $(function(){
+    $("#cont_title").blur(function(){
+    $(".adcont_title").hide();
+    })
+    $("#cont_img").blur(function(){
+    $(".adcont_img").hide();
+    })
+    $("#content").blur(function(){
+    $(".adcontent").hide();
+    })
+    $("#cont_remarks").blur(function(){
+    $(".adcont_remarks").hide();
+    })
+})
+//添加文章
+function article_add(){
+var success_url="{:url('admin/article/article_index')}";
+var url="{:url('admin/article/article_add')}";
+var admins=$("#article_admin").serialize();
+//alert(admins);
+var cont_title=$("#cont_title").val();
+var cont_img=$("#cont_img").val();
+var content=$("#content").val();
+var cont_remarks=$("#cont_remarks").val();
+
+if((cont_title.length<2) || (cont_title.length>40)){
+$(".adcont_title").show();
+}else if(cont_img.length<1){
+$(".adcont_img").show();
+
+}else if(cont_remarks.length<1){
+$(".adcont_remarks").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+  dialog.error(result.message);
+} 
+})
+}
+
+}
+ </script>
+{/block}

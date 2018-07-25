@@ -1,0 +1,133 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+           添加权限</h3>
+    <form action="" id="data_type" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="80" align="right">用户组名称</td>
+       <td>
+        <input type="text" id="a_title" name="title" value="{$authgroups['title']}" size="40" class="inpMain" />
+    <font style="display:none" class="ad_title" color='red'>名称不能为空！</font>
+       </td>
+      </tr>
+     
+                            <label for="username" class="col-sm-2 control-label no-padding-right"></label>
+                            <div class="col-sm-6" align="center">
+                               <table class="table table-hover">
+                                    <thead class="bordered-darkorange">
+                                        <tr>
+                                            <th>
+                                                配置权限
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {volist name="authRuleRes" id="authRule"}
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        <?php echo str_repeat('&nbsp;', $authRule['level']*3);?>
+                                                        <input name="rules[]" value="{$authRule.id}"
+                                                        <?php $arr=explode(',', $authgroups['rules']); if(in_array($authRule['id'], $arr)){echo 'checked="checked"';} ?>
+                                                         dataid="id-{$authRule.dataid}" class="inverted checkbox-parent {if condition="$authRule['level'] neq 0"} checkbox-child {/if} " type="checkbox">
+                                                        <span {if condition="$authRule['level'] eq 0"} style="font-weight:bold; font-size:14px;" {/if} class="text">{$authRule.title}</span>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        {/volist}
+                                    </tbody>
+                                </table>
+                            </div>
+                       
+     
+       <td>
+        
+         <input type="hidden" name="id" value="{$authgroups['id']}" />
+        <input  class="btn" type="button" onclick='protype_add()' value="提交" />
+       </td>
+      </tr>
+     </table>
+     
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ $(function(){
+	$("#a_title").blur(function(){
+	$(".ad_title").hide();
+	})
+})
+function protype_add(){
+var success_url="{:url('admin/auth_group/auth_glist')}";
+var url="{:url('admin/auth_group/auth_gedit')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+
+var title=$("#a_title").val();
+
+
+if(title.length<1){
+$(".ad_title").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+  dialog.error(result.message);
+} 
+})
+}
+
+}
+/* 权限配置 */
+$(function () {
+    //动态选择框，上下级选中状态变化
+    $('input.checkbox-parent').on('change', function () {
+        var dataid = $(this).attr("dataid");
+        $('input[dataid^=' + dataid + ']').prop('checked', $(this).is(':checked'));
+    });
+    $('input.checkbox-child').on('change', function () {
+        var dataid = $(this).attr("dataid");
+        dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+        var parent = $('input[dataid=' + dataid + ']');
+        if ($(this).is(':checked')) {
+            parent.prop('checked', true);
+            //循环到顶级
+            while (dataid.lastIndexOf("-") != 2) {
+                dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+                parent = $('input[dataid=' + dataid + ']');
+                parent.prop('checked', true);
+            }
+        } else {
+            //父级
+            if ($('input[dataid^=' + dataid + '-]:checked').length == 0) {
+                parent.prop('checked', false);
+                //循环到顶级
+                while (dataid.lastIndexOf("-") != 2) {
+                    dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+                    parent = $('input[dataid=' + dataid + ']');
+                    if ($('input[dataid^=' + dataid + '-]:checked').length == 0) {
+                        parent.prop('checked', false);
+                    }
+                }
+            }
+        }
+    });
+});
+
+
+ </script>
+ 
+{/block}

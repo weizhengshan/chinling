@@ -1,0 +1,59 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>权限分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('admin/auth_rule/auth_add')}" class="actionBtn add">添加分类</a>权限分类</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+        <th  align="center">ID</th>
+        <th align="center">排序</th>
+       <th align="center">权限名称</th>
+        <th  align="center">控/方</th>
+        <th  align="center">级别</th>
+        <th  align="center">操作</th>
+	 </tr>
+	  {volist name="authRuleRes" id="vo"}
+            <tr>
+        <td align="center"> <a href="product.php?cat_id=1">{$vo.id}</a></td>
+        <td  align="center">{$vo.sort}</td>
+        <td align="left"><?php if($vo['level']!=0){echo '|';} echo str_repeat('—', $vo['level']*3)?>{$vo.title}</td>
+        <td align="center">{$vo.name}</td>
+        <td align="center">{$vo.level+1}级</td>
+        <td align="center"><a class="layui-btn layui-btn-sm" href="{:url('admin/auth_rule/auth_edit',['id'=>$vo.id])}">编辑</a><a href="JavaScript:"  class="layui-btn layui-btn-sm" onclick="protypes_dele('确定要删除吗？',{$vo.id})">删除</a></td>
+     </tr>
+      {/volist}     
+          </table>
+           </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ //删除分类
+function protypes_dele(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/auth_rule/auth_dele')}";
+        var success_url="{:url('admin/auth_rule/auth_list')}";
+        $.post(url,{'id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+</script>    
+{/block}

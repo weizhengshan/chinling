@@ -1,0 +1,102 @@
+#addressChose{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+}
+#addressChose .addressChoseMain{
+	width: 600px;
+	border: 1px solid #979DB4;
+	position: absolute;
+	top: 250px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background: #FFFFFF;
+}
+#addressChose .addressChoseMain .switch_div{
+	box-sizing: border-box;
+	padding: 10px 20px;
+	height: 50px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #CCCCCC;	
+}
+#addressChose .addressChoseMain .switch_div a{
+	display: inline-block;
+	text-align: center;
+	line-height: 30px;
+	width: 80px;
+	background: #0080DD;
+	color: #FFFFFF;
+	font-size: 20px;
+	border: none;
+}
+
+#addressChose .addressChoseMain .chose_val{
+	height: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #CCCCCC;
+}
+#addressChose .addressChoseMain .chose_val span{
+	display: inline-block;
+	width: 200px;
+}
+#addressChose .addressChoseMain .chose_val span i,b{
+	display: inline-block;
+	line-height: 30px;
+}
+#addressChose .addressChoseMain .chose_val span i{
+	width: 50px;
+	text-align: center;
+	background: #E9E9E9;
+}
+#addressChose .addressChoseMain .chose_val span b{
+	text-align: left;
+}
+#addressChose .addressChoseMain ul{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+}
+#addressChose .addressChoseMain ul li{
+	
+}
+#addressChose .addressChoseMain ul li span{
+	display: inline-block;
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #CCCCCC;
+	width: 200px;
+	text-align: center;
+}
+#addressChose .addressChoseMain ul li .chosed{
+	background: #999999;
+	border-bottom: 0;
+}
+#addressChose .addressChoseMain ul li:nth-child(2) span{
+	border-right: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+}
+#addressChose .addressChoseMain ul li div{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	background: #FFFFFF;
+}
+#addressChose .addressChoseMain ul li div a{
+	display: inline-block;
+	width: 150px;
+	line-height: 30px;
+	text-align: center;
+	float: left;
+}
+#addressChose .addressChoseMain ul li div a:hover{
+	background: #0080DD;
+}

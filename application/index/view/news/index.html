@@ -1,0 +1,51 @@
+{extend name="base"/}
+ {block name="content"}
+		{include file="public:xdao" /}
+		<div id="main_newslist">
+			{if condition="$newdata != NULL "}
+			<div class="introduction main_1 show"  >
+				<ul>
+					 {volist name="newdata" id="son"}
+					<li>
+						<a href="{:url('index/news/info',['id'=>$son.cont_id,'type_id'=>$son.cont_pid])}">
+							<div><img src="{$son.cont_img}"/></div>
+							<div class="news_index_main_main">
+								<h3>{$son.cont_title}</h3>
+								<h4 class="clear">
+									<span class="f-left"><i>发表于   </i> {$son['createtime']|date="Y-m-d H:i",###}</span>
+									<span class="f-right"><i>作者: </i> 编辑</span>
+								</h4>
+							</div>
+						</a>
+					</li>
+					{/volist}
+				</ul>
+			</div>
+			<div class="pages">
+        		<h3>
+        						<span><a href="{:url('index/news/index',['page'=>1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">首页</a></span>
+        						{if condition="$page==1 || $page<'1'"}
+			        			{else /}
+			        			<span><a href="{:url('index/news/index',['page'=>$page-1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">上一页</a></span>
+			        			{/if}
+			        			<span>第<b>{$page}</b>页</span>
+			        			<span>共<b>{$maxPage}</b>页</span>
+			        			{if condition="$maxPage==$page || $maxPage<$page"}
+			        			{else /}
+			        			<span><a href="{:url('index/news/index',['page'=>$page+1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">下一页</a></span>
+			        			{/if}
+			        			<span><a href="{:url('index/news/index',['page'=>$maxPage,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">尾页</a></span>
+        			
+        		</h3>
+			{else /}
+			<div class="nolist">	
+				<div>
+					<img src="__STATIC__/index/img/erweima_1.jpg"/>
+					<h3>暂无内容</h3>
+				</div>
+			</div>
+			{/if}
+        	</div>	
+		</div>
+	
+{/block}		

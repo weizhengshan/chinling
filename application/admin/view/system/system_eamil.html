@@ -1,0 +1,126 @@
+system_eamil.php{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>系统设置</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3>系统设置</h3>
+    <script type="text/javascript">
+     
+     $(function(){ $(".idTabs").idTabs(); });
+     
+    </script>
+    <div class="idTabs">
+      <ul class="tab">
+        <li><a href="{:url('admin/system/system_index')}">常规设置</a></li>
+        <li><a class="selected" href="#mail">邮件服务器</a></li>
+              </ul>
+      <div class="items">
+       <form action="" id="data_type" method="post" enctype="multipart/form-data">
+         <div id="mail">
+        <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+         <tr>
+           <th width="131">名称</th>
+           <th>内容</th>
+         </tr>
+                  <tr>
+          <td align="right">SMTP服务器</td>
+          <td>
+                      <input type="text" id="smtp" name="smtp" value="{$info['smtp']}" size="80" class="inpMain" />
+                       <font style="display:none" class="adsmtp" color='red'>不能为空！</font>                       
+                                 </td>
+         </tr>
+                  <tr>
+          <td align="right">发件人姓名</td>
+          <td>
+                      <input type="text" name="name" id="name" value="{$info['name']}"  size="80" class="inpMain" />
+                      <font style="display:none" class="adname" color='red'>不能为空！</font>
+                                </td>
+         </tr>
+ 
+                  <tr>
+          <td align="right">发件邮箱</td>
+          <td>
+                      <input type="text" name="email" id="email" value="{$info['email']}" size="80" class="inpMain" />
+                      <font style="display:none" class="ademail" color='red'>不能为空！</font>
+
+                                </td>
+         </tr>
+                  <tr>
+          <td align="right">发件邮箱密码</td>
+          <td>
+                      <input type="text" name="password" id="password" value="{$info['password']}" size="80" class="inpMain" />
+                      <font style="display:none" class="adpassword" color='red'>不能为空！</font>
+                                </td>
+         </tr>
+                 </table>
+        </div>
+                <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+         <tr>
+          <td width="131"></td>
+          <td>
+           <input type="hidden" name="ema_id" value="{$info['ema_id']}" />
+           <input name="submit" class="btn" type="button" onclick='type_add()' value="修改" />
+          </td>
+         </tr>
+        </table>
+        </form>
+      </div>
+    </div>
+   </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+$(function(){
+$("#smtp").blur(function(){
+$(".adsmtp").hide();
+})
+$("#name").blur(function(){
+$(".adname").hide();
+})
+$("#email").blur(function(){
+$(".ademail").hide();
+})
+$("#password").blur(function(){
+$(".adpassword").hide();
+})
+})
+function type_add(){
+var success_url="{:url('admin/system/system_eamil')}";
+var url="{:url('admin/system/system_eadd')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+var smtp=$("#smtp").val();
+var name=$("#name").val();
+var email=$("#email").val();
+var password=$("#password").val();
+
+if(smtp.length<1){
+$(".adsmtp").show();
+}else if(name.length<1){
+$(".adname").show();
+}else if(email.length<1){
+$(".ademail").show();
+}else if(password.length<1){
+$(".adpassword").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+  dialog.error(result.message);
+} 
+})
+}
+
+}
+
+ </script>
+{/block}

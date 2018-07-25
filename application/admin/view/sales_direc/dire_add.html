@@ -1,0 +1,128 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加区域产品</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加区域产品</h3>
+    <form action="" id="data_type" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="80" align="right">产品名称</td>
+       <td >
+          <font  style="margin-left:50px">{$getdata['name']}</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">所属县</td>
+       <td>
+           <font  style="margin-left:50px">{$getdata['county_name']}</font>
+       </td>
+       </td>
+      </tr>
+       <tr>
+       <td align="right">所属品类</td>
+       <td>
+          <font  style="margin-left:50px">{$getdata['protype_name']}</font>
+       </td>
+       </td>
+      </tr>
+      </tr>
+       <tr>
+       <td align="right">年份</td>
+       <td>
+          <input type="text" id="saledir_year" name="saledir_year" value="" size="40" class="inpMain" />
+        <font style="display:none" class="adsaledir_year" color='red'>年份不能为空！</font>
+       </td>
+       </td>
+      </tr>
+      <tr class="location_tr">
+       <td align="right">销量信息</td>
+       <td >
+       <font  style="margin-left:50px">城市名：</font><input type="text" name="saledir_name[]" value=""  size="5" class="inpMainone" />
+        <font style='display:none' color='red'>城市名不能为空！</font>
+		    <font  style="margin-left:50px">销量占比：</font><input type="text" name="saledir_value[]" value="" size="5" class="inpMaintwo" />
+        <font style='display:none' color='red'>不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td style="padding-left:520px">
+         <input   type="button" id="addModel" value="添加模块" /> 
+        </td>  
+      </tr>
+      <tr>
+       <td>
+        <input type="hidden" name="saledir_pid" value="{$getdata['id']}" />
+        <input type="hidden" name="token" value="b9439ae8" />
+        <input  class="btn" type="button" onclick='type_add()' value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ $(function(){
+$("#saledir_year").blur(function(){
+$(".saledir_year").hide();
+})
+})
+ /*添加模块*/
+$("#addModel").on("click",function(){
+  $(".location_tr:last").after("<tr class='location_tr'>"
+       +"<td align='right'></td>"
+       +"<td>"
+        +"<font  style='margin-left:50px'>城市名：</font><input type='text'  name='saledir_name[]'  size='5' class='inpMainone' /><font style='display:none'"+ "color='red'>城市名不能为空！</font>"
+        +"<font  style='margin-left:50px'>销量占比：</font><input type='text'  name='saledir_value[]'  size='5' class='inpMaintwo' /><font style='display:none'"+ "color='red'>不能为空！</font>"
+       +"</td>"
+      +"</tr>")
+})
+function type_add(){
+var success_url="{:url('admin/salesDirec/index')}";
+var url="{:url('admin/salesDirec/dire_add')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+/*var saledir_name=$(".inpMainone").val();
+var saledir_value=$(".inpMaintwo").val();
+*/
+var one;
+var two;
+$(".inpMainone").each(function(){
+  var v=$(this).val();
+  if(v=="")
+  {
+    $(this).next().css("display","inline-block");
+    return one=3;
+  }
+   
+})
+$(".inpMaintwo").each(function(){
+  var v=$(this).val();
+  if(v=="")
+  {
+    $(this).next().css("display","inline-block");
+    return two=2;
+  }
+  
+})
+if(two==2 || one==3){
+    return;   
+  }
+ $.post(url,admins,function(result){ 
+    if(result.status=='4')
+    {
+    dialog.success(result.message,success_url);
+    }else
+    {
+      dialog.error(result.message);
+    } 
+    })
+}
+ </script>
+{/block}

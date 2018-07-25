@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/CachedObjectStorage" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/CalcEngine" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Calculation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Cell" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Chart" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Helper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Reader" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/RichText" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Shared" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Style" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Worksheet" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/Writer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PHPExcel/locale" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/houdunwang/arr" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/houdunwang/config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/houdunwang/crypt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpspec/prophecy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-token-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit-mock-objects" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dom-crawler" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-captcha" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-helper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-image" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-migration" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-mongo" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-queue" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-sae" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-testing" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zouxiang0639/thinkcms-auth" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

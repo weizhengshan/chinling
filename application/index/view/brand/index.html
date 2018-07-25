@@ -1,0 +1,26 @@
+{extend name="base"/}
+ {block name="content"}
+ 		<!--<div id="nav_companylntroduction">-->
+			<!--<ul>-->
+				<!--<li _type="1"  class="on">					-->
+					<!--<a href="">{$name}</a>				-->
+				<!--</li>-->
+			<!--</ul>-->
+		<!--</div>-->
+		<div id="banner_companylntroduction"></div>
+		<div id="main_newsdetails">
+			{if condition="$data != NULL "}
+			<h3 class="news_title">{$data['cont_title']}</h3>
+			<div class="news_main">
+				{$data['cont_text']}
+			</div>
+			{else /}
+			<div class="nolist">	
+					<div>
+						<img src="__STATIC__/index/img/erweima_1.jpg"/>
+						<h3>暂无内容</h3>
+					</div>
+			</div>
+			{/if}
+		</div>
+{/block}

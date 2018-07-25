@@ -1,0 +1,59 @@
+
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain"> <!-- 当前位置 -->
+     <style>
+         .bttnIframe{
+             background:#0b8bea;
+             font-size:20px;
+             color:#fff;
+             padding: 5px 10px;
+             border-radius: 5px;
+             margin-bottom: 10px;
+             display: inline-block;
+             cursor:pointer;
+         }
+         .bttnIframe_on{
+             color: #ffffff;
+             background: #51b3fb;
+         }
+     </style>
+<div id="urHere">DouPHP 管理中心</div>
+     <div id="index" class="mainBox" style="padding-top:18px;padding-bottom:0px;height:auto !important;">
+ 
+   <div><h3>欢迎来到秦岭云后台管理</h3></div>
+      <div class="indexBox">
+       <span  class="child1 bttnIframe bttnIframe_on" _attr="big_data" >大数据平台管理</span>
+       <span  class="child1 bttnIframe" _attr="product_data">商品价格记录</span>
+       <a href="{:url('weixin/county/getPostCityArr')}" class="child1" style="background:#0b8bea;font-size:20px;color:#fff;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;display: inline-block;">更新一亩田全国价格</a>
+       <a href="{:url('weixin/county/getPostCountyArr')}" class="child1" style="background:#0b8bea;font-size:20px;color:#fff;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;display: inline-block;">更新一亩田市价格</a>
+       <a href="{:url('weixin/county/getMonthPrice')}" class="child1" style="background:#0b8bea;font-size:20px;color:#fff;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;display: inline-block;">更新一亩田近一个月价格</a>
+  </div>
+
+   </div>
+     <iframe src="big_data.html" class="big_data"  width="100%" height="1000" frameborder="0" scrolling="no"></iframe>
+     <iframe src="product_data.html" class="product_data" style="display: none" width="100%" height="1000" frameborder="0" scrolling="no"></iframe>
+ <div class="clear"></div>
+     <script>
+        $(".bttnIframe").on("click",function () {
+            var _attr=$(this).attr("_attr");
+            if(_attr==="big_data"){
+                $(".big_data").css("display","block");
+                $(".product_data").css("display","none");
+                $(this).addClass("bttnIframe_on");
+                $(this).next().removeClass("bttnIframe_on")
+            }else {
+                $(".big_data").css("display","none");
+                $(".product_data").css("display","block");
+                $(this).prev().removeClass("bttnIframe_on");
+                $(this).addClass("bttnIframe_on")
+            }
+
+        })
+     </script>
+{/block}

@@ -1,0 +1,332 @@
+html{
+	height: 100%;
+}
+body{
+	width: 100%;
+	height: 100%;
+	background: #FFFFFF;
+}
+header{
+	width: 100%;
+	height: 50px;
+	 background:-webkit-gradient(linear, 0 0, 0 bottom,from(#0080DD), to(#006DCC));
+	line-height: 50px;
+	font-size: 30px;
+	color: #F3F3F3;
+	font-weight: 400;
+	font-family: "微软雅黑";
+}
+
+
+table tr td .submit{
+	margin: 0 auto;
+    display:inline-block;
+    padding:10px 20px;
+    height: 5px;
+    line-height: 5px;
+    font-size: 14px;
+    color: #ffffff;
+    background: #009E94;
+    border-radius: 10px;
+    box-sizing: content-box;
+    width: auto;
+}
+
+#nav{
+	
+}
+#nav .float_l h3{
+	width: 100%;
+	background:#006DCC;
+	height: 40px;
+	line-height: 40px;
+	font-size: 26px;
+	text-align: center;
+	color: #FFFFFF;
+}
+#nav .float_l{
+	float: left;
+	width: 10%;
+}
+#nav .float_l li{
+	line-height: 30px;
+	background: #E6E6E6;
+	cursor:pointer;
+}
+#nav .float_l li span{
+	display: inline-block;
+	box-sizing: border-box;
+	font-size:20px ;
+	padding-left: 30px;
+	width: 100%;
+	height: 40px;
+	color: #000;
+	line-height: 40px;
+	border-bottom:1px solid #C0C0C0;
+	background:  url(../img/btn_maximize.gif) no-repeat 170px 15px;
+	background-size: 10px 10px;
+}
+#nav .float_l li .nav_span_1{
+	display: inline-block;
+	box-sizing: border-box;
+	font-size:16px ;
+	padding-left: 0px;
+	width: 100%;
+	height: 30px;
+	color: #000;
+	line-height: 30px;
+	border-bottom:1px solid #C0C0C0;
+	background:  url(../img/btn_maximize.gif) no-repeat 170px 15px;
+	background-size: 10px 10px;
+}
+#nav .float_l li ol li ol li{
+	padding-left: 10px;
+}
+#nav .float_l li .kai{
+	background:  url(../img/btn_minimize.gif) no-repeat 170px 15px;
+	background-size: 10px 10px;
+}
+#nav .float_l li span:hover{
+	color: #DF8505;
+}
+
+#nav .float_l li ol li{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 40px;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	border-bottom:1px solid #C0C0C0 ;
+	background: #FAFAFA;
+}
+
+#nav .float_l li ol li ol li:hover{
+	color: #DF8505;
+}
+#nav .float_l li ol .onA{
+	color: #DF8505;
+}
+#nav .float_r{
+	float: left;
+	width: 90%;
+}
+#nav .float_r li h5{
+	display: block;
+	height: 50px;
+	background: #CCCCCC;
+	font-size: 24px;
+	line-height: 50px;
+	padding: 0 30px;
+}
+#nav .float_r li h5 a{
+	display: block;
+	float: right;
+	background: #00ACED;
+	height: 30px;
+	width: 100px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #FFFFFF;
+	margin-top: 10px;
+	text-align: center;
+	border-radius: 15px;
+}
+#nav .float_r li .platform_div{
+	box-sizing: border-box;
+	padding: 30px;
+}
+
+
+
+#nav .float_r li .platform_div .tableBasic .platformList{
+	width: 100%;
+	border:1px dashed #ccc;
+	font-size: 20px;
+}
+#nav .float_r li .platform_div .tableBasic .platformList li div{
+	display: flex;
+	justify-content: space-between;
+	line-height: 50px;
+}
+#nav .float_r li .platform_div .tableBasic .platformList li div span,a{
+	text-align: center;
+	box-sizing:border-box ;
+	display: inline-block;
+	width: 20%;
+}
+#nav .float_r li .platform_div .tableBasic .platformList li div .first_span{
+	text-align: left;
+	padding-left:20px;
+	background-image: url(../img/btn_maximize.gif);
+	background-repeat:no-repeat;
+	background-size: 10px 10px;
+	cursor:pointer;
+}
+#nav .float_r li .platform_div .tableBasic .platformList li div .first_span_on{
+	background-image: url(../img/btn_minimize.gif);
+}
+.ol{
+	display: flex;
+	justify-content: space-between;
+	line-height: 30px;
+}
+.ol li{
+	text-align: center;
+	box-sizing:border-box ;
+	display: inline-block;
+	width: 100%;
+	border-top: 1px dashed #CCCCCC;
+}
+.ol li:nth-child(1){
+	text-align: left;
+}
+#nav .float_r li .platform_div .tableBasic  h6{
+	width: 100%;
+	border:1px dashed #ccc;
+	background: #EEEEEE;
+	display: flex;
+	justify-content: space-between;
+	line-height: 50px;
+	font-size: 24px;
+}
+#nav .float_r li .platform_div .tableBasic  h6 span{
+	text-align: center;
+	box-sizing:border-box ;
+	display: inline-block;
+	width: 20%;
+	border: 1px dashed #CCCCCC;
+}
+#nav .float_r li .platform_div .tableBasic .operation,.undercarriage{
+	color: #ffffff;
+	background: #24a0d6;
+	display: inline-block;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 10px;
+	width: 80px;
+}
+
+
+#nav .float_r li .platform_div .data_type{
+	
+}
+#nav .float_r li .platform_div .data_type table{
+	width: 100%;
+	background: #F9F9F9;
+	border: 1px dashed #CCCCCC;
+}
+#nav .float_r li .platform_div .data_type table tr td{
+	border-right:1px dashed #ccc;
+	border-bottom: 1px dashed #ccc;
+	line-height: 40px;
+}
+#nav .float_r li .platform_div .data_type table tr td:nth-child(1){
+	width: 100px;
+}
+#nav .float_r li .platform_div .data_type table tr td:nth-child(2){
+	padding-left: 20px;
+}
+#nav .float_r li .platform_div .data_type table tr td:nth-child(2) input{
+	height: 30px;
+	padding-left:10px ;
+}
+
+
+
+
+
+#nav .float_r .float_r_li_main .upload_div{
+	display: flex;
+	justify-content: space-around;
+}
+#nav .float_r .float_r_li_main .upload_div   .div_float{
+	float: left;
+	border: 1px dashed #F3F3F3;
+	padding: 10px;
+	margin-top: 20px;
+	box-shadow: 0px 0px 10px #cccccc;
+	width: 25%;
+}
+#nav .float_r .float_r_li_main .upload_div div{
+	color: #000;
+	font-size: 20px;
+	margin: 0 20px;
+}
+#nav .float_r .float_r_li_main .upload_div .div_float .file_div{
+	height: 40px;
+	position: relative;
+	margin: 40px 0;
+}
+#nav .float_r .float_r_li_main .upload_div .div_float .file_div span{
+	float: left;
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+}
+#nav .float_r .float_r_li_main .upload_div .div_float .file_div .input_file_name{
+	float: left;
+	box-sizing: border-box;
+	height: 40px;
+	width: 173px;
+}
+#nav .float_r .float_r_li_main .upload_div .div_float .file_div .input_file{
+	position: absolute;
+	right: 45px;
+	top: 20px;
+	width: 90px;
+	height: 40px;
+	opacity: 0;
+}
+#nav .float_r .float_r_li_main .upload_div .div_float .file_div i{
+	float: left;
+	display: inline-block;
+	width: 90px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius:0 20px 20px 0;
+	background: #0e7fdf;
+	color: #ffffff;
+}
+#nav .float_r .float_r_li_main .upload_div div .progress{
+	width: 100%;
+	height: 10px;
+	padding: 0;
+	margin: 0 0 20px 0;
+	border-radius: 5px;
+}
+#nav .float_r .float_r_li_main .upload_div div .progress .progress_son{
+	width: 0%;
+	height: 100%;
+	background: url(../img/ajax_loader.gif) no-repeat;
+	background-size:100% 100%;
+	padding: 0;
+	margin: 0;
+	text-align:center;
+}
+#nav .float_r .float_r_li_main .upload_div div h4{
+	font-size: 50px;
+	line-height: 100px;
+	color: #000;
+	text-align: center;
+}
+#nav .float_r .float_r_li_main .upload_div div input{
+
+}
+#nav .float_r .float_r_li_main .upload_div div{
+	padding: 20px 0 0 20px;
+}
+#nav .float_r .float_r_li_main .upload_div div a{
+	color: #ffffff;
+	background: #24a0d6;
+	display: inline-block;
+	line-height: 50px;
+	font-size: 24px;
+	text-align: center;
+	border-radius: 25px;
+	margin-bottom: 20px;
+	width:100%;
+}
+

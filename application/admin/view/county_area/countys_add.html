@@ -1,0 +1,104 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加地图区域</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加地图区域</h3>
+    <form action="" id="data_type" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="80" align="right">地区名称</td>
+       <td>
+        <input type="text" id="county_name" name="county_name" value="" size="40" class="inpMain" />
+		    <font style="display:none" class="adcounty_name" color='red'>名称不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">上级分类</td>
+       <td>
+            <select name="pid">
+          {foreach name="arr" item="vo"}
+            <option value="{$vo['county_id']}">{$vo['county_name']}</option>
+          {/foreach}                         
+            </select>
+       </td>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">简单描述</td>
+       <td>
+        <textarea name="county_describe"  id="county_describe" cols="60" rows="4" class="textArea"></textarea>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">17产值</td>
+       <td>
+         <input type="text" id="year_value" name="county_name" value="" size="40" class="inpMain" />
+       </td>
+      </tr>
+      <tr>
+       <td align="right">排序</td>
+       <td>
+        <input type="text" id="county_sort" name="county_sort" value="" size="5" class="inpMain" />
+		    <font style="display:none" class="adcounty_sort" color='red'>排序不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="b9439ae8" />
+        <input type="hidden" name="county_id" value="" />
+        <input  class="btn" type="button" onclick='type_add()' value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ $(function(){
+$("#county_name").blur(function(){
+$(".adcounty_name").hide();
+})
+$("#county_describe").blur(function(){
+$(".adcounty_describe").hide();
+})
+$("#county_sort").blur(function(){
+$(".adcounty_sort").hide();
+})
+})
+function type_add(){
+var success_url="{:url('admin/countyArea/index')}";
+var url="{:url('admin/countyArea/countys_add')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+var county_name=$("#county_name").val();
+var county_sort=$("#county_sort").val();
+
+
+if((county_name.length<1) || (county_name.length>20)){
+$(".adcounty_name").show();
+}else if(county_sort.length<1){
+$(".adcounty_sort").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+	dialog.error(result.message);
+} 
+})
+}
+
+}
+ </script>
+{/block}

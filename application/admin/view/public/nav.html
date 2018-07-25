@@ -1,0 +1,63 @@
+<div id="dcLeft">
+<div id="menu">
+ <ul class="bot">
+   {foreach name="daoh" item="vo"}
+    <li><a href="{:url($vo['name'])}"><i class="manager"></i><em>{$vo['title']}</em></a></li>
+   {/foreach}
+ 
+ </ul>
+  <!-- <ul>
+     
+     <li><a href="{:url('admin/manage/manage_list')}"><i class="manager"></i><em>网站管理员</em></a></li>
+     <li><a href="{:url('admin/auth_rule/auth_list')}"><i class="managerLog"></i><em>权限管理</em></a></li>
+     <li><a href="{:url('admin/auth_group/auth_glist')}"><i class="managerLog"></i><em>用户组管理</em></a></li>
+     <li><a href="{:url('admin/imgclass/in_logo')}"><i class="show"></i><em>Logo</em></a></li>
+     <li><a href="{:url('admin/imgclass/in_carousel')}"><i class="show"></i><em>首页轮播图</em></a></li>
+     <li><a href="{:url('admin/system/system_index')}"><i class="system"></i><em>系统设置</em></a></li>
+    </ul>
+    <ul>
+     <li><a href="{:url('admin/types/types_index')}"><i class="productCat"></i><em>导航分类</em></a></li>
+     <li><a href="{:url('admin/article/article_index')}"><i class="product"></i><em>文章列表</em></a></li>
+    </ul>
+     <ul>
+     <li><a href="{:url('admin/protype/protypes_index')}"><i class="articleCat"></i><em>产品分类</em></a></li>
+     <li><a href="{:url('admin/productline/productline_index')}"><i class="article"></i><em>产品列表</em></a></li>
+    </ul>
+    <ul class="bot">
+     <li><a href="backup.html"><i class="backup"></i><em>数据备份</em></a></li>
+     <li><a href="{:url('admin/operation/index')}"><i class="managerLog"></i><em>操作记录</em></a></li>
+     <li><a href="{:url('admin/leaving/index')}"><i class="managerLog"></i><em>留言管理</em></a></li>
+     <li><a href="{:url('admin/recycle/admin_index')}"><i class="managerLog"></i><em>回收站</em></a></li>
+    </ul> -->  
+</div></div>
+<script>
+
+
+    var liList=$(".bot").children("li");
+    var strFullPath=window.document.location.href;
+    for(var i=0;i<liList.length;i++){
+        var aHref=liList.eq(i).children("a").attr("href");
+        var aHrefNew= find(aHref,"/",2)
+        if(strFullPath.indexOf("imgclass") != -1){
+            if(strFullPath.indexOf("in_carousel") != -1 && aHref.indexOf("in_carousel") != -1 ){
+                liList.eq(i).css("background","#cccccc");
+                break;
+            }else if(strFullPath.indexOf("in_logo") != -1 && aHref.indexOf("in_logo") != -1 ){
+                liList.eq(i).css("background","#cccccc");
+                break;
+            }
+        }else if(strFullPath.indexOf(aHrefNew) != -1){
+                liList.eq(i).css("background","#cccccc");
+                break;
+            }
+    }
+
+    function find(str,cha,num){
+        var x=str.indexOf(cha);
+        for(var i=0;i<num;i++){
+            x=str.indexOf(cha,x+1);
+        }
+        var newStr = str.slice(0,x+1)
+        return newStr;
+    }
+</script>

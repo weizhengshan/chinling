@@ -1,0 +1,112 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加文章分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加分类</h3>
+    <form action="" id="data_type" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="80" align="right">分类名称</td>
+       <td>
+        <input type="text" id="type_name" name="type_name" value="" size="40" class="inpMain" />
+		<font style="display:none" class="adtype_name" color='red'>名称不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td width="80" align="right">Action</td>
+       <td>
+        <input type="text" id="type_action" name="action" value="" size="40" class="inpMain" />
+      
+      </tr>
+      <tr>
+       <td align="right">上级分类</td>
+       <td>
+        <select name="type_pid">
+          {foreach name="arr" item="vo"}
+            <option value="{$vo['type_id']}">{$vo['type_name']}</option>
+          {/foreach}                         
+            </select>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">简单描述</td>
+       <td>
+        <textarea name="type_describe"  id="type_describe" cols="60" rows="4" class="textArea"></textarea>
+		
+       </td>
+      </tr>
+      <tr>
+       <td align="right">排序</td>
+       <td>
+        <input type="text" id="type_sort" name="type_sort" value="" size="5" class="inpMain" />
+		<font style="display:none" class="adtype_sort" color='red'>排序不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="b9439ae8" />
+        <input type="hidden" name="cat_id" value="" />
+        <input  class="btn" type="button" onclick='type_add()' value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ $(function(){
+$("#type_name").blur(function(){
+$(".adtype_name").hide();
+})
+$("#type_describe").blur(function(){
+$(".adtype_describe").hide();
+})
+$("#type_sort").blur(function(){
+$(".adtype_sort").hide();
+})
+})
+function type_add(){
+var success_url="{:url('admin/types/types_index')}";
+var url="{:url('admin/types/type_add')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+var type_name=$("#type_name").val();
+var type_describe=$("#type_describe").val();
+var type_sort=$("#type_sort").val();
+
+
+if((type_name.length<1) || (type_name.length>20)){
+$(".adtype_name").show();
+}else if(type_sort.length<1){
+$(".adtype_sort").show();
+}else{
+$.post(url,admins,function(result){
+ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+	dialog.error(result.message);
+} 
+})
+}
+
+}
+
+ </script>
+ 
+ 
+ 
+ 
+ 
+ 
+{/block}

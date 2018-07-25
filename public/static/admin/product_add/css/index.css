@@ -1,0 +1,392 @@
+html{
+	height: 100%;
+}
+html body{
+	width: 100%;
+	height: 100%;
+	background: #FFFFFF;
+	padding-top: 0;
+}
+header{
+	width: 100%;
+	height: 50px;
+	background:-webkit-gradient(linear, 0 0, 0 bottom,from(#0080DD), to(#006DCC));
+	line-height: 50px;
+	font-size: 30px;
+	color: #F3F3F3;
+}
+
+
+table tr td .submit{
+	margin: 0 auto;
+	display:inline-block;
+	padding:10px 20px;
+	height: 5px;
+	line-height: 5px;
+	font-size: 14px;
+	color: #ffffff;
+	background: #009E94;
+	border-radius: 10px;
+	box-sizing: content-box;
+	width: auto;
+}
+
+#nav{
+
+}
+
+#nav .float_r{
+	float: left;
+	width: 100%;
+}
+#nav  h5{
+	display: block;
+	height: 50px;
+	background: #CCCCCC;
+	font-size: 24px;
+	line-height: 50px;
+	padding: 0 30px;
+}
+#nav  h5 a{
+	display: block;
+	float: right;
+	background: #00ACED;
+	height: 30px;
+	width: 100px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #FFFFFF;
+	margin-top: 10px;
+	text-align: center;
+	border-radius: 15px;
+}
+#nav .float_r .float_r_li{
+	box-sizing: border-box;
+	padding: 30px;
+}
+
+
+
+#nav .float_r .main_0 .tableBasic .platformList{
+	width: 100%;
+	border:1px dashed #ccc;
+	font-size: 20px;
+}
+#nav .float_r .main_0 .tableBasic .platformList li div{
+	display: flex;
+	justify-content: space-between;
+	line-height: 50px;
+}
+#nav .float_r .main_0 .tableBasic .platformList li div span,a{
+	text-align: center;
+	box-sizing:border-box ;
+	display: inline-block;
+	width: 20%;
+	border: 1px dashed #CCCCCC;
+}
+#nav .float_r .main_0 .tableBasic .platformList li div .first_span{
+	text-align: left;
+	padding-left:20px;
+	background-image: url(../img/btn_maximize.gif);
+	background-repeat:no-repeat;
+	background-size: 10px 10px;
+	cursor:pointer;
+}
+#nav .float_r .main_0 .tableBasic .platformList li div .first_span_on{
+	background-image: url(../img/btn_minimize.gif);
+}
+.ol{
+	display: flex;
+	justify-content: space-between;
+	line-height: 30px;
+}
+.ol li{
+	text-align: center;
+	box-sizing:border-box ;
+	display: inline-block;
+	width: 100%;
+	border-top: 1px dashed #CCCCCC;
+}
+.ol li:nth-child(1){
+	text-align: left;
+}
+#nav .float_r .main_0 .tableBasic  h6{
+	width: 100%;
+	border:1px dashed #ccc;
+	background: #EEEEEE;
+	display: flex;
+	justify-content: space-between;
+	line-height: 50px;
+	font-size: 24px;
+}
+#nav .float_r .main_0 .tableBasic  h6 span{
+	text-align: center;
+	box-sizing:border-box ;
+	display: inline-block;
+	width: 20%;
+	border: 1px dashed #CCCCCC;
+}
+#nav .float_r .main_0 .tableBasic .operation,.undercarriage{
+	color: #ffffff;
+	background: #24a0d6;
+	display: inline-block;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 10px;
+	width: 80px;
+}
+
+
+#nav .float_r .main_3 .data_type{
+
+}
+#nav .float_r .main_3 .data_type table{
+	width: 100%;
+	background: #F9F9F9;
+	border: 1px dashed #CCCCCC;
+}
+#nav .float_r .main_3 .data_type table tr td{
+	border-right:1px dashed #ccc;
+	border-bottom: 1px dashed #ccc;
+	line-height: 40px;
+}
+#nav .float_r .main_3 .data_type table tr td:nth-child(1){
+	width: 100px;
+}
+#nav .float_r .main_3 .data_type table tr td:nth-child(2){
+	padding-left: 20px;
+}
+#nav .float_r .main_3 .data_type table tr td:nth-child(2) input{
+	height: 30px;
+	padding-left:10px ;
+}
+
+
+
+
+
+#nav .float_r .float_r_li_main .upload_div{
+
+}
+#nav .float_r .float_r_li_main .upload_div form{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+#nav .float_r .float_r_li_main .upload_div div{
+	color: #000;
+	font-size: 20px;
+	margin: 0 20px;
+}
+#nav .float_r .float_r_li_main .upload_div div .file_div{
+	height: 40px;
+	position: relative;
+	margin: 40px 0;
+}
+#nav .float_r .float_r_li_main .upload_div div .file_div span{
+	float: left;
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+}
+#nav .float_r .float_r_li_main .upload_div div .file_div .input_file_name{
+	float: left;
+	box-sizing: border-box;
+	height: 40px;
+}
+#nav .float_r .float_r_li_main .upload_div div .file_div .input_file{
+	position: absolute;
+	width: 50px;
+	height: 40px;
+	opacity: 0;
+}
+#nav .float_r .float_r_li_main .upload_div div .file_div i{
+	float: left;
+	display: inline-block;
+	width: 50px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #0e7fdf;
+	color: #ffffff;
+}
+
+#nav .float_r .float_r_li_main .upload_div div .progress{
+	width: 100%;
+	height: 10px;
+	padding: 0;
+	margin: 0 0 20px 0;
+	border-radius: 5px;
+}
+#nav .float_r .float_r_li_main .upload_div div .progress .progress_son{
+	width: 50%;
+	height: 100%;
+	background: url(../img/ajax_loader.gif) no-repeat;
+	background-size:100% 100%;
+	padding: 0;
+	margin: 0;
+}
+#nav .float_r .float_r_li_main .upload_div div h4{
+	font-size: 50px;
+	line-height: 100px;
+	color: #000;
+}
+#nav .float_r .float_r_li_main .upload_div div{
+	padding: 20px 0 0 20px;
+}
+#nav .float_r .float_r_li_main .upload_div div a{
+	color: #ffffff;
+	background: #24a0d6;
+	display: inline-block;
+	line-height: 50px;
+	font-size: 24px;
+	text-align: center;
+	border-radius: 25px;
+	margin-bottom: 20px;
+	width: 150px;
+}
+
+
+
+
+
+#hideBox{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+}
+#hideBox .hideBoxMain{
+	width: 500px;
+	height: 500px;
+	border: 1px solid #979DB4;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	background: #FFFFFF;
+}
+#hideBox .hideBoxMain li{
+	box-sizing: border-box;
+	width: 500px;
+	height: 100px;
+	text-align: center;
+}
+#hideBox .hideBoxMain li:nth-child(1){
+	line-height: 100px;
+	font-size: 40px;
+}
+#hideBox .hideBoxMain li:nth-child(3){
+	border-bottom: 1px solid #636363;
+	border-top: 1px solid #636363;
+}
+#hideBox .hideBoxMain li a{
+	margin: 20px auto;
+	display: inline-block;
+	background: #00ACED;
+	height: 60px;
+	width: 400px;
+	font-size: 34px;
+	line-height: 60px;
+	color: #FFFFFF;
+	text-align: center;
+	border-radius: 30px;
+}
+#hideBox .hideBoxMain li:nth-child(3) a{
+	width: 180px;
+	float: left;
+}
+#hideBox .hideBoxMain li:nth-child(3) select{
+	float: left;
+	width: 200px;
+	height: 40px;
+	margin-left: 50px;
+	margin-top: 30px;
+	margin-right: 20px;
+}
+#hideBox .hideBoxMain li:nth-child(5) a{
+	font-size: 20px;
+	width: 200px;
+	background: #A6303C;
+}
+.main_1 table{
+	width: 100%;
+	background: #F9F9F9;
+	border-bottom: 1px dashed #CCCCCC;
+}
+.main_1 table tr td{
+	border-right:1px dashed #ccc;
+	border-bottom: 1px dashed #ccc;
+	line-height: 60px;
+	font-size: 24px;
+}
+.main_1 table tr td:nth-child(1){
+	width: 200px;
+}
+.main_1 table tr td:nth-child(2){
+	padding-left: 20px;
+}
+.main_1 table tr td:nth-child(2) input{
+	height: 40px;
+	padding-left:10px ;
+	width: 400px;
+	font-size: 24px;
+}
+.main_1 table tr td .submits {
+	margin: 0 auto;
+	display: inline-block;
+	padding: 10px 20px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #ffffff;
+	background: #009E94;
+	border-radius: 10px;
+	box-sizing: content-box;
+	width: auto;
+}
+.main_1 table tr td .cancel {
+	margin-left: 40px;
+	display: inline-block;
+	padding: 10px 20px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #ffffff;
+	background: #009E94;
+	border-radius: 10px;
+	box-sizing: content-box;
+	width: auto;
+}
+.main_2 #chart-name{
+	text-align: center;
+	margin: 10px 0;
+	font-size: 26px;
+	color: #000000;
+}
+.main_2 .btnBox{
+	text-align: center;
+	margin-top: 30px;
+}
+.main_2 .btnA{
+	margin-right: 10px;
+	margin-bottom: 10px;
+	display:inline-block;
+	width: 100px;
+	padding: 0 10px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #009E94;
+	background: #ffffff;
+	border-radius: 10px;
+}
+.main_2 .btnOn{
+	color: #ffffff;
+	background: #009E94;
+}

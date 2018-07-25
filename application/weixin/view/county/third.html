@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="__STATIC__/weixin/css/public.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__STATIC__/weixin/css/third.css"/>
+		<script type="text/javascript" src="__STATIC__/weixin/js/jquery-1.8.3.min.js"></script>		
+		<script type="text/javascript" src="__STATIC__/weixin/Echarts/echarts-all.js"></script>	
+		<script src="__STATIC__/weixin/js/swiper.animate1.0.2.min.js"></script>
+		<script src="__STATIC__/weixin/js/swiper.js"></script>
+		<script src="__STATIC__/weixin/js/index.js"></script>
+	</head>
+	<body>
+		<div id="third"  class="float_1 clear">            	
+            	<div id="third_r"  class="float_1">
+            		<div id="third_r_title">秦岭云自营平台电商数据</div>
+            		<div id="third_r_c">           			
+                		<div id="third_r_c_l">
+                			<span>总交易额：<s id="tradeVolumeTotal"></s></span>
+                			<span>总交易量：<s id="transactionVolumeTotal"></s></span>
+                		</div>            				               			
+                		<div id="third_r_c_r">
+                			<span>最近七天交易额：<s id="tradeVolumes">572350.56元</s></span>
+                			<span>最近七天交易量： <s id="transactionVolumes">42186件</s></span>
+                		</div>              			
+            		</div>            		
+            		<div id="third_r_main" class="clear">            		    
+	            		<ul id="third_r_biao" class="float_1">			              			              			     		          			            
+	                    	<li  style="width: 19vw;height:35.5vh;">
+	                    		<h3><span>宝贝季度销量趋势图</span></h3>
+								<div id="fourth_biao_3" style="width: 19vw;height:32.5vh;"></div>	
+	                    	</li>		        
+	                    	<li  style="width: 19vw;height:35.5vh;">
+	                    		<h3><span>各宝贝销售总量</span></h3>
+								<div id="fourth_biao_4" style="width: 19vw;height:32.5vh;"></div>
+	                    	</li>			               				                      
+		            	</ul>
+		            	<ol class="float_1">
+		            		<li id="fourth_biao_1" style="width: 37.5vw;height:50vh;"></li>
+		            		<li style="width: 37.5vw;height:21vh;" class="clear">
+		            			<div id="message_title" class="float_1">客<br/>户<br/>留<br/>言</div>
+		            			<div id="message_main" class="float_1">
+		            				<div id="message_rollAD">
+										<div id=messagebox>
+										    
+										</div>
+									</div> 
+		            			</div>
+		            		</li>
+		            	</ol>
+            		</div>							
+            	</div>
+            	<div id="third_l"  class="float_1">
+            		<div id="third_l_title">产品分类价格</div>
+	            	<div id="third_l_main">
+	            		<div id="third_l_choice">	
+			               <span><select id="first_second_select_k1" class="form-control" onchange="pinzh(this)">
+                            {foreach name="arrdata" item="vo"}
+                              <option {if condition="$typesdata['protype_pid']==$vo['protype_id']"} selected {/if} value="{$vo['protype_id']}" >{$vo['protype_name']}</option>
+                            {/foreach}                         
+                            </select></span>
+                            <span><select id="first_second_select_k2"  class="form-control">
+                                {foreach name="prodatas" item="vo"}
+                              <option {if condition="$typesdata['protype_id']==$vo['protype_id']"} selected {/if} value="{$vo['protype_id']}">{$vo['protype_name']}</option>
+                            {/foreach}             
+                            </select> 
+                    </span>
+			            </div>
+			            <div id="third_l_biao_block">
+				            <div id="third_l_biao">			            	
+				           		    <ul style="color: #fff;">                
+				                    	<li id="first_second_biao1_1" class="float_1" style="width: 18.75vw;height:36vh;"></li>			               			 	                    	
+				                    	<li id="first_second_biao1_2" class="float_1" style="width: 18.75vw;height:36vh;"></li>		                    				           		                    	
+				                    	<li id="first_second_biao1_3" class="float_1" style="width: 38vw;height:35vh;"></li>	
+				         			</ul>
+				            </div> 
+			            </div>			             
+			            <div id="data_none">
+			            	<span>暂无数据</span>
+			            </div>			        
+	            	</div>
+            	</div>
+            </div>
+	</body>
+</html>
+<script src="__STATIC__/weixin/js/cityIp.js"></script>
+<script>
+/*淘宝产品销量去向*/
+var myChart15 = echarts.init(document.getElementById('fourth_biao_1'));
+function  TaobaoSalesWhere(SalesWhere){
+	
+    var cityName=SalesWhere.city;
+    var cityNameAll=(new Function('return( ' + SalesWhere.cityNameVal + ' );'))();
+    var cityNameWh=(new Function('return( ' + SalesWhere.cityName + ' );'))();
+  //console.log(cityNameAll)
+  //console.log(cityName)
+   //console.log(cityNameWh)
+    //console.log(cityIp)
+//for(var i=0;i<cityNameAll.length;i++){
+// 		var s=cityNameAll[i][1].name;
+// 		s=s.substring(0,s.length-1);
+// 		cityNameAll[i][1].name=s; 	
+//}
+//	for(var i=0;i<cityNameWh.length;i++){
+// 		var s=cityNameWh[i].name;
+// 		s=s.substring(0,s.length-1);
+// 		cityNameWh[i].name=s; 	
+//}
+    var option15 = {
+	backgroundColor:'rgba(0, 0, 0, 0)',
+        color: ['gold','aqua','lime'],
+        title : {
+            text: '电商产品销售去向',
+            subtext:'',
+            x:'center',
+            y:20,
+            textStyle : {
+            	fontSize:24,
+                color: '#fff'
+            }
+        }, 
+        tooltip : {
+            trigger: 'item',
+            formatter: '{b}：{c}'
+        },
+        lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    dataRange: {
+        min : 0,
+        max : 400*230,
+        show:false, 
+        calculable : true,
+        color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+        textStyle:{
+            color:'#fff'
+        }
+    },
+        series : [
+            {
+                name: cityName,
+                type: 'map',
+                roam: false,
+                hoverable: false,
+                mapType: 'china',
+                itemStyle:{
+                    normal:{
+                        borderColor:'rgba(100,149,237,1)',
+                        borderWidth:0.5,
+                        areaStyle:{
+                            color: '#1b1b1b'
+                        }
+                    }
+                },
+                data:[],
+                markLine : {
+                    smooth:true,
+                    symbol: ['none', 'circle'],  
+                    symbolSize : 1,
+                    itemStyle : {
+                        normal: {
+                            color:'#fff',
+                            borderWidth:1,
+                            borderColor:'rgba(30,144,255,0.5)'
+                        }
+                    },
+                    data : [
+                        
+                    ],
+                },
+                geoCoord: cityIp               
+            },
+            {
+                name: cityName,
+                type: 'map',
+                mapType: 'china',
+                data:[],
+                markLine : {
+                    smooth:true,
+                    effect : {
+                        show: true,
+                        scaleSize: 1,
+                        period: 30,
+                        color: '#fff',
+                        shadowBlur: 10
+                    },
+                    itemStyle : {
+                        normal: {
+                            borderWidth:1,
+                            lineStyle: {
+                                type: 'solid',
+                                shadowBlur: 10
+                            }
+                        }
+                    },
+                    data :cityNameAll
+                },
+                markPoint : {
+                    symbol:'emptyCircle',
+                    symbolSize : function (v){
+                    	console.log(v)
+                        return  5+v/(100*230)
+                    },
+                    effect : {
+                        show: true,
+                        shadowBlur : 0
+                    },
+                    itemStyle:{
+                        normal:{
+                            label:{show:false}
+                        },
+                        emphasis: {
+                            label:{position:'top'}
+                        }
+                    },
+                    data : cityNameWh
+                }
+            }
+               
+        ]
+    };
+    myChart15.setOption(option15);
+   }
+  	function startmarquee(lh,speed,delay,text) {   //函数 函数名(变量1,变量2,变量3)
+		var p=false; //定义变量 p为假;
+		var t; //定义变量t了
+		var o=document.getElementById(text); //定义变量o为document.getElementById("marqueebox")对象
+		o.innerHTML+=o.innerHTML; //设置变量o的innerHTML对象为自加
+		o.style.marginTop=0; //o的属性，设置或获取对象的上边距宽度
+		o.onmouseover=function(){p=true;} //光标在滚动字幕范围内暂停滚动
+		o.onmouseout=function(){p=false;} //光标在滚动字幕范围外也就是离开的时候继续滚动
+		function start(){ //“开始”函数
+		t=setInterval(scrolling,speed); //给前面定义的变量t赋值=自动（滚动，速度）
+		if(!p) o.style.marginTop=parseInt(o.style.marginTop)-1+"px"; //当P为空，属性o的上边距宽度为数字[把变量o上边距宽度转为integer类型，其中parseInt功能为转换]
+		}
+		function scrolling(){ //“滚动”函数
+		if(parseInt(o.style.marginTop)%lh!=0){ //如果对象o的上边距宽度为空，则为0（parseInt为转换作用）
+		o.style.marginTop=parseInt(o.style.marginTop)-1+"px"; //上边距宽度为数字[把变量o上边距宽度转为integer类型，其中parseInt功能为转换]
+		if(Math.abs(parseInt(o.style.marginTop))>=o.scrollHeight/2) o.style.marginTop=0; //如果计算出来的上边距宽度大于或者等于滚动的高度除以2 则o的上边距宽度为0
+		}else{ //否则
+		clearInterval(t); //指定T为空
+		setTimeout(start,delay);//指定暂停时间(开始，延迟)
+		}//相当于end if，表示结束如果
+		}//相当于end if，表示结束如果
+		//新的开始，不包含在前面的如果里面
+		setTimeout(start,delay); //指定暂停时间(开始，延迟)
+	}
+	startmarquee(22,20,3000,"messagebox"); //滚动属性(滚动高度,速度,延迟)
+</script>
+<!--
+	下拉框函数
+-->
+
+<script type="text/javascript">	
+
+
+ //产品分类
+function pinzh(text)
+{
+    var city=text.value;
+   $.ajax({
+    url:"{:url('County/pinzh_post')}",
+    type:"post",
+    dataType:"json",
+     data:"add="+city,
+     success:function(res){
+       $("#first_second_select_k2").html("");
+      $(res).each(function(k,v){
+        $("#first_second_select_k2").append($("<option value="+v.protype_id+">"+v.protype_name+"</option>"));
+      })  
+      //alert(res[0]['protype_id']);
+      /*zhi是分类的第一个子类*/
+      priocedata(res[0]['protype_id']);
+    }
+  });  
+  }    
+//地址市
+function provice(txt)
+{
+   //var add=$(txt).attr("value");
+   var add=txt.value;
+   $.ajax({
+    url:"{:url('admin/CountyType/provice_post')}",
+    type:"post",
+    dataType:"json",
+     data:"add="+add,
+     success:function(res){
+       $("#select_k2").html("");
+      $(res).each(function(k,v){
+        $("#select_k2").append("<option  value="+v.county_id+">"+v.county_name+"</option");
+      })       
+      $("#select_k2").trigger("change");
+    }
+  });  
+  } 
+ //地址县区
+function city(text)
+{
+   //var city=$(text).attr("value");
+   var city=text.value;
+   $.ajax({
+    url:"{:url('admin/CountyType/provice_post')}",
+    type:"post",
+    dataType:"json",
+     data:"add="+city,
+     success:function(res){
+       $("#Select3").html("");
+      $(res).each(function(k,v){
+        $("#Select3").append("<option  value="+v.county_id+">"+v.county_name+"</option>");
+      })
+       $("#Select3").trigger("change");  
+    }
+  });  
+  }  
+  
+  </script>
+<script type="text/javascript" src="__STATIC__/weixin/Echarts/echarts.js"></script>  
+<script>
+var myChart8,myChart9,myChart10;
+
+        myChart8= echarts.init(document.getElementById('first_second_biao1_1'));
+        myChart9 = echarts.init(document.getElementById('first_second_biao1_2')); 
+        myChart10=echarts.init(document.getElementById("first_second_biao1_3"));        
+
+
+
+ /**
+  * 价格表
+  */
+ function loaningtwo(dataprice,datapricef,dayprice){
+  //alert(2);
+     /*全国城市*/ 
+  var cityname=(new Function('return( ' + dataprice.every_name + ' );'))();
+  var citynamevalue=(new Function('return( ' + dataprice.every_value + ' );'))();
+  var themeprice=dataprice['pro_time'];
+  var typename=dataprice['pro_name'];
+     /*某个市*/ 
+  var countyname=(new Function('return( ' + datapricef.every_name + ' );'))();
+  var countynamevalue=(new Function('return( ' + datapricef.every_value + ' );'))();
+  var countythemeprice=datapricef['pro_time'];
+  var countytypename=datapricef['pro_name'];
+  /*近31天的价格*/
+  var dayMonth=(new Function('return( ' + dayprice.monthvalue + ' );'))();
+  var daypriceval=(new Function('return( ' + dayprice.every_value + ' );'))();
+  var daypricename=dayprice.pro_name;
+  var daypricetheme=dayprice.pro_time;
+   		var option8 = {
+   backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: themeprice,
+         x:'center',
+         y:5,
+         textStyle: {
+            fontSize:20,
+            fontWeight: 'normal',              //标题颜色
+            color: '#fff'
+        },
+        left:'center'
+    },
+    color: ['#3398DB'],
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        },
+        formatter: function(params){
+		                var str = '<table>';	                
+		                str += '<tr><td>地区:'+params[0].name+'</td></tr>';	
+		                str += '<tr><td>品类:'+params[0].seriesName+'</td></tr>';	
+		                str += '<tr><td>均价:'+params[0].data+'</td></tr>';	
+		                str += '</table>';
+		                return str
+            }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    xAxis: {
+        type: 'category',
+         axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        boundaryGap: true,
+        data: cityname,
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    yAxis: {
+        name:"单位:元/斤",
+        nameRotate:'1',        
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    series : [
+        {
+            name:'产量',
+            type:'bar',
+            barWidth: '60%',
+            itemStyle: {
+                    normal: {　　　　　　　　　　　　
+                        color: function(params) {                         
+							//console.log(params)						
+							var max = Math.max.apply(null,citynamevalue);
+							var min = Math.min.apply(null, citynamevalue);
+							if(max==params.value){
+								return '#C1232B';
+							}else if(min==params.value){
+								return '#00FFC8';
+							}else{
+								return '#3398DB';
+							}							
+                        }　　　　　　　　　　                    
+                    }
+                },
+            data:citynamevalue
+        }
+    ]
+};
+var option9 = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: countythemeprice,
+         x:'center',
+         y:5,
+         textStyle: {
+            fontSize:20,
+            fontWeight: 'normal',              //标题颜色
+            color: '#fff'
+        },
+        left:'center'        
+    },
+    color: ['#3398DB'],
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        },
+        formatter: function(params){
+		                var str = '<table>';	                
+		                str += '<tr><td>地区:'+params[0].name+'</td></tr>';	
+		                str += '<tr><td>品类:'+params[0].seriesName+'</td></tr>';	
+		                str += '<tr><td>均价:'+params[0].data+'</td></tr>';	
+		                str += '</table>';
+		                return str
+            }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+   xAxis: {
+        type: 'category',
+         axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        boundaryGap: true,
+        data: countyname,
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    yAxis: {
+        name:"单位:元/斤",
+        nameRotate:'1',
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    series : [
+        {
+            name:countytypename,
+            type:'bar',
+            barWidth: '60%',
+            data:countynamevalue
+        }
+    ]
+};
+var option10 = {
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    title : {
+        text: daypricetheme,
+         x:'center',
+         y:5,
+        textStyle: {
+            fontSize:20,
+            fontWeight: 'normal',              //标题颜色
+            color: '#fff'
+        },
+        left:'center'
+    },
+    tooltip: {
+        trigger: 'axis',
+        formatter: function(params){
+		                var str = '<table>';	                
+		                str += '<tr><td>日期:'+params[0].name+'</td></tr>';	
+		                str += '<tr><td>品类:'+params[0].seriesName+'</td></tr>';	
+		                str += '<tr><td>均价:'+params[0].data+'</td></tr>';	
+		                str += '</table>';
+		                return str
+            }
+    },
+   legend: {
+    	data:[1,3],
+        orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+                                   // 'horizontal' ¦ 'vertical'
+        x: 'right',               // 水平安放位置，默认为全图居中，可选为：
+                                   // 'center' ¦ 'left' ¦ 'right'
+                                   // ¦ {number}（x坐标，单位px）
+        y: '15px',                  // 垂直安放位置，默认为全图顶端，可选为：
+                                   // 'top' ¦ 'bottom' ¦ 'center'
+                                   // ¦ {number}（y坐标，单位px）
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#ccc',       // 图例边框颜色
+        borderWidth: 0,            // 图例边框线宽，单位px，默认为0（无边框）
+        padding: 0,                // 图例内边距，单位px，默认各方向内边距为5，
+                                   // 接受数组分别设定上右下左边距，同css
+        itemGap: 0,               // 各个item之间的间隔，单位px，默认为10，
+                                   // 横向布局时为水平间隔，纵向布局时为纵向间隔
+        itemWidth: 8,             // 图例图形宽度
+        itemHeight: 4,            // 图例图形高度
+        textStyle: {
+        	fontSize:10,
+            color:'#fff'         // 图例文字颜色
+        }
+        
+    },
+    lable:{
+        normal:{
+            textStyle:{
+                fontsize:'6'
+            }
+        }
+    },
+    xAxis: {
+        type: 'category',
+         axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        boundaryGap: false,
+        data: dayMonth,
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    yAxis: {
+        name:"单位:元/斤",
+        nameRotate:'1',
+        axisLine:{  
+	            lineStyle:{  
+	                color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+        nameTextStyle:{
+            color:"#fff"
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    series: [{
+            name: daypricename,
+            type: 'line',
+            data: daypriceval
+        }]
+};
+
+myChart8.setOption(option8);
+
+myChart9.setOption(option9);
+
+myChart10.setOption(option10);
+};
+
+/*异步加载*/   
+function priocedata(zhi)
+{
+    //alert(1);
+        if (myChart8 != null && myChart8 != "" && myChart8 != undefined) {  
+             myChart8.dispose();  
+        }  
+        if (myChart9 != null && myChart9 != "" && myChart9 != undefined) {  
+             myChart9.dispose();  
+        } 
+        if (myChart10 != null && myChart10 != "" && myChart10 != undefined) {  
+             myChart10.dispose();  
+        }
+        myChart8= echarts.init(document.getElementById('first_second_biao1_1'));
+        myChart9 = echarts.init(document.getElementById('first_second_biao1_2')); 
+        myChart10=echarts.init(document.getElementById("first_second_biao1_3"));
+       /*异步加载数据*/
+        $.ajax({
+        url:"{:url('County/getPriceArr')}",
+        type:"post",
+        dataType:"json",
+        data:"zhi="+zhi,
+        success:function(res){  
+            var dataprice=res.forth;
+            var datapricef=res.five;
+            var dayprice=res.dayprice;
+       loaningtwo(dataprice,datapricef,dayprice); 
+       //console.log(dataprice)
+        if(dataprice== 400)
+        {
+        		 $("#third_l_biao_block").css("display","none");
+              $("#data_none").css("display","block");
+        }
+   
+       if(dataprice !=400 && datapricef !=400 && dayprice !=400)
+       {                
+              $("#third_l_biao_block").css("display","block");
+              $("#data_none").css("display","none");
+              loaningtwo(dataprice,datapricef,dayprice);
+        }
+            
+        }
+  });
+}
+	/*产品价格默认板栗*/
+    var priceId={$typesdata['protype_id']};
+    priocedata(priceId)
+ /*点击地址事件*/
+$("#first_second_select_k2").on("change",function(){
+       //alert(id);
+       var zhi=this.value;          
+       priocedata(zhi);           
+})
+    </script>
+    <!--
+        第四模块淘宝模块
+    -->
+    <script>  
+
+        var myChart13=echarts.init(document.getElementById("fourth_biao_3"));
+        var myChart14=echarts.init(document.getElementById("fourth_biao_4"));
+                
+        
+    
+      function  taobao_data(column,broken){
+          var typeName= (new Function('return( ' + column.gtypeData + ' );'))();
+          var typeEvaluate= (new Function('return( ' + column.gtypeNum + ' );'))();
+          var brokenName=(new Function('return( ' + broken.typeJsonName + ' );'))();
+          var brokenTimeJson=(new Function('return( ' + broken.timeJson + ' );'))();
+              //console.log(brokenName);
+          var  brokenArr="";
+          // console.log(broken.typeJsonDate);
+  for(var i=0; i<broken.typeJsonDate.length; i++)  
+    {  
+       //alert(json[i].text+" " + json[i].value)  
+      brokenArr=brokenArr+"{"
+          +"name:"+"'"+brokenName[i]+"'"+","
+          +"type:'line',"
+          +"smooth: 'true',"
+          +"data:"+broken.typeJsonDate[i]+
+      "},"
+    }  
+    brokenArr="["+brokenArr+"]";
+    var brokenArr=(new Function('return( ' + brokenArr + ' );'))();
+      //console.log(brokenArr);
+        var option13 = {
+                backgroundColor:'rgba(0, 0, 0, 0)',
+                title : {
+                    
+                     x:'center',
+                    textStyle: {
+                        fontSize:14,
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#fff'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:brokenName,
+                    orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+                                   // 'horizontal' ¦ 'vertical'
+			        x: 'center',               // 水平安放位置，默认为全图居中，可选为：
+			                                   // 'center' ¦ 'left' ¦ 'right'
+			                                   // ¦ {number}（x坐标，单位px）
+			        y: '20px',                  // 垂直安放位置，默认为全图顶端，可选为：
+			                                   // 'top' ¦ 'bottom' ¦ 'center'
+			                                   // ¦ {number}（y坐标，单位px）
+			        backgroundColor: 'rgba(0,0,0,0)',
+			        borderColor: '#fff',       // 图例边框颜色
+			        borderWidth: 0,            // 图例边框线宽，单位px，默认为0（无边框）
+			        padding: 0,                // 图例内边距，单位px，默认各方向内边距为5，
+			                                   // 接受数组分别设定上右下左边距，同css
+			        itemGap: 0,               // 各个item之间的间隔，单位px，默认为10，
+			                                   // 横向布局时为水平间隔，纵向布局时为纵向间隔
+			        itemWidth: 8,             // 图例图形宽度
+			        itemHeight: 4,            // 图例图形高度
+			        textStyle: {
+			        	fontSize:10,
+			            color:'#fff'         // 图例文字颜色
+			        }
+        
+                },
+                lable:{
+			        normal:{
+			            textStyle:{
+			                fontsize:'6'
+			            }
+			        }
+			    },
+                xAxis: {
+                    type: 'category',
+                     axisLine:{  
+                            lineStyle:{  
+                                color:'#fff',  
+                                width:1,  
+                            }  
+                        },  
+                    boundaryGap: false,
+                    data: brokenTimeJson,
+                    nameTextStyle:{
+                        color:"#fff"
+                    }
+                },
+                yAxis: {
+                    name:"销量（件）",
+                    nameRotate:'1',
+                    axisLine:{  
+                            lineStyle:{  
+                                color:'#fff',  
+                                width:1,  
+                            }  
+                        },  
+                    type: 'value',                  
+                   nameTextStyle:{
+                        color:"#fff"
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                series: brokenArr
+            };
+		var option14 = {
+            backgroundColor:'rgba(0, 0, 0, 0)',
+		    title : {
+		       
+		        x:'center',
+		        textStyle: {
+		            fontSize:14,
+		            fontWeight: 'normal',              //标题颜色
+		            color: '#fff'
+		        },
+		        left:'center'
+		    },
+		    color: ['#3398DB'],
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    lable:{
+		        normal:{
+		            textStyle:{
+		                fontsize:'6'
+		            }
+		        }
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data: typeName,
+		            axisTick: {
+		                alignWithLabel: true
+		            },
+		            axisLine:{  
+			            lineStyle:{  
+			                color:'#fff',  
+			                width:1,  
+			            }  
+		            }  
+		        }
+		    ],
+		    yAxis : [
+		        {
+		        	name:'总销量（单）',
+		        	axisLine:{  
+			            lineStyle:{  
+			                color:'#fff',  
+			                width:1,  
+			            }  
+		            },  
+		            type : 'value'
+		        }      
+		    ],
+		    series : [
+		        {
+		            name:'销售量(单)',
+		            type:'bar',
+		            barWidth: '60%',
+		            data:typeEvaluate
+		        }
+		    ]
+		};
+myChart13.setOption(option13);
+myChart14.setOption(option14);
+};
+      function  ajaxTbData()
+{
+    var zhi=1;
+     $.ajax({
+        url:"{:url('County/getAjaxTb')}",
+        type:"post",
+        dataType:"json",
+        data:"zhi="+zhi,
+        success:function(taobao){   
+        //柱状图数据 
+        var column=taobao.allSummary.getTypeData;
+        //留言信息
+        var evaluate=taobao.allSummary.evaluate;
+       
+        //折线图数据
+        var broken =taobao.broken;
+
+        //console.log(broken);
+        taobao_data(column,broken);
+        var tbm_time_new=[];
+        for(var i=0;i<evaluate.length;i++){
+        	var str=evaluate[i].tbm_time;
+        	var arr=str.split(" ");
+        	tbm_time_new.push(arr[0]);
+        }
+        //console.log(tbm_time_new)
+        //console.log(evaluate)
+        for(var i=0;i<evaluate.length;i++){
+        	$("#messagebox").append("<div>"
+						    	+"<h3><span>"+evaluate[i].tbm_name+"</span><b>:</b></h3>"
+						    	+"<h3>"+evaluate[i].tbm_text+"</h3>"
+						    	+"<h3 class='clear'><span>"+tbm_time_new[i]+"</span></h3>"
+						    +"</div>")
+        }
+        
+        
+         //销量统计
+        var Summary =taobao.allSummary.Summary;
+ 		$("#tradeVolumeTotal").text("0")
+        $("#transactionVolumeTotal").text("0")
+        $("#tradeVolume").text("0")
+        $("#transactionVolume").text("0")
+        if(Summary.ATurnover==""){
+        	$("#tradeVolumeTotal").text("0")
+        }else{
+            $("#tradeVolumeTotal").text('312350.56')
+        	//$("#tradeVolumeTotal").text(Summary.ATurnover)
+        }
+       if(Summary.AllVolume==""){
+        	$("#transactionVolumeTotal").text("0")
+        }else{
+        	$("#transactionVolumeTotal").text(Summary.AllVolume)
+        }
+        if(Summary.WeekMoney==""){
+        	$("#tradeVolume").text("0")
+        }else{
+        	$("#tradeVolume").text(Summary.WeekMoney)
+        }
+        if(Summary.WeekNum==""){
+        	$("#transactionVolume").text("0")
+        }else{
+            $("#transactionVolume").text('32186')
+ 		    //$("#transactionVolume").text(Summary.WeekNum)
+        }     
+        //销售去向
+        var SalesWhere=taobao.SalesWhere;
+        TaobaoSalesWhere(SalesWhere);
+        
+		//console.log(SalesWhere)
+    }
+  });  
+}
+ajaxTbData();
+    </script>

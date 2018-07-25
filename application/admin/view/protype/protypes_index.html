@@ -1,0 +1,55 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>商品分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('admin/protype/protype_add')}" class="actionBtn add">添加分类</a>商品分类</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+        <th  align="left">分类名称</th>
+        <th align="left">简单描述</th>
+       <th  align="center">排序</th>
+        <th  align="center">操作</th>
+	 </tr>
+	  {foreach name="arr" item="vo"}
+            <tr>
+        <td align="left"> <a href="product.php?cat_id=1">{$vo['protype_name']}</a></td>
+        <td>{$vo['protype_describe']}</td>
+        <td align="center">{$vo['protype_sort']}</td>
+        <td align="center"><a  class="layui-btn layui-btn-sm" href="{:url('admin/protype/protype_edit',['protype_id'=>$vo['protype_id']])}">编辑</a><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="protypes_dele('确定要删除吗？',{$vo['protype_id']})">删除</a></td>
+     </tr>
+      {/foreach}     
+          </table>
+           </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ //删除分类
+function protypes_dele(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/protype/protype_dele')}";
+        var success_url="{:url('admin/protype/protypes_index')}";
+        $.post(url,{'protype_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+</script>    
+{/block}

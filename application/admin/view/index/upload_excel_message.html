@@ -1,0 +1,44 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain"> <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心</div>  <div id="index" class="mainBox" style="padding-top:18px;height:auto!important;height:550px;min-height:550px;">
+   <div>上传评论数据</div>
+  <form id="upload" action="##" method="post" enctype="multipart/form-data">
+      <label for="file">上传文件:</label>
+      <input type="file" name="file" id="file"><br />
+       <input type="button" onclick="uploadComment()" value="上传" />
+       <div id="inp"></div>
+    </form>
+  </div>
+ <div class="clear"></div>
+ <script>
+  function uploadComment(){
+  //$('#file').change(function(event) { 
+  var formData = new FormData();
+        formData.append("file", $('#file').get(0).files[0]);
+        console.log(formData);
+        $.ajax({
+            url:"{:url('index/uploadUserMessage')}",
+            type:'POST',
+            data:formData,
+            cache: false,
+            contentType: false,    //不可缺
+            processData: false,    //不可缺
+            beforeSend:function(XMLHttpRequest){  
+            //console.log(this);
+             //alert('数据添加中');  
+            $("#inp").html("<font>正在获取数据中....</font><img src='__STATIC__/admin/images/Loading.gif' style='width:300px;'>");   
+          },  
+            success:function(data){
+             $("#inp").text(data);   
+                //console.log(data)
+          }
+       });
+       }
+ </script>
+{/block} 

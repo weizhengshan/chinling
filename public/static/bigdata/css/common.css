@@ -1,0 +1,41 @@
+
+
+
+#head{
+	height: 3vh;
+	padding: 0;
+	margin: 0;
+}
+#head .fl{
+	padding: 0;
+	margin: 0;
+	height: 3vh;
+	float: left;
+	width: 90%;
+	background: #1B1E2D;
+}
+#head .fl a{
+	color: #FFFFFF;
+	line-height: 2vh;
+	font-size: 18px;
+	text-align: center;
+	border-radius: 25px;
+	border: 1px solid #ffffff;	
+	margin: 0.5vh;
+	width: 3vw;
+	display: none;
+}
+#head .fl:hover a{
+	display: inline-block;
+}
+#head .fr{
+	padding: 0;
+	margin: 0;
+	height: 3vh;
+	float: right;
+	width: 10%;
+	background: #1B1E2D;
+}
+#head .fr:hover{
+	background: #FFFFFF;
+}

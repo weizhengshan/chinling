@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+.color-options {width: 760px; height: 304px; background: url("../Img/color_select_bg.png") no-repeat;}
+.col-item {display: block; width: 38px; height: 38px; overflow: hidden; text-indent: -9999px; float: left; border: 1px solid transparent; float: left;}
+.col-item:hover {-webkit-box-shadow:2px 2px 3px rgba(0,0,0,0.6); box-shadow:2px 2px 3px rgba(0,0,0,0.6); -webkit-transform:translate3d(0, -1px, 0); transform:translate3d(0, -1px, 0);}
+.col-item.active {border-color: #222220; background:rgba(34,34,32,.5) url("../Img/ok.png") no-repeat 50% 50%;}
+.col-item.active:hover {-webkit-box-shadow:0 0 0 transparent; box-shadow:0 0 0 transparent; -webkit-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0);}

@@ -1,0 +1,39 @@
+ <div id="dcHead">
+ <div id="head">
+  <div class="logo"><a href="index.html"><img src="__STATIC__/admin/images/dclogo.gif" alt="logo"></a></div>
+  <div class="nav">
+    <ul>
+    <li><a href="JavaScript:" onclick="huan_cuns('确定要清除缓存吗？','{$ssname}')">清除缓存</a></li>
+   </ul>
+   <ul class="navRight">
+    <li class="M noLeft"><a href="JavaScript:void(0);">您好，{$ssname}</a>
+    </li>
+    <li class="noRight"><a href="{:url('admin/index/logout')}">退出</a></li>
+   </ul>
+  </div>
+ </div>
+</div>
+<script type="text/javascript">
+//删除分类
+function huan_cuns(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/index/runtime')}";
+        var success_url=window.location.href;
+        $.post(url,{'type_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+ </script>

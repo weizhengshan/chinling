@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="__STATIC__/weixin/css/public.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__STATIC__/weixin/css/swiper.min.css"/>
+		<link rel="stylesheet" href="__STATIC__/weixin/css/index.css"/>
+		<script type="text/javascript" src="__STATIC__/weixin/js/jquery-1.8.3.min.js"></script>		
+		<script type="text/javascript" src="__STATIC__/weixin/Echarts/echarts-all.js"></script>	
+		<script src="__STATIC__/weixin/js/swiper.animate1.0.2.min.js"></script>
+		<script src="__STATIC__/weixin/js/swiper.js"></script>
+		<script src="__STATIC__/weixin/js/index.js"></script>
+	</head>
+	<body>
+        <a href="{:url('weixin/county/first')}" class="child1" style="background:#0072C6;font-size:20px;color:#fff;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;display: inline-block;">大数据模块一</a> 
+      
+       <a href="{:url('weixin/county/second')}" class="child1" style="background:#0072C6;font-size:20px;color:#fff;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;display: inline-block;">大数据模块二</a> 
+     
+       <a href="{:url('weixin/county/third')}" class="child1" style="background:#0072C6;font-size:20px;color:#fff;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;display: inline-block;">大数据模块三</a> 
+       <a href="{:url('weixin/county/whole')}" class="child1" style="background:#0072C6;font-size:20px;color:#fff;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;display: inline-block;">演示模板</a>  
+		<div id="first" class="clear float_1"  style="width: 100vw;height: 100vh;background: #fff;">
+			<div id="first_l"  class="swiper-container swiper-container-horizontal swiper-container-3d swiper-container-coverflow" >
+				<dl  class="swiper-wrapper">
+		 		{volist name="data" id="vo"}  
+                <dd  class="swiper-slide" >
+                    <a class="c-a" onclick="add({$vo['county_id']})">{$vo['county_name']}</a>                   
+                </dd>
+                {/volist}
+ 				</dl>			
+			</div>
+			<div id="first_r">
+				<ul  class="clear on">
+					<li id="biao1_"></li>
+					<li id="biao1_3"></li>
+					<li id="biao1_2"></li>
+			 	</ul>		 	
+			</div>		
+		</div>		
+	</body>
+</html>
+    <!--
+	第一模块
+-->
+<script type="text/javascript" src="__STATIC__/weixin/Echarts/echarts.js"></script>  
+<script>
+	
+    	var myChart1,myChart2,myChart3;
+ 					
+    	myChart1 = echarts.init(document.getElementById('biao1_'));
+    	myChart2= echarts.init(document.getElementById('biao1_2'));
+    	myChart3 = echarts.init(document.getElementById('biao1_3')); 	
+ var month= ['{$res['biginfo_month_show']}']; 
+var option = {
+	backgroundColor: '#fff',
+ 	title : {
+        text: '全国销量占比',
+        textStyle: {
+            fontWeight: 'normal',              //标题颜色
+           //color: '#fff'
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        formatter: '{a}:{c}%{b}<br/>{a1}:{c1}%<br/>{a2}:{c2}%'
+    },
+    legend: {
+        data:['苹果','板栗','蜂蜜']
+    },
+
+    xAxis: {
+        type: 'category',
+        axisLine:{  
+	            lineStyle:{  
+	                //color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        boundaryGap: false,
+        data: month,
+        nameTextStyle:{
+        	//color:"#fff"
+        }
+    },
+    yAxis: {
+    	name:"全国销量占比（%）",
+    	nameRotate:'1',
+    	axisLine:{  
+	            lineStyle:{  
+	                //color:'#fff',  
+	                width:1,  
+	            }  
+            },  
+        type: 'value',
+                nameTextStyle:{
+        	//color:"#fff"
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    series: [
+    {
+            name:'苹果',
+            type:'line',
+            smooth: 'true',
+            data:[20, 13, 88, 14, 90, 23, 2, 18, 19, 23, 29, 33]
+        },
+        {
+            name:'板栗',
+            type:'line',
+            smooth: 'true',
+            data:[30, 43, 19, 56, 20, 26, 28, 45, 19, 63, 23, 33]
+        },
+        {
+            name:'蜂蜜',
+            type:'line',
+            smooth: 'true',
+            data:[66, 53, 19, 54, 80, 63, 42, 78, 19, 93, 89, 53.5]
+        }
+        ]
+};
+
+
+var option1 = {
+	backgroundColor: '#fff',
+	title : {
+        text: '产品各月预产量'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['苹果','板栗','蜂蜜']
+    },
+    grid: {
+        left: '1%',
+        right: '1%',
+        bottom: '1%',
+        containLabel: true
+    },
+
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['一','二','三','四','五','六','七','八','九','十','十一','十二','一','二','三','四','五','六','七','八','九','十','十一','十二']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'苹果',
+            type:'line',
+            smooth: 'true',
+            data:[20, 13, 88, 14, 90, 23, 2, 18, 19, 23, 29, 33,20, 13, 88, 14, 90, 23, 2, 18, 19, 23, 29, 33]
+        },
+        {
+            name:'板栗',
+            type:'line',
+            smooth: 'true',
+            data:[30, 43, 19, 56, 20, 26, 28, 45, 19, 63, 23, 33,30, 43, 19, 56, 20, 26, 28, 45, 19, 63, 23, 33]
+        },
+        {
+            name:'蜂蜜',
+            type:'line',
+            smooth: 'true',
+            data:[66, 53, 19, 54, 80, 63, 42, 78, 19, 93, 89, 53.5,66, 53, 19, 54, 80, 63, 42, 78, 19, 93, 89, 53.5]
+        }
+    ]
+};
+var arr=['一','二','三','四','五','六','七','八','九','十二']
+var option2 = {
+	backgroundColor: '#fff',
+	title : {
+        text: '各产品产量'
+    },
+    color: ['#3398DB'],
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data: arr,
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'直接访问',
+            type:'bar',
+            barWidth: '60%',
+            data:[10, 52, 200, 334, 390, 330, 220,10, 52, 200, 334, 390]
+        }
+    ]
+};
+
+
+$(".c-a").on("click",function(){						 	
+	 	if (myChart1 != null && myChart1 != "" && myChart1 != undefined) {  
+			 myChart1.dispose();  
+		}  
+		if (myChart2 != null && myChart2 != "" && myChart2 != undefined) {  
+			 myChart2.dispose();  
+		} 
+		if (myChart3 != null && myChart3 != "" && myChart3 != undefined) {  
+			 myChart3.dispose();  
+		} 
+		
+		myChart1=echarts.init(document.getElementById("biao1_"));
+		myChart2=echarts.init(document.getElementById("biao1_2"));
+		myChart3=echarts.init(document.getElementById("biao1_3"));
+		
+		myChart1.setOption(option);
+		myChart2.setOption(option1);
+		myChart3.setOption(option2);
+		
+ 							
+ })
+   							myChart1.setOption(option);
+							myChart2.setOption(option1);
+   							myChart3.setOption(option2);
+    </script>
+
+

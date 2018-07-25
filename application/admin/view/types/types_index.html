@@ -1,0 +1,61 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>文章分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('admin/types/type_add')}" class="actionBtn add">添加分类</a>导航分类</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+         <th>编号</th>
+        <th width="120" align="left">分类名称</th>
+        <th align="left">简单描述</th>
+        <th align="left">action</th>
+        <th align="left">内容同上</th>
+       <th width="60" align="center">排序</th>
+        <th width="130" align="center">操作</th>
+	 </tr>
+	  {foreach name="arr" item="vo"}
+            <tr>
+        <td>{$vo['type_id']}</td>      
+        <td align="left">{$vo['type_name']}</td>
+        <td>{$vo['type_describe']}</td>
+        <td>{$vo['action']}</td>
+        <th align="left">{$vo['priority']}</th>
+        <td align="center">{$vo['type_sort']}</td>
+        <td align="center"><a  class="layui-btn layui-btn-sm" href="{:url('admin/types/type_edit',['type_id'=>$vo['type_id']])}">编辑</a><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="types_dele('确定要删除吗？',{$vo['type_id']})">删除</a></td>
+     </tr>
+      {/foreach}     
+          </table>
+           </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+//删除分类
+function types_dele(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/types/type_dele')}";
+        var success_url="{:url('admin/types/types_index')}";
+        $.post(url,{'type_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+ </script>
+{/block}

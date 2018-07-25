@@ -1,0 +1,65 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>商品分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('admin/recruit/rec_add')}" class="actionBtn add">添加职位</a>职位列表</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+        <th width="120" align="left">招聘职位</th>
+        <th width="120">人数</th>
+        <th width="60" align="center">工作地点</th>
+        <th width="60" align="center">关注度</th>
+        <th width="60" align="center">职位性质</th>
+        <th  align="center">内容</th>
+        <th  align="center">发布时间</th>
+        <th width="60" align="center">排序</th>
+        <th width="130" align="center">操作</th>
+	 </tr>
+	  {foreach name="data" item="vo"}
+            <tr>
+        <td align="left">{$vo['position']}</td>
+        <td>{$vo['num']}</td>
+        <td>{$vo['place']}</td>
+        <td>{$vo['follow']}</td>
+        <td>{$vo['nature']?'全职':'兼职'}</td>
+        <td>{$vo['rec_text']}</td>
+        <td>{$vo['createtime']|date="Y-m-d H:i",###}</td>
+        <td align="center">{$vo['sort']}</td>
+        <td align="center"><a  class="layui-btn layui-btn-sm" href="{:url('admin/recruit/rec_edit',['rec_id'=>$vo['rec_id']])}">编辑</a><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="protypes_dele('确定要下架吗？',{$vo['rec_id']})">下架</a></td>
+     </tr>
+      {/foreach}     
+          </table>
+           </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ //删除分类
+function protypes_dele(message, id) {
+        layer.open({
+            content : message,
+      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/recruit/rec_dele')}";
+        var success_url="{:url('admin/recruit/index')}";
+        $.post(url,{'rec_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+</script>    
+{/block}

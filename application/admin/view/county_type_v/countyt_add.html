@@ -1,0 +1,177 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加地图区域</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加地图区域</h3>
+    <form action="" id="data_type" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td align="right">所属地区</td>
+       <td>
+            <select name="varie_copid">
+            {foreach name="arr" item="vo"}
+              <option value="{$vo['county_id']}">{$vo['county_name']}</option>
+            {/foreach}                         
+            </select>
+       </td>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">所属品类</td>
+       <td>
+            <select name="varie_agpid">
+            {foreach name="arrdata" item="vo"}
+              <option value="{$vo['protype_id']}">{$vo['protype_name']}</option>
+            {/foreach}                         
+            </select>
+       </td>
+       </td>
+      </tr>
+       <tr>
+       <td width="80" align="right">年份</td>
+       <td>
+        <input type="text" id="varie_year" name="varie_year" value="" size="60" class="inpMain" />
+        <font style="display:none" class="advarie_year" color='red'>年份不能为空！</font>
+       </td>
+      </tr>
+       
+      <tr>
+       <td width="80" align="right">销量信息</td>
+       <td>
+          <table>
+            <tr>
+              <td>月份</td>
+              <?php 
+              for($i=1;$i<=12;$i++)
+              {
+                echo '<td>'.$i.'</td>';
+              } 
+              ?>
+            </tr>
+            <tr>
+              <td>销量</td>
+              <?php 
+              for($i=1;$i<=12;$i++)
+              {
+                echo '<td><input type="text" name="sales_val[]" value="" size="5" class="inpMain" /></td>';
+              } 
+              ?>             
+            </tr>
+            <tr>
+               <td>产量</td>
+              <?php 
+              for($i=1;$i<=12;$i++)
+              {
+                echo '<td><input type="text" name="varie_yield[]" value="" size="5" class="inpMain" /></td>';
+              } 
+              ?>     
+            </tr>
+          </table>  
+       </td>
+      </tr>
+       <tr>
+       <td width="80" align="right">种植面积</td>
+       <td>
+        <input type="text" id="varie_planta" name="varie_planta" value="" size="60" class="inpMain" />
+        <font style="display:none" class="advarie_planta" color='red'>种植面积不能为空！</font>
+       </td>
+      </tr>
+       <tr>
+       <td width="80" align="right">总产量</td>
+       <td>
+        <input type="text" id="varie_totaloutput" name="varie_totaloutput" value="" size="60" class="inpMain" />
+        <font style="display:none" class="advarie_totaloutput" color='red'>总产量不能为空！</font>
+       </td>
+      </tr>
+       <tr>
+       <td width="80" align="right">产值</td>
+       <td>
+        <input type="text" id="varie_totaloutputv" name="varie_totaloutputv" value="" size="60" class="inpMain" />
+        <font style="display:none" class="advarie_totaloutputv" color='red'>产值不能为空！</font>
+       </td>
+      </tr>
+       <tr>
+       <td width="80" align="right">相关参考链接</td>
+       <td>
+         <textarea name="varie_link"  id="varie_link" cols="60" rows="4" class="textArea"></textarea>
+       </td>
+      </tr>
+      <tr>
+       <td align="right">排序</td>
+       <td>
+        <input type="text" id="varie_sort" name="varie_sort" value="" size="5" class="inpMain" />
+		<font style="display:none" class="advarie_sort" color='red'>排序不能为空！</font>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="hidden" name="token" value="b9439ae8" />
+        <input  class="btn" type="button" onclick='type_add()' value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+$(function(){
+$("#varie_year").blur(function(){
+$(".advarie_year").hide();
+})
+$("#varie_planta").blur(function(){
+$(".advarie_planta").hide();
+})
+$("#varie_totaloutput").blur(function(){
+$(".advarie_totaloutput").hide();
+})
+$("#varie_sort").blur(function(){
+$(".advarie_sort").hide();
+})
+$("#varie_totaloutputv").blur(function(){
+$(".advarie_totaloutputv").hide();
+})
+})
+function type_add(){
+var success_url="{:url('admin/countyTypeV/index')}";
+var url="{:url('admin/countyTypeV/countyt_add')}";
+var admins=$("#data_type").serialize();
+//alert(admins);
+var varie_year=$("#varie_year").val();
+var varie_planta=$("#varie_planta").val();
+var varie_sort=$("#varie_sort").val();
+var varie_totaloutputv=$("#varie_totaloutputv").val();
+var varie_totaloutput=$("#varie_totaloutput").val();
+
+
+if(varie_year.length<1){
+$(".advarie_year").show();
+}else if(varie_planta.length<1){
+$(".advarie_planta").show();
+}else if(varie_sort.length<1){
+$(".advarie_sort").show();
+}else if(varie_totaloutputv.length<1){
+$(".advarie_totaloutputv").show();
+}else if(varie_totaloutput.length<1){
+$(".advarie_totaloutput").show();
+}else{
+$.post(url,admins,function(result){ 
+if(result.status=='4')
+{
+dialog.success(result.message,success_url);
+}else
+{
+	dialog.error(result.message);
+} 
+})
+}
+
+}
+ </script>
+{/block}

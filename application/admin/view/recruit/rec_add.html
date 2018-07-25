@@ -1,0 +1,133 @@
+{extend name="base"/}
+{block name="content"}
+<div id="dcWrap">
+    {include file="public:header" /}
+
+    <!-- dcHead 结束 -->
+    {include file="public:nav" /}
+    <div id="dcMain">
+        <!-- 当前位置 -->
+        <div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong></div>
+        <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>添加职位</h3>
+            <form action="" id="data_type" method="post">
+                <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+                    <tr>
+                        <td width="80" align="right">职位名称</td>
+                        <td>
+                            <input type="text" id="rec_position" name="rec_position" value="" size="40"
+                                   class="inpMain"/>
+                            <font style="display:none" class="adrec_position" color='red'>名称不能为空！</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">职位性质</td>
+                        <td>
+                            <select name="nature">
+                                <option value="1">全职</option>
+                                <option value="0">兼职</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="80" align="right">招聘人数</td>
+                        <td>
+                            <input type="text" id="rec_num" name="rec_num" value="" size="40" class="inpMain"/>
+                            <font style="display:none" class="adrec_num" color='red'>名称不能为空！</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="80" align="right">工作地点</td>
+                        <td>
+                            <input type="text" id="rec_place" name="rec_place" value="" size="40" class="inpMain"/>
+                            <font style="display:none" class="adrec_place" color='red'>名称不能为空！</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">招聘信息</td>
+                        <td>
+                            <script src="/static/admin/ueditor/ueditor.config.js"></script>
+                            <script src="/static/admin/ueditor/ueditor.all.min.js"></script>
+                            <script src="/static/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
+                            <script>
+                                //实例化编辑器
+                                //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+                                UE.getEditor('content', {initialFrameWidth: 800, initialFrameHeight: 400,});
+                            </script>
+                            <!-- /KindEditor -->
+                            <textarea id="content" name="content"></textarea>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right">排序</td>
+                        <td>
+                            <input type="text" id="protype_sort" name="protype_sort" value="" size="5" class="inpMain"/>
+                            <font style="display:none" class="adprotype_sort" color='red'>排序不能为空！</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="hidden" name="token" value="b9439ae8"/>
+                            <input type="hidden" name="cat_id" value=""/>
+                            <input class="btn" type="button" onclick='protype_add()' value="提交"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <script type="text/javascript">
+        $(function () {
+            $("#rec_position").blur(function () {
+                $(".adrec_position").hide();
+            })
+            $("#rec_num").blur(function () {
+                $(".adrec_num").hide();
+            })
+            $("#rec_place").blur(function () {
+                $(".adrec_place").hide();
+            })
+            $("#protype_sort").blur(function () {
+                $(".adprotype_sort").hide();
+            })
+        })
+        function protype_add() {
+            var success_url = "{:url('admin/recruit/index')}";
+            var url = "{:url('admin/recruit/rec_add')}";
+            var admins = $("#data_type").serialize();
+            //alert(admins);
+            var rec_position = $("#rec_position").val();
+            var rec_num = $("#rec_num").val();
+            var rec_place = $("#rec_place").val();
+            var protype_sort = $("#protype_sort").val();
+
+
+            if (rec_position.length < 1) {
+                $(".adrec_position").show();
+            } else if (rec_num.length < 1) {
+                $(".adrec_num").show();
+            } else if (rec_place.length < 1) {
+                $(".adrec_place").show();
+            } else if (protype_sort.length < 1) {
+                $(".adprotype_sort").show();
+            } else {
+                $.post(url, admins, function (result) {
+
+                    if (result.status == '4') {
+                        dialog.success(result.message, success_url);
+                    } else {
+                        dialog.error(result.message);
+                    }
+                })
+            }
+
+        }
+
+    </script>
+
+
+    {/block}

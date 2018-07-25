@@ -1,0 +1,44 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>文章分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3>留言管理</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+        <th width="120" align="left">编号</th>
+        <th align="left">留言信息</th>
+        <th align="left">Ip</th> 
+        <th align="left">邮箱</th>
+       <th width="60" align="center">所在地区</th>
+       <th width="60" align="center">操作</th>
+   </tr>
+    {foreach name="leavinfo" item="vo"}
+            <tr>
+        <td align="left"> <a href="product.php?cat_id=1">{$vo['leav_id']}</a></td>
+        <td>{$vo['text']}</td>
+        <td>{$vo['ip']}</td>
+        <td>{$vo['email']}</td>
+        <td align="center">{$vo['add']}</td>
+        <td align="center"><a href="{:url('admin/leaving/send_email',['type_id'=>$vo['leav_id']])}">回复信息</a> </td>
+     </tr>
+      {/foreach}     
+          </table>
+           </div>
+   <div class="pager" align="center">总计 {$totalRows} 个记录，共 {$maxPage} 页，当前第 {$page} 页 | 
+      <a href="{:url('admin/leaving/index',['page'=>1])}">第一页</a> 
+      <a href="{:url('admin/leaving/index',['page'=>$page-1])}">上一页</a>  
+      <a href="{:url('admin/leaving/index',['page'=>$page+1])}">下一页</a>  
+      <a href="{:url('admin/leaving/index',['page'=>$maxPage])}">最末页</a>
+</div>        
+ </div>
+ 
+ <div class="clear"></div>
+ <script type="text/javascript">
+ </script>
+{/block}

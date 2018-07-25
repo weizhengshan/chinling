@@ -1,0 +1,84 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>县产品分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('admin/countyType/countyt_add')}" class="actionBtn add">添加种类</a>县产品分类</h3>
+     <form action="{:url('admin/countyType/search')}" method="post" id="data_form">
+     <input name="keyword" type="text" class="inpMain" placeholder="请输入产品名称" value="{$keyword}" size="20" id="keyword_name" />
+     <input name="submit" class="btnGray" type="submit"  value="筛选"/>
+    </form>   
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+        <th >编号</th>
+        <th >产品名称</th>
+        <th >所属县</th>
+        <th >所属品类</th>
+        <th >级别</th>
+       	<th>排序</th>
+        <th>销量去向</th>
+        <th>操作</th>
+	  </tr>
+   
+ 		 {foreach name="typesdata" item="vo"}
+       <tr align="center">
+          <td>{$vo['varies_id']}</td>      
+          <td >{$vo['varies_name']}</td>
+          <td>{$vo['county_name']}</td>
+          <td>{$vo['protype_name']}</td>
+          <td>{$vo['varies_grade']}</td>
+          <td >{$vo['varies_sort']}</td>
+          <td><a  class="layui-btn layui-btn-sm" href="{:url('admin/SalesDirec/getFindArr',['varies_id'=>$vo['varies_id']])}">查看</a><a  class="{$vo['saledir_id']?'':'layui-btn layui-btn-sm'}" href="{:url('admin/SalesDirec/dire_add',['varies_id'=>$vo['varies_id']])}">{$vo['saledir_id']?'':'添加'}</a></td>
+          <td ><a  class="layui-btn layui-btn-sm" href="{:url('admin/countyType/countyt_edit',['varies_id'=>$vo['varies_id']])}">编辑</a><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="types_dele('确定要下架吗？',{$vo['varies_id']})">下架</a></td>
+        </tr>
+      {/foreach}  
+    
+          </table>
+           <h3 align="center">{$typesdata[0]?'':'这里没有数据'}</h3>
+        </div>
+
+{if condition="$keyword==false"}       
+<div class="pager">总计 {$totalRows} 个记录，共 {$maxPage} 页，当前第 {$page} 页 | 
+      <a href="{:url('admin/CountyType/index',['page'=>1])}">第一页</a> 
+      {if condition="$page>1"} 
+      <a href="{:url('admin/CountyType/index',['page'=>$page-1])}">上一页</a>
+      {/if} 
+      {if condition="$maxPage>$page"} 
+      <a href="{:url('admin/CountyType/index',['page'=>$page+1])}">下一页</a>
+      {/if}  
+      <a href="{:url('admin/CountyType/index',['page'=>$maxPage])}">最末页</a>      
+    </div>
+ </div>
+ {/if}
+ <div class="clear"></div>
+ 
+ <script type="text/javascript">
+ //删除分类
+function types_dele(message, id){
+        layer.open({
+            content : message,      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/countyType/countyt_dele')}";
+        var success_url="{:url('admin/countyType/index')}";
+        $.post(url,{'varies_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+
+</script>    
+{/block}

@@ -1,0 +1,100 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>系统设置</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3>
+    <a href="{:url('admin/statistics/index')}" class="actionBtn">网站登录统计　｜</a>
+    <a href="{:url('admin/statistics/tian')}" class="actionBtn">地图　｜</a>
+    <a href="{:url('admin/statistics/weather')}" class="actionBtn">天气因素　｜</a>
+    <a href="{:url('admin/statistics/dong')}" class="actionBtn">动态数据　｜</a>
+    <a href="{:url('admin/statistics/tongji')}" class="actionBtn">全国地图数据分布布局</a>
+    天气信息图</h3>
+      <div></div>
+      <div id="main" style="width: 1500px;height:600px;"></div>
+      <script src="__STATIC__/admin/js/echarts.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+  var hours={$hours};
+  var temp={$temp};
+  var  hum={$hum};
+  var rain={$rain};
+  var wind={$wind};
+   option = {
+    title: {
+        text: '折线图堆叠'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['温度','湿度','降雨量','风力']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: hours
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'温度',
+            type:'line',
+            stack: '总量',
+            data:temp
+        },
+        {
+            name:'湿度',
+            type:'line',
+            stack: '总量',
+            data:hum
+        },
+        {
+            name:'降雨量',
+            type:'line',
+            stack: '总量',
+            data:rain
+        },
+       {
+            name:'风力',
+            type:'line',
+            stack: '总量',
+            data:wind
+        },
+    ]
+};
+
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <div>
+        
+    </div>   
+   </div>
+ </div>
+</div>
+ <div class="clear"></div>
+{/block}

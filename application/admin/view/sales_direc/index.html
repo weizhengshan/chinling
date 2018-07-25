@@ -1,0 +1,97 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>县产品销售去向</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('admin/county_type/index')}" class="actionBtn add"></a>县产品销售去向</h3> 
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+        <th >编号</th>
+        <th >产品名称</th>
+        <th >所属县</th>
+        <th >所属品类</th>
+        <th >年份</th>
+        <th >销量信息</th>
+        <th>操作</th>
+	    </tr>
+   
+ 		  {foreach name="typesdata" item="vo"}
+            <tr align="center">
+               <td>{$vo['saledir_id']}</td>      
+               <td >{$vo['varies_name']}</td>
+               <td>{$vo['county_name']}</td>
+               <td>{$vo['protype_name']}</td>
+               <td>{$vo['saledir_year']}</td>
+               <td align="left">
+                  <table  border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+                          <tr>
+                           <th>去向:</th>
+                          <?php 
+                          for($i=0;$i<count($vo['name_saledir']);$i++)
+                          {
+                            echo '<td align="center">'.$vo['name_saledir'][$i].'</td>';
+                          } 
+                          ?>     
+                          <tr>
+                           <th>占比:</th>
+                          <?php 
+                          for($i=0;$i<count($vo['name_saledir']);$i++)
+                          {
+                            echo '<td align="center">'.$vo['value_saledir'][$i].'</td>';
+                          } 
+                          ?>     
+                          </tr>
+                   </table>  
+               </td>
+               <td ><a  class="layui-btn layui-btn-sm" href="{:url('admin/SalesDirec/dire_edit',['saledir_id'=>$vo['saledir_id']])}">编辑</a><a  class="layui-btn layui-btn-sm" href="JavaScript:" onclick="types_dele('确定要下架吗？',{$vo['saledir_id']})">下架</a></td>
+             </tr>
+           {/foreach}  
+          </table>
+           <h3 align="center">{$typesdata[0]?'':'这里没有数据'}</h3>
+        </div>
+
+<?php if(count($typesdata)!=1) { ?>    
+<div class="pager">总计 {$totalRows} 个记录，共 {$maxPage} 页，当前第 {$page} 页 | 
+      <a href="{:url('admin/SalesDirec/index',['page'=>1])}">第一页</a> 
+      {if condition="$page>1"} 
+      <a href="{:url('admin/SalesDirec/index',['page'=>$page-1])}">上一页</a>
+      {/if} 
+      {if condition="$maxPage>$page"} 
+      <a href="{:url('admin/SalesDirec/index',['page'=>$page+1])}">下一页</a>
+      {/if}  
+      <a href="{:url('admin/SalesDirec/index',['page'=>$maxPage])}">最末页</a>      
+    </div>
+ </div>
+<?php } ?>
+ <div class="clear"></div>
+ 
+ <script type="text/javascript">
+ //删除分类
+function types_dele(message, id){
+        layer.open({
+            content : message,      
+            icon:3,
+            btn : ['是','否'],
+            yes : function(){
+                var url="{:url('admin/SalesDirec/dire_dele')}";
+        var success_url="{:url('admin/SalesDirec/index')}";
+        $.post(url,{'saledir_id':id},function(result){
+        if(result.status=='4')
+          {
+          dialog.success(result.message,success_url);
+          }else
+          {
+            dialog.error(result.message);
+          } 
+        })
+            }
+        });
+    }
+
+</script>    
+{/block}

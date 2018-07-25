@@ -1,0 +1,78 @@
+{extend name="base"/}
+ {block name="content"}
+<div id="dcWrap">
+ {include file="public:header" /}
+
+<!-- dcHead 结束 --> 
+{include file="public:nav" /}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>添加文章</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>发送邮箱</h3>
+    <form action="" id="article_admin" method="post" enctype="multipart/form-data">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="90" align="right">邮箱标题</td>
+       <td>
+        <input type="text" id="cont_title" name="cont_title"  value="" size="80" class="inpMain" />
+        <font style="display:none" class="adcont_title" color='red'>邮箱标题必须填写</font>
+       </td>
+      </tr>
+      <tr>
+       <td align="right" valign="top">邮箱内容</td>
+       <td>
+       <script src="/static/admin/ueditor/ueditor.config.js"></script>
+		<script src="/static/admin/ueditor/ueditor.all.min.js"></script>
+		<script src="/static/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <script>
+			//实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});	
+			</script>
+        <!-- /KindEditor -->
+        <textarea id="content" name="content"></textarea>
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="hidden" name="token" value="7e4a88fb" />
+        <input type="hidden" name="email" value="{$email}" />
+        <input type="button" onclick='email_add()' class="btn"  value="发送邮箱" />
+       </td>
+      </tr>
+     </table>
+    </form>
+       </div>
+ </div>
+ <div class="clear"></div>
+ <script type="text/javascript">
+ $(function(){
+    $("#cont_title").blur(function(){
+    $(".adcont_title").hide();
+    })
+})
+//添加文章
+function email_add(){
+var success_url="{:url('admin/leaving/index')}";
+var url="{:url('admin/leaving/send_emails')}";
+var admins=$("#article_admin").serialize();
+//alert(admins);
+var cont_title=$("#cont_title").val();
+var content=$("#content").val();
+if(cont_title.length<1){
+$(".adcont_title").show();
+}else{
+$.post(url,admins,function(result){
+	if(result.status=='4')
+	{
+	dialog.success(result.message,success_url);
+	}else
+	{
+	  dialog.error(result.message);
+	} 
+})
+}
+}
+ </script>
+{/block}

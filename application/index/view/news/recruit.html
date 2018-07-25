@@ -1,0 +1,81 @@
+{extend name="base"/}
+ {block name="content"}
+	{include file="public:xdao" /}
+
+		<div id="main_newslist">
+			{if condition="$res != NULL "}
+			<div class="recruitment">
+				<div class="recruitment_title" ><!--<img src="__STATIC__/index/img/timg (1).jpg">--></div>
+
+				<div class="recruitment_content clear">
+					<ul>
+					{volist name="res" id="vo"}	
+						<li>
+							<h3 class="">
+								<span>招聘职位：<b>{$vo['position']}</b></span>
+								<span>招聘人数：<b>{$vo['num']}</b>人</span>
+								<span >关注数：<b id="zhi{$vo['rec_id']}">{$vo['follow']}</b></span>
+							</h3>
+							<h4 class="clear">
+								<span>工作地点：<b>{$vo['place']}</b></span>
+								<span>职位性质：<b>{$vo['nature']?'全职':'兼职'}</b></span>
+								<span>发布时间：<b>{$vo['createtime']|date="Y-m-d",###}</b></span>
+								<span class="cli_show_hide" _id="{$vo['rec_id']}" ><img src="__STATIC__/index/img/f5.png" class="kai"></span>
+							</h4>
+							<h5 class="cli_show_hide_zhi">
+								{$vo['rec_text']}
+							</h5>
+						</li>
+						{/volist}						
+					</ul>
+					<div class="pages">
+			        		<h3>
+			        			<span><a href="{:url('index/news/recruit',['page'=>1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">首页</a></span>
+			        			{if condition="$page==1 || $page<'1'"}
+			        			{else /}
+			        			<span><a href="{:url('index/news/recruit',['page'=>$page-1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">上一页</a></span>
+			        			{/if}
+			        			<span>第<b>{$page}</b>页</span>
+			        			<span>共<b>{$maxPage}</b>页</span>
+			        			{if condition="$maxPage==$page || $maxPage<$page"}
+			        			{else /}
+			        			<span><a href="{:url('index/news/recruit',['page'=>$page+1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">下一页</a></span>
+			        			{/if}
+			        			<span><a href="{:url('index/news/recruit',['page'=>$maxPage,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">尾页</a></span>
+			        			
+			        		</h3>
+			        	</div>
+				</div>				
+			</div>
+			{else /}
+			<div class="nolist" >	
+				<div>
+					<img src="__STATIC__/index/img/erweima_1.jpg"/>
+					<h3>暂无内容</h3>
+				</div>
+			</div>
+			{/if}
+		</div>
+
+<script type="text/javascript">	
+ function ajax_re(_id)
+   {
+  var oldtext=$('#zhi'+_id).text();
+       $.ajax({
+       url:"{:url('index/news/update_a')}",
+       type:"post",
+       dataType:"json",
+       data:"id="+_id,
+       success:function(res){
+        //console.log(res);
+        
+        $('#zhi'+res['rec_id']).text(res['follow']);
+      
+         
+      }
+    }); 
+  return oldtext;
+   
+}
+</script>		
+{/block}		

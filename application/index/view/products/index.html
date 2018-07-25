@@ -1,0 +1,63 @@
+{extend name="base"/}
+ {block name="content"}
+		<div class="rm-container">	      	
+	        <nav class="rm-nav">
+	            <ul class="frist_ul">
+	            	{volist name="protype" id="vo"}
+	                <li><a href="{:url('index/products/index',['types_pid'=>$vo.protype_id])}">{$vo.protype_name}</a>	
+	                    <dl class="second_ul">
+	                    	{volist name="vo.proson" id="son"}
+	                        <a href="{:url('index/products/index',['types_pid'=>$vo.protype_id,'wen_id'=>$son.protype_id])}"><dd>{$son.protype_name}
+
+	                           <!-- 三级分类 <div class="three_ul">
+	                               <div><a href="#">Sub Sub Item 1</a></div>
+	                               <div><a href="#">Sub Sub Item 2</a></div>	                              
+	                           </div>  -->
+	                        </dd></a>
+	                        {/volist}
+	                    </dl>	                   
+	                </li>
+	            	{/volist}
+	            </ul>
+	        </nav>
+	    </div>	    
+	    <div class="productlist">
+			{if condition="$proson != NULL "}
+			<ul>
+			         {volist name="proson" id="son"}
+							<li>						
+								<div><img src="{$son.prod_img}"/></div>
+								<div>
+									<h3>{$son.prod_title}</h3>
+								</div>					
+							</li>	
+						
+					 {/volist}
+			</ul>		 	
+			<div class="pages">
+        		<h3>
+        						<span><a href="{:url('index/products/index',['page'=>1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">首页</a></span>
+        						{if condition="$page==1 || $page<'1'"}
+			        			{else /}
+			        			<span><a href="{:url('index/products/index',['page'=>$page-1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">上一页</a></span>
+			        			{/if}
+			        			<span>第<b>{$page}</b>页</span>
+			        			<span>共<b>{$maxPage}</b>页</span>
+			        			{if condition="$maxPage==$page || $maxPage<$page"}
+			        			{else /}
+			        			<span><a href="{:url('index/products/index',['page'=>$page+1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">下一页</a></span>
+			        			{/if}
+			        			<span><a href="{:url('index/products/index',['page'=>$maxPage,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">尾页</a></span>        			
+        		</h3>
+        	</div>
+        	{else /}
+        	<div class="nolist">	
+					<div>
+						<img src="__STATIC__/index/img/erweima_1.jpg"/>
+						<h3>暂无内容</h3>
+					</div>
+			</div>
+			{/if}
+	    </div>
+    
+{/block}
